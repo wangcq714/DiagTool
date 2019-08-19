@@ -1,0 +1,36 @@
+GetChecksum
+Until 10 02; 
+Sleep(500)
+3E 00; 7E 00
+27 05; 
+SeedAndKey(2,4,4)
+SetKeys(2,4) 27 06; 67 06
+
+//test line below
+//SetChecksum(0,12,4) 31 01 DF FF 00 C0 68 00 00 C4 FF FF; 71 01 DF FF 00
+31 01 FF 00 44 00 C0 68 00 00 04 98 00; 71 01 FF 00
+
+34 00 44 00 C0 68 00 00 00 88 00; 74 20 04 02
+SetSendDataParameter(C06800,8800,1,400) 36;
+37 01; 77 01
+//FromEcuCheckSum(2,4,C06800,8800)
+
+34 00 44 00 C1 00 00 00 04 00 00; 74 20 04 02
+SetSendDataParameter(C10000,40000,1,400) 36;
+37 01; 77 01
+//FromEcuCheckSum(2,4,C10000,40000)
+
+
+SetChecksum(0,12,4) 31 01 DF FF 00 C0 68 00 00 C4 FF FF; 71 01 DF FF 00  
+//31 01 DF FF; 71 01 DF FF 00
+
+31 01 FF 01; 71 01 FF 01 00
+
+11 01; 51 01
+Sleep(2000)
+
+//10 60;50 60 00 32 01 F4
+//27 61;
+//27 62 55 AA AA 55;
+//31 01 F0 04;71 01 F0 04
+//11 01;51 01

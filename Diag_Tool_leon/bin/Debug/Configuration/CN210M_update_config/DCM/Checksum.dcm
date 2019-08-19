@@ -1,0 +1,3 @@
+oeffne (Binaer,'p0',,,,,,)
+checksummeCRC(0,497FF,,CRC32,,,,,,)
+exit

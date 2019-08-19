@@ -1,0 +1,5 @@
+oeffne (Intel,'p0',,,,,,)
+info()
+fuelle(0,C4FFFF,FF)
+schreibe(Binaer,'p1',C06800,,,FF,,,)
+exit

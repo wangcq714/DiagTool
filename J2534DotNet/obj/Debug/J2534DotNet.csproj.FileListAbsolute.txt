@@ -1,0 +1,60 @@
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool\J2534DotNet\bin\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool\J2534DotNet\bin\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool\J2534DotNet\obj\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool\J2534DotNet\obj\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_7\J2534DotNet\bin\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_7\J2534DotNet\bin\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_7\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_7\J2534DotNet\obj\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_7\J2534DotNet\obj\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_22\J2534DotNet\bin\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_22\J2534DotNet\bin\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_22\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_22\J2534DotNet\obj\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_22\J2534DotNet\obj\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_29\J2534DotNet\bin\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_29\J2534DotNet\bin\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_29\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_29\J2534DotNet\obj\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_29\J2534DotNet\obj\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_30\J2534DotNet\bin\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_30\J2534DotNet\bin\Debug\J2534DotNet.pdb
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_30\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_30\J2534DotNet\obj\Debug\J2534DotNet.dll
+C:\Users\wjc\Desktop\J2534 Device\J3534 Tool_30\J2534DotNet\obj\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_46_V3.0.9\J2534DotNet\bin\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_46_V3.0.9\J2534DotNet\bin\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_46_V3.0.9\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+D:\J2435 Device\J3534 Tool_46_V3.0.9\J2534DotNet\obj\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_46_V3.0.9\J2534DotNet\obj\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_47_V3.0.9(改ReadMsg)\J2534DotNet\bin\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_47_V3.0.9(改ReadMsg)\J2534DotNet\bin\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_47_V3.0.9(改ReadMsg)\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+D:\J2435 Device\J3534 Tool_47_V3.0.9(改ReadMsg)\J2534DotNet\obj\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_47_V3.0.9(改ReadMsg)\J2534DotNet\obj\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_51_V3.1.2\J2534DotNet\bin\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_51_V3.1.2\J2534DotNet\bin\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_51_V3.1.2\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+D:\J2435 Device\J3534 Tool_51_V3.1.2\J2534DotNet\obj\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_51_V3.1.2\J2534DotNet\obj\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_52_V3.1.2(脚本比对结果)\J2534DotNet\bin\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_52_V3.1.2(脚本比对结果)\J2534DotNet\bin\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_52_V3.1.2(脚本比对结果)\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+D:\J2435 Device\J3534 Tool_52_V3.1.2(脚本比对结果)\J2534DotNet\obj\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_52_V3.1.2(脚本比对结果)\J2534DotNet\obj\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_53_V3.1.2\J2534DotNet\bin\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_53_V3.1.2\J2534DotNet\bin\Debug\J2534DotNet.pdb
+D:\J2435 Device\J3534 Tool_53_V3.1.2\J2534DotNet\obj\Debug\ResolveAssemblyReference.cache
+D:\J2435 Device\J3534 Tool_53_V3.1.2\J2534DotNet\obj\Debug\J2534DotNet.dll
+D:\J2435 Device\J3534 Tool_53_V3.1.2\J2534DotNet\obj\Debug\J2534DotNet.pdb
+C:\Users\ext.yan.xu2\Desktop\Leon's Tool\Own tool\Diag_Tool\Diag_Tool_leon\J2534DotNet\bin\Debug\J2534DotNet.dll
+C:\Users\ext.yan.xu2\Desktop\Leon's Tool\Own tool\Diag_Tool\Diag_Tool_leon\J2534DotNet\bin\Debug\J2534DotNet.pdb
+C:\Users\ext.yan.xu2\Desktop\Leon's Tool\Own tool\Diag_Tool\Diag_Tool_leon\J2534DotNet\obj\Debug\J2534DotNet.dll
+C:\Users\ext.yan.xu2\Desktop\Leon's Tool\Own tool\Diag_Tool\Diag_Tool_leon\J2534DotNet\obj\Debug\J2534DotNet.pdb
+C:\Users\ext.yan.xu2\Desktop\Leon's Tool\Own tool\Diag_Tool\Diag_Tool_leon\J2534DotNet\obj\Debug\J2534DotNet.csprojResolveAssemblyReference.cache
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\bin\Debug\J2534DotNet.dll
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\bin\Debug\J2534DotNet.pdb
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\obj\Debug\J2534DotNet.dll
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\obj\Debug\J2534DotNet.pdb
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\obj\Debug\J2534DotNet.csprojResolveAssemblyReference.cache

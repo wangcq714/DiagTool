@@ -1,0 +1,5 @@
+oeffne (Motorola,'p0',,,,,,)
+info()
+fuelle(0,BFFFF,FF)
+schreibe(Binaer,'p1',20000,,,FF,,,)
+exit

@@ -1,0 +1,12 @@
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\DiagTool_Kanwairen.exe.config
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\DiagTool_Kanwairen.exe
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\DiagTool_Kanwairen.pdb
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.MainWindow.resources
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.Properties.Resources.resources
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.csproj.GenerateResource.Cache
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.exe
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.pdb
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.csprojResolveAssemblyReference.cache
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\J2534DotNet.dll
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\J2534DotNet.pdb
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.ImportForm.resources

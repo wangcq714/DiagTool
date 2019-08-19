@@ -1,0 +1,11 @@
+oeffne (Binaer,'p0',,,,,,)
+checksummeCRC(0,FFFFF,,CRC32,,,,,,)
+checksummeCRC(140000,17FFFF,,CRC32,,,,,,)
+checksummeCRC(0,3,,CRC32,,,,,,)
+checksummeCRC(4,7,,CRC32,,,,,,)
+checksummeCRC(0,7,,CRC32,,,,,,)
+checksummeCRC(0,8,,CRC32,,,,,,)
+checksummeCRC(0,B,,CRC32,,,,,,)
+checksummeCRC(0,C,,CRC32,,,,,,)
+checksummeCRC(0,F,,CRC32,,,,,,)
+exit
