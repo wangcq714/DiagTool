@@ -10,3 +10,7 @@ E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\Diag
 E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\J2534DotNet.dll
 E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\bin\Debug\J2534DotNet.pdb
 E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.ImportForm.resources
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.DiagUserControl.resources
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.TxPanelForm.resources
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.FlashUserControl.resources
+E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.SetupForm.resources

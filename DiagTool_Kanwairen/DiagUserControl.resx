@@ -117,24 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="DllSelectButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAMUSURBVEhLtZVdSFNhGMfXl1qaFxnmEhVXZplzH2ZplxUG
-        UXQRUomkmWZaF4EEXddN10EXQTcVgZnihJpsU0rNL9LUzVlT2ZTsIoiKllZ+/fu/50y37Li5wAf+vJzt
-        nP/veZ73Oe9RYY3DD+itBkzpQOM+v8R1d5Xvhv8LGSDMn8YBDWk03eOXuK6Nx0L7eXzlbd65hSCSnP4J
-        GSAyFWaB2QeqJhaOD33omAa6vMrq/E5xnV+QHJdCBggTkfFy40WZCG/QoHMWePODBa+gbgLGf0mOSyED
-        6mlSR5P6vSurRo1PPbfRztu7ZpT1+jcwJhn6QwY4sgD7fq7aEErFlOU0ftpOKGqamrHmAz3+wZABozpg
-        JFNeg2lcz2HQsF27gouDgdYCyVoGjPBhFwFiVZSBMmLKnYlvdRwIU4ZPy/ZqUQ2+CWSEBrj0eOhUo8i+
-        BcXOSCRZE5HeosatphQZoARZHBhGSECpIxolNK+0x+Dq0EbomuKR27wTWkpHKUJWBRjNxnV7LMrs0ahy
-        bEX5YATueo7ibOcZ5Fi343BzIowEHBGQBrYrPIAeg8O7UWjfLJlXElLUr8LEdAeefOxFpjkCeTa1BElj
-        u9qec2MDqwgNMOC+cwcu0fgK23NxQIXCtyq895rxYKKFgE0wWmKRa0uAnhXctIj9CKgiNMCIO0NxUntE
-        5oExwOPiM1cu0DZFsk1qFFuSwwUYcM9XwWV7JG4Mp6DamQT3VCseTXbh2MsM5L/S4qA1HgZWUB0+QI/u
-        YQ1HU96DCnuU1CLPVBseT3Yjw7weh2gu9kCM7Ivw94AaNaJcqiBGgpQNbmD2F1DRdw0HLNsk8xxmny2m
-        SGQfNoBVePnbOVYhWlVJSNXQOmSZ45BHc9EaDbP/0ije7ADz1QNkyLwrS9rwArap1BmFVL7JyS0JKLEm
-        YdbEU3a5uSLAxZNUEbAoI//XwT2Wjn7pq8eHxculZC4kAH+dRZ5TwLtUGRJMbh7rteJhSpispGeJQPNx
-        yVoGLPBL4TlJE1aiWIFPHqpOIeNAicxtNJ+jJ0MGrFkAfwCp4/uhiW9TCAAAAABJRU5ErkJggg==
-</value>
-  </data>
+  <metadata name="ContextMenuStripForDiagDataGridView.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>346, 25</value>
+  </metadata>
+  <metadata name="RxMsgTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="TestPresentTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>180, 17</value>
+  </metadata>
 </root>

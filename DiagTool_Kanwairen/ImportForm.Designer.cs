@@ -98,7 +98,7 @@
             this.Controls.Add(this.DllPathnameLabel);
             this.MaximizeBox = false;
             this.Name = "ImportForm";
-            this.Text = "ImportForm";
+            this.Text = "Import";
             this.ResumeLayout(false);
             this.PerformLayout();
 

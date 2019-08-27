@@ -20,14 +20,14 @@ namespace DiagTool_Kanwairen
         public bool IsConnectDevice = false;   //用于表示是否成功连接一个设备
 
 
-        public retstate connectToDevice(ComboBox DeviceSelect, string RequestID, string ResponseID)
+        public retstate connectToDevice(int DeviceSelect, string RequestID, string ResponseID)
         {
 
             retstate ret = retstate.OK;
 
             if (!IsConnectDevice)
             {
-                passThru.LoadLibrary(availableJ2534Devices[DeviceSelect.SelectedIndex]);
+                passThru.LoadLibrary(availableJ2534Devices[DeviceSelect]);
                 J2534ErrStatus = passThru.Open(ref deviceId);
 
                 if ((J2534ErrStatus == J2534Err.STATUS_NOERROR))
@@ -152,10 +152,11 @@ namespace DiagTool_Kanwairen
             }
             for (int i = 0; i < (TxMsg.Data.Length - 4); i++)
                 strDatebyte += string.Format("{0:X2}", TxMsg.Data[i + 4]) + " ";
-
             passThru.ClearRxBuffer(channelId);
             int numMsgs = 1;    //to be tested later
             J2534ErrStatus = passThru.WriteMsgs(channelId, ref TxMsg, ref numMsgs, 50);
+
+            Console.Write("Debug"); // Debug
 
             /* Update UI */
             Callback(msgID, TxMsg.Data.Length - 4, strDatebyte, "Tx");
