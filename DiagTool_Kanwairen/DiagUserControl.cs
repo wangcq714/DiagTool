@@ -160,7 +160,7 @@ namespace DiagTool_Kanwairen
             if ((ReqIDTextBox.Text.Trim() == "") || (TxDataTextBox.Text.Trim() == ""))
                 return;
 
-            Console.Write("1"); // Debug
+            //Console.Write("1"); // Debug
             Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, TxDataTextBox.Text, TxRxMsgUpdateDiagDataGridViewCallback);
 
         }
