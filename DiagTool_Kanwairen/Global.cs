@@ -22,5 +22,7 @@ namespace DiagTool_Kanwairen
         public static TxPanelForm txPanelForm = new TxPanelForm();
 
         public static Diag diag = new Diag();
+
+        public static MMTimer mmTimer = new MMTimer(txPanelForm.MMTimerCBFunc);
     }
 }

@@ -98,6 +98,7 @@ namespace DiagTool_Kanwairen
                 {
                     this.RxMsgTimer.Start();
                     this.TestPresentTimer.Start();
+                    Global.mmTimer.Start(2, true); // TxPanel timer.
                     this.DeviceConnectButton.Image = Image.FromFile("run.png");
                 }
             }
@@ -105,6 +106,7 @@ namespace DiagTool_Kanwairen
             {
                 this.RxMsgTimer.Stop();
                 this.TestPresentTimer.Stop();
+                Global.mmTimer.Stop();          // TxPanel timer.
                 Global.passThruWrapper.deviceClose();
                 this.DeviceConnectButton.Image = Image.FromFile("stop.png");
             }

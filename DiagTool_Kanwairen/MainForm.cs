@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Threading;
+
+
 
 namespace DiagTool_Kanwairen
 {
@@ -16,6 +21,7 @@ namespace DiagTool_Kanwairen
         public MainWindow()
         {
             InitializeComponent();
+            //Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime; //seemingly it has no effect at all.
         }
 
         /*Run before display*/

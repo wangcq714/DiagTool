@@ -42,8 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxPanelDataGridView = new System.Windows.Forms.DataGridView();
-            this.TxPanelDGVContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Tx = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Auto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Period = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +55,8 @@
             this.B5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.B6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.B7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TxPeriodTimer = new System.Windows.Forms.Timer(this.components);
+            this.TxPanelDGVContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.TxPanelDataGridView)).BeginInit();
             this.TxPanelDGVContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -96,20 +95,6 @@
             this.TxPanelDataGridView.RowTemplate.Height = 23;
             this.TxPanelDataGridView.Size = new System.Drawing.Size(490, 238);
             this.TxPanelDataGridView.TabIndex = 11;
-            // 
-            // TxPanelDGVContextMenuStrip
-            // 
-            this.TxPanelDGVContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddMessageToolStripMenuItem});
-            this.TxPanelDGVContextMenuStrip.Name = "TxPanelDGVContextMenuStrip";
-            this.TxPanelDGVContextMenuStrip.Size = new System.Drawing.Size(157, 26);
-            // 
-            // AddMessageToolStripMenuItem
-            // 
-            this.AddMessageToolStripMenuItem.Name = "AddMessageToolStripMenuItem";
-            this.AddMessageToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.AddMessageToolStripMenuItem.Text = "Add message";
-            this.AddMessageToolStripMenuItem.Click += new System.EventHandler(this.AddMessageToolStripMenuItem_Click);
             // 
             // Tx
             // 
@@ -235,11 +220,19 @@
             this.B7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.B7.Width = 30;
             // 
-            // TxPeriodTimer
+            // TxPanelDGVContextMenuStrip
             // 
-            this.TxPeriodTimer.Enabled = true;
-            this.TxPeriodTimer.Interval = 1;
-            this.TxPeriodTimer.Tick += new System.EventHandler(this.TxPeriodTimer_Tick);
+            this.TxPanelDGVContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddMessageToolStripMenuItem});
+            this.TxPanelDGVContextMenuStrip.Name = "TxPanelDGVContextMenuStrip";
+            this.TxPanelDGVContextMenuStrip.Size = new System.Drawing.Size(157, 26);
+            // 
+            // AddMessageToolStripMenuItem
+            // 
+            this.AddMessageToolStripMenuItem.Name = "AddMessageToolStripMenuItem";
+            this.AddMessageToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.AddMessageToolStripMenuItem.Text = "Add message";
+            this.AddMessageToolStripMenuItem.Click += new System.EventHandler(this.AddMessageToolStripMenuItem_Click);
             // 
             // TxPanelForm
             // 
@@ -277,6 +270,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn B5;
         private System.Windows.Forms.DataGridViewTextBoxColumn B6;
         private System.Windows.Forms.DataGridViewTextBoxColumn B7;
-        private System.Windows.Forms.Timer TxPeriodTimer;
     }
 }

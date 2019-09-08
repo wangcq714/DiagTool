@@ -42,7 +42,7 @@ namespace DiagTool_Kanwairen
         }
 
         /* Define Tx function at a time */
-        private void TxMsgOneTime(int RowIndex)
+        private void TxMsgOneFrame(int RowIndex)
         {
             string msgID = "";
             string msgData = "";
@@ -76,7 +76,7 @@ namespace DiagTool_Kanwairen
                 {
                     //MessageBox.Show("行: " + e.RowIndex.ToString() + ", 列: " + e.ColumnIndex.ToString() + "; Button"); // Debug
                     /* Call TxMsgOneTime */
-                    TxMsgOneTime(e.RowIndex);
+                    TxMsgOneFrame(e.RowIndex);
                 }
                 /*Judge if or not Period checkbox is selected*/
                 else if (TxPanelDataGridView.Columns[e.ColumnIndex].Name == "Auto")
@@ -210,47 +210,61 @@ namespace DiagTool_Kanwairen
         /* When click mouse right key, further click add message , this function run */
         private void AddMessageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataGridViewRow dataRow = new DataGridViewRow();
-            dataRow.CreateCells(this.TxPanelDataGridView);
-            /* Add a row msg in the first line. */
-            //this.TxPanelDataGridView.Rows.Insert(0, dataRow);
-            /* Add a row msg in the end. */
-            this.TxPanelDataGridView.Rows.Add(dataRow);
-            
-            /* Init default value */
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["Period"].Value = "100";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["AbrID"].Value = "1";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["DLC"].Value = "8";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B0"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B1"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B2"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B3"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B4"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B5"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B6"].Value = "0x0";
-            this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count-1].Cells["B7"].Value = "0x0";
+            if (this.TxPanelDataGridView.Rows.Count < 256)
+            {
+                DataGridViewRow dataRow = new DataGridViewRow();
+                dataRow.CreateCells(this.TxPanelDataGridView);
+                /* Add a row msg in the first line. */
+                //this.TxPanelDataGridView.Rows.Insert(0, dataRow);
+                /* Add a row msg in the end. */
+                this.TxPanelDataGridView.Rows.Add(dataRow);
 
-            TxPeriodInfoType TxPeriodInfo;
-            TxPeriodInfo.TxEable = false;
-            TxPeriodInfo.TimeValue = 0;
-            TxPeriodInfoArray[this.TxPanelDataGridView.Rows.Count - 1] = TxPeriodInfo;
+                /* Init default value */
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["Period"].Value = "100";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["AbrID"].Value = "1";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["DLC"].Value = "8";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B0"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B1"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B2"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B3"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B4"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B5"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B6"].Value = "0x0";
+                this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["B7"].Value = "0x0";
+
+                TxPeriodInfoType TxPeriodInfo;
+                TxPeriodInfo.TxEable = false;
+                TxPeriodInfo.TimeValue = 0;
+                TxPeriodInfoArray[this.TxPanelDataGridView.Rows.Count - 1] = TxPeriodInfo;
+            }
+            else
+            {
+                MessageBox.Show("The message counts is up to Maxium."); // Debug
+            }
+
 
         }
 
-        private void TxPeriodTimer_Tick(object sender, EventArgs e)
+        /* Millisecond Timer callback */
+        public void MMTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
         {
+            /* Callback from the MMTimer API that fires the Timer event. Note we are in a different thread here */
+            int msgPeriod = 0;
+
             for (int i = 0; i < this.TxPanelDataGridView.Rows.Count; i++)
             {
                 if ((TxPeriodInfoArray[i]).TxEable == true)
                 {
-                    TxPeriodInfoArray[i].TimeValue++;
-                    if (TxPeriodInfoArray[i].TimeValue % Convert.ToInt32(this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["Period"].Value) == 0)
+                    TxPeriodInfoArray[i].TimeValue += 2;
+                    msgPeriod = Convert.ToInt32(this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["Period"].Value);
+                    msgPeriod = (msgPeriod % 2 == 0) ? msgPeriod : msgPeriod +1;
+                    if (TxPeriodInfoArray[i].TimeValue % msgPeriod == 0)
                     {
-                        TxMsgOneTime(i);
+                        TxMsgOneFrame(i);
                     }
                     Console.WriteLine("Timer{0}:{1}", i, ((TxPeriodInfoType)TxPeriodInfoArray[i]).TimeValue);
-                }                           
+                }
             }
         }
-    }    
+    }
 }

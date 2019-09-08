@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GKarch.Ioc.LightInject4</name>
+    </assembly>
+    <members>
+        <member name="T:GKarch.Ioc.LightInject.LightInjectDependencyResolver">
+            <summary>
+            LightInject依赖解析器实现
+            </summary>
+        </member>
+        <member name="P:GKarch.Ioc.LightInject.LightInjectDependencyResolver.Container">
+            <summary>
+            LightInject容器
+            </summary>
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectDependencyResolver.#ctor(LightInject.IServiceContainer)">
+            <summary>
+            创建LightInject依赖解析器
+            </summary>
+            <param name="container">容器</param>
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectDependencyResolver.BeginScope">
+            <inheritdoc />
+        </member>
+        <member name="T:GKarch.Ioc.LightInject.LightInjectResolverScope">
+            <summary>
+            默认依赖解析作用域实现
+            </summary>
+        </member>
+        <member name="F:GKarch.Ioc.LightInject.LightInjectResolverScope.serviceContainer">
+            <summary>
+            核心容器
+            </summary>
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.#ctor(LightInject.IServiceContainer,LightInject.Scope)">
+            <summary>
+            创建依赖解析作用域
+            </summary>
+            <param name="container">容器</param>
+            <param name="scope">作用域</param>
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.System#IServiceProvider#GetService(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.TryGet(System.Type,System.Object@)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.TryGet(System.Type,System.String,System.Object@)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.TryGet``1(``0@)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.TryGet``1(System.String,``0@)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.Get(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.Get(System.Type,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.Get``1">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.Get``1(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.GetAll(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.GetAll``1">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.Inject(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectResolverScope.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectExtensions.UseLightInject(GKarch.Glacier.ICore,LightInject.IServiceContainer)">
+            <summary>
+            使用 LightInject 作为依赖解析器
+            </summary>
+            <param name="core">核心</param>
+            <param name="container">LightInject 容器</param>
+        </member>
+        <member name="M:GKarch.Ioc.LightInject.LightInjectExtensions.Populate(LightInject.IServiceContainer,GKarch.Glacier.Container.IServiceContainer)">
+            <summary>
+            为 <paramref name="container"/> 注册来自源容器的服务
+            </summary>
+            <param name="container">LightInject 容器</param>
+            <param name="sourceContainer">源容器</param>
+        </member>
+    </members>
+</doc>

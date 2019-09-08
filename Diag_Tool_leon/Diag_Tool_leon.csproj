@@ -37,6 +37,22 @@
     <ApplicationIcon>HLM.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GKarch.Glace.Auth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Fomalhaut.Auth.2.0.0\lib\net40\GKarch.Glace.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Glacier, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Glacier.2.0.0\lib\net40\GKarch.Glacier.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Glacier.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Glacier.Core.2.0.0\lib\net40\GKarch.Glacier.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Tundra.Misc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Tundra.Misc.2.0.0\lib\net40\GKarch.Tundra.Misc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
@@ -92,6 +108,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>发布\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,12 +25,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,8 +47,33 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GKarch.Glace.Auth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Fomalhaut.Auth.2.0.0\lib\net40\GKarch.Glace.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Glacier, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Glacier.2.0.0\lib\net40\GKarch.Glacier.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Glacier.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Glacier.Core.2.0.0\lib\net40\GKarch.Glacier.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Ioc.LightInject4, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Ioc.LightInject4.2.0.0\lib\net40\GKarch.Ioc.LightInject4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GKarch.Tundra.Misc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\GKarch.Tundra.Misc.2.0.0\lib\net40\GKarch.Tundra.Misc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LightInject, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.4.0.0\lib\net40\LightInject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
@@ -90,6 +116,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MMTimer.cs" />
     <Compile Include="PassThruWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +161,7 @@
     <EmbeddedResource Include="TxPanelForm.resx">
       <DependentUpon>TxPanelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Diag.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
