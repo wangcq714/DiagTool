@@ -87,9 +87,28 @@ namespace DiagTool_Kanwairen
         private void DeviceConnectButton_Click(object sender, EventArgs e)
         {
             retstate retVal = retstate.NOT_OK;
+            BaudRate baudRate = BaudRate.ISO15765_500000;
+
             if (!Global.passThruWrapper.IsConnectDevice)
             {
-                retVal = Global.passThruWrapper.connectToDevice(this.DeviceSelectComboBox.SelectedIndex, Global.diagUsercontrol.ReqIDTextBox_Text, Global.diagUsercontrol.ResIDTextBox_Text);
+                /* Use selected baudrate in setup */
+                switch (Convert.ToInt32(Global.setupForm.BaudRateComboBox_Text.Substring(0, 3)))
+                {
+                    case 125:
+                        baudRate = BaudRate.ISO15765_125000;
+                        break;
+                    case 250:
+                        baudRate = BaudRate.ISO15765_250000;
+                        break;
+                    case 500:
+                        baudRate = BaudRate.ISO15765_500000;
+                        break;
+                    default :
+                        baudRate = BaudRate.ISO15765_500000;
+                        break;
+
+                }
+                retVal = Global.passThruWrapper.connectToDevice(this.DeviceSelectComboBox.SelectedIndex, Global.diagUsercontrol.ReqIDTextBox_Text, Global.diagUsercontrol.ResIDTextBox_Text, baudRate);
                 if (retVal == retstate.NOT_OK)
                 {
                     MessageBox.Show("请检查设备连接！", "Error");

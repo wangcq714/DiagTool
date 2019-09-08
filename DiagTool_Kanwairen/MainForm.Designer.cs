@@ -33,11 +33,12 @@
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.OptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NetworksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AutomationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DiagLabel = new System.Windows.Forms.Label();
@@ -51,7 +52,7 @@
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileToolStripMenuItem,
             this.NetworksToolStripMenuItem,
-            this.AutomationToolStripMenuItem,
+            this.AutoToolStripMenuItem,
             this.OptionToolStripMenuItem,
             this.ToolsToolStripMenuItem,
             this.HelpToolStripMenuItem});
@@ -73,30 +74,16 @@
             // ImportToolStripMenuItem
             // 
             this.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem";
-            this.ImportToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.ImportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ImportToolStripMenuItem.Text = "Import";
             this.ImportToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
-            // 
-            // OptionToolStripMenuItem
-            // 
-            this.OptionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.HardwareToolStripMenuItem});
-            this.OptionToolStripMenuItem.Name = "OptionToolStripMenuItem";
-            this.OptionToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
-            this.OptionToolStripMenuItem.Text = "Option";
-            // 
-            // HardwareToolStripMenuItem
-            // 
-            this.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem";
-            this.HardwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.HardwareToolStripMenuItem.Text = "Setup";
-            this.HardwareToolStripMenuItem.Click += new System.EventHandler(this.HardwareToolStripMenuItem_Click);
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // NetworksToolStripMenuItem
             // 
@@ -113,11 +100,34 @@
             this.TxPanelToolStripMenuItem.Text = "TxPanel";
             this.TxPanelToolStripMenuItem.Click += new System.EventHandler(this.TxPanelToolStripMenuItem_Click);
             // 
-            // AutomationToolStripMenuItem
+            // AutoToolStripMenuItem
             // 
-            this.AutomationToolStripMenuItem.Name = "AutomationToolStripMenuItem";
-            this.AutomationToolStripMenuItem.Size = new System.Drawing.Size(87, 21);
-            this.AutomationToolStripMenuItem.Text = "Automation";
+            this.AutoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.scriptToolStripMenuItem});
+            this.AutoToolStripMenuItem.Name = "AutoToolStripMenuItem";
+            this.AutoToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.AutoToolStripMenuItem.Text = "Auto";
+            // 
+            // scriptToolStripMenuItem
+            // 
+            this.scriptToolStripMenuItem.Name = "scriptToolStripMenuItem";
+            this.scriptToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.scriptToolStripMenuItem.Text = "Script";
+            // 
+            // OptionToolStripMenuItem
+            // 
+            this.OptionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.HardwareToolStripMenuItem});
+            this.OptionToolStripMenuItem.Name = "OptionToolStripMenuItem";
+            this.OptionToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.OptionToolStripMenuItem.Text = "Option";
+            // 
+            // HardwareToolStripMenuItem
+            // 
+            this.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem";
+            this.HardwareToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.HardwareToolStripMenuItem.Text = "Setup";
+            this.HardwareToolStripMenuItem.Click += new System.EventHandler(this.HardwareToolStripMenuItem_Click);
             // 
             // ToolsToolStripMenuItem
             // 
@@ -204,11 +214,12 @@
         private System.Windows.Forms.Label FlashLabel;
         private System.Windows.Forms.ToolStripMenuItem ImportToolStripMenuItem;
         private System.Windows.Forms.GroupBox MainGroupBox;
-        private System.Windows.Forms.ToolStripMenuItem AutomationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AutoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NetworksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TxPanelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HardwareToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
     }
 }
 

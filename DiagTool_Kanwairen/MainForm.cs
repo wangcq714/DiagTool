@@ -78,8 +78,14 @@ namespace DiagTool_Kanwairen
         /*Click Setup->Hardware*/
         private void HardwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Global.hardwareForm.ShowDialog();  /* MainWindow can't be operated. */
+            Global.setupForm.ShowDialog();  /* MainWindow can't be operated. */
             //Global.hardwareForm.Show();          /* MainWindow can be operated. */
+        }
+
+        /* Close main window, exit app */
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

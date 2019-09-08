@@ -18,7 +18,7 @@ namespace DiagTool_Kanwairen
         public static FlashUserControl flashUsercontrol = new FlashUserControl();
 
         public static ImportForm importForm = new ImportForm();
-        public static SetupForm hardwareForm = new SetupForm();
+        public static SetupForm setupForm = new SetupForm();
         public static TxPanelForm txPanelForm = new TxPanelForm();
 
         public static Diag diag = new Diag();

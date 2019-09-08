@@ -16,21 +16,28 @@ namespace DiagTool_Kanwairen
         public SetupForm()
         {
             InitializeComponent();
-            this.BaudRateComboBox.SelectedIndex = 1;
+            this.BaudRateComboBox.SelectedIndex = 2;
         }
 
         /*Run before display*/
-        private void HardwareWindowLoad(object sender, EventArgs e)
+        private void SetupWindowLoad(object sender, EventArgs e)
         {
             //this.BaudRateComboBox.SelectedIndex = 1;
             //this.DeviceConnectButton.Image = Image.FromFile("stop.png");
         }
 
         /*Redefine Formclosing*/
-        private void HardwareFormClosing(object sender, FormClosingEventArgs e)
+        private void SetupFormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
             e.Cancel = true;
+        }
+
+        /*Define external access port for this.BaudRateComboBox.Text*/
+        public string BaudRateComboBox_Text
+        {
+            get { return this.BaudRateComboBox.Text; }
+            set { this.BaudRateComboBox.Text = value; }
         }
     }
 }

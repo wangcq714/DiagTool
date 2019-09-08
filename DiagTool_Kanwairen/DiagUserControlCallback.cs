@@ -25,6 +25,14 @@ namespace DiagTool_Kanwairen
         {
             DataRow canRow;
 
+            if (this.FilterAppMsgCheckBox.Checked)
+            {
+                if (!(strDataID == this.ReqIDTextBox.Text.Trim() || strDataID == this.ResIDTextBox.Text.Trim()))
+                {
+                    return;
+                }
+            }
+
             canRow = Global.diagUsercontrol.DTCANRxScroll.NewRow();
             canRow[0] = Global.diagUsercontrol.DTCANRxScroll.Rows.Count + 1;
             canRow[1] = type;

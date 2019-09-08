@@ -37,6 +37,7 @@
             this.BaudRateComboBox.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BaudRateComboBox.FormattingEnabled = true;
             this.BaudRateComboBox.Items.AddRange(new object[] {
+            "125k",
             "250k",
             "500k"});
             this.BaudRateComboBox.Location = new System.Drawing.Point(187, 75);
@@ -61,10 +62,12 @@
             this.ClientSize = new System.Drawing.Size(584, 262);
             this.Controls.Add(this.BaudRateComboBox);
             this.Controls.Add(this.BaudRateLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "SetupForm";
             this.Text = "Setup";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HardwareFormClosing);
-            this.Load += new System.EventHandler(this.HardwareWindowLoad);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SetupFormClosing);
+            this.Load += new System.EventHandler(this.SetupWindowLoad);
             this.ResumeLayout(false);
 
         }

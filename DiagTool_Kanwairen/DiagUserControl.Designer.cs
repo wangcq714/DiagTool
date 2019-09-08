@@ -117,7 +117,7 @@
             // SecurityAccessButton
             // 
             this.SecurityAccessButton.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SecurityAccessButton.Location = new System.Drawing.Point(513, 133);
+            this.SecurityAccessButton.Location = new System.Drawing.Point(473, 133);
             this.SecurityAccessButton.Name = "SecurityAccessButton";
             this.SecurityAccessButton.Size = new System.Drawing.Size(91, 30);
             this.SecurityAccessButton.TabIndex = 43;
@@ -127,7 +127,6 @@
             // 
             // SecurityAccessComboBox
             // 
-            this.SecurityAccessComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SecurityAccessComboBox.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SecurityAccessComboBox.FormattingEnabled = true;
             this.SecurityAccessComboBox.Items.AddRange(new object[] {
@@ -138,7 +137,7 @@
             "27 09/0A",
             "27 11/12",
             "27 13/14"});
-            this.SecurityAccessComboBox.Location = new System.Drawing.Point(400, 135);
+            this.SecurityAccessComboBox.Location = new System.Drawing.Point(360, 135);
             this.SecurityAccessComboBox.Name = "SecurityAccessComboBox";
             this.SecurityAccessComboBox.Size = new System.Drawing.Size(100, 27);
             this.SecurityAccessComboBox.TabIndex = 42;
@@ -290,7 +289,7 @@
             this.FilterAppMsgCheckBox.AutoSize = true;
             this.FilterAppMsgCheckBox.Checked = true;
             this.FilterAppMsgCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.FilterAppMsgCheckBox.Location = new System.Drawing.Point(108, 142);
+            this.FilterAppMsgCheckBox.Location = new System.Drawing.Point(131, 142);
             this.FilterAppMsgCheckBox.Name = "FilterAppMsgCheckBox";
             this.FilterAppMsgCheckBox.Size = new System.Drawing.Size(15, 14);
             this.FilterAppMsgCheckBox.TabIndex = 50;
@@ -301,9 +300,9 @@
             this.FilterAppMsgLabel.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FilterAppMsgLabel.Location = new System.Drawing.Point(39, 138);
             this.FilterAppMsgLabel.Name = "FilterAppMsgLabel";
-            this.FilterAppMsgLabel.Size = new System.Drawing.Size(58, 20);
+            this.FilterAppMsgLabel.Size = new System.Drawing.Size(91, 20);
             this.FilterAppMsgLabel.TabIndex = 51;
-            this.FilterAppMsgLabel.Text = "Filter:";
+            this.FilterAppMsgLabel.Text = "DiagFilter:";
             this.FilterAppMsgLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DiagUserControl

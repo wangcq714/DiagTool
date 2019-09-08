@@ -20,7 +20,7 @@ namespace DiagTool_Kanwairen
         public bool IsConnectDevice = false;   //用于表示是否成功连接一个设备
 
 
-        public retstate connectToDevice(int DeviceSelect, string RequestID, string ResponseID)
+        public retstate connectToDevice(int DeviceSelect, string RequestID, string ResponseID, BaudRate baudRate)
         {
 
             retstate ret = retstate.OK;
@@ -33,7 +33,7 @@ namespace DiagTool_Kanwairen
                 if ((J2534ErrStatus == J2534Err.STATUS_NOERROR))
                 {
                     // OpenADevice = connectCAN();
-                    IsConnectDevice = ConnectIso15765(RequestID, ResponseID);
+                    IsConnectDevice = ConnectIso15765(RequestID, ResponseID, baudRate);
                     if (!IsConnectDevice)
                     {
                         ret = retstate.NOT_OK;
@@ -48,11 +48,11 @@ namespace DiagTool_Kanwairen
             return ret;
         }
 
-        public bool ConnectIso15765(string RequestID, string ResponseID)
+        public bool ConnectIso15765(string RequestID, string ResponseID, BaudRate baudRate)
         {
             List<byte> value = new List<byte>();
 
-            J2534ErrStatus = passThru.Connect(deviceId, ProtocolID.ISO15765, ConnectFlag.NONE, BaudRate.ISO15765, ref channelId);
+            J2534ErrStatus = passThru.Connect(deviceId, ProtocolID.ISO15765, ConnectFlag.NONE, baudRate, ref channelId);
             if (J2534Err.STATUS_NOERROR != J2534ErrStatus)
             {
                 return false;
