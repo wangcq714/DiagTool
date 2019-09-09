@@ -20,6 +20,35 @@ namespace DiagTool_Kanwairen
             this.DeviceSelectComboBox.SelectedIndex = 0;
         }
 
+        /* This delegate enables asynchronous calls for setting
+         * the text property on a TextBox control.*/
+        private delegate void DoFirstDisplayedScrollingRowIndex(int index);
+        /* This method demonstrates a pattern for making thread-safe
+         * calls on a Windows Forms control. 
+         * If the calling thread is different from the thread that
+         * created the TextBox control, this method creates a
+         * SetTextCallback and calls itself asynchronously using the
+         * Invoke method.
+         * If the calling thread is the same as the thread that created
+         * the TextBox control, the Text property is set directly. */
+        private void UpdateFirstDisplayedScrollingRowIndex(int index)
+        {
+            /* InvokeRequired required compares the thread ID of the
+             * calling thread to the thread ID of the creating thread.
+             * If these threads are different, it returns true. */
+            if (this.TxRxDataGridView.InvokeRequired)
+            {
+                DoFirstDisplayedScrollingRowIndex UpdateIndex = new DoFirstDisplayedScrollingRowIndex(UpdateFirstDisplayedScrollingRowIndex);
+                this.Invoke(UpdateIndex, new object[] { index });
+            }
+            else
+            {
+                Global.diagUsercontrol.DTCANRxScroll.AcceptChanges();
+                this.TxRxDataGridView.FirstDisplayedScrollingRowIndex = this.TxRxDataGridView.RowCount - 1;
+
+            }
+        }
+
         /*TxRxMsg callback*/
         public void TxRxMsgUpdateDiagDataGridViewCallback(string strDataID, int strDateLen, string strDatebyte, string type)
         {
@@ -43,9 +72,11 @@ namespace DiagTool_Kanwairen
 
             //canRow[1] = ((float)(rxMsgs[k].Timestamp - INIT_Timestamp) / 1000).ToString("F2");//float 保留两位小数？
             Global.diagUsercontrol.DTCANRxScroll.Rows.Add(canRow);
-            Global.diagUsercontrol.DTCANRxScroll.AcceptChanges();
-            //INIT_Timestamp = rxMsgs[k].Timestamp;
-            this.TxRxDataGridView.FirstDisplayedScrollingRowIndex = this.TxRxDataGridView.RowCount - 1;
+            //Global.diagUsercontrol.DTCANRxScroll.AcceptChanges();
+            ////INIT_Timestamp = rxMsgs[k].Timestamp;
+            //this.TxRxDataGridView.FirstDisplayedScrollingRowIndex = this.TxRxDataGridView.RowCount - 1;
+
+            UpdateFirstDisplayedScrollingRowIndex(this.TxRxDataGridView.RowCount - 1);
 
             /* Regardless of Tx or Rx, clear RxDataTextBox. */
             RxDataTextBox.Text = "";
