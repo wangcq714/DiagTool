@@ -88,7 +88,7 @@ namespace DiagTool_Kanwairen
                     {
                         TxPeriodInfoArray[e.RowIndex].TimeValue = 0;
                     }
-                    Console.WriteLine("{0}", TxPeriodInfoArray[e.RowIndex].TxEable);
+                    //Console.WriteLine("{0}", TxPeriodInfoArray[e.RowIndex].TxEable);
                 }
             }
 

@@ -156,7 +156,7 @@ namespace DiagTool_Kanwairen
             int numMsgs = 1;    //to be tested later
             J2534ErrStatus = passThru.WriteMsgs(channelId, ref TxMsg, ref numMsgs, 50);
 
-            Console.Write("Debug"); // Debug
+            //Console.Write("Debug"); // Debug
 
             /* Update UI */
             Callback(msgID, TxMsg.Data.Length - 4, strDatebyte, "Tx");
@@ -173,7 +173,7 @@ namespace DiagTool_Kanwairen
             J2534Err status = J2534Err.STATUS_NOERROR;
 
             /* if not connect device, return */
-            if (IsConnectDevice)
+            if (!IsConnectDevice)
                 return;
 
             numMsgs = 10;//test line
@@ -196,7 +196,7 @@ namespace DiagTool_Kanwairen
                                 strDatebyte += string.Format("{0:X2}", rxMsgs[k].Data[i + 4]) + " ";
                             }    
                             /*Update UI*/
-                            Callback(strDataID, rxMsgs[k].Data.Length - 4, strDatebyte, "Rx");
+                            Callback(strDataID.TrimStart('0'), rxMsgs[k].Data.Length - 4, strDatebyte, "Rx");
                             /*calldll caculate  key by receive seed*/
                             CallDllCallback(rxMsgs[k].Data); 
                         }
