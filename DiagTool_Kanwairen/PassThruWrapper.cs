@@ -152,7 +152,7 @@ namespace DiagTool_Kanwairen
             }
             for (int i = 0; i < (TxMsg.Data.Length - 4); i++)
                 strDatebyte += string.Format("{0:X2}", TxMsg.Data[i + 4]) + " ";
-            passThru.ClearRxBuffer(channelId);
+            //passThru.ClearRxBuffer(channelId);
             int numMsgs = 1;    //to be tested later
             J2534ErrStatus = passThru.WriteMsgs(channelId, ref TxMsg, ref numMsgs, 50);
 

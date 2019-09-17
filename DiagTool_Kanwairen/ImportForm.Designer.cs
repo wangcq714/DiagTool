@@ -97,6 +97,7 @@
             this.Controls.Add(this.DllPathnameTextBox);
             this.Controls.Add(this.DllPathnameLabel);
             this.MaximizeBox = false;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImportFormClosing);
             this.Name = "ImportForm";
             this.Text = "Import";
             this.ResumeLayout(false);

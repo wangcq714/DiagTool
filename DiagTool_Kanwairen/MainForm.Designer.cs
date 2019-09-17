@@ -44,6 +44,7 @@
             this.DiagLabel = new System.Windows.Forms.Label();
             this.FlashLabel = new System.Windows.Forms.Label();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
+            this.toASCIIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,14 +75,14 @@
             // ImportToolStripMenuItem
             // 
             this.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem";
-            this.ImportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ImportToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.ImportToolStripMenuItem.Text = "Import";
             this.ImportToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -131,6 +132,8 @@
             // 
             // ToolsToolStripMenuItem
             // 
+            this.ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toASCIIToolStripMenuItem});
             this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
             this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.ToolsToolStripMenuItem.Text = "Tools";
@@ -179,6 +182,13 @@
             this.MainGroupBox.TabIndex = 13;
             this.MainGroupBox.TabStop = false;
             // 
+            // toASCIIToolStripMenuItem
+            // 
+            this.toASCIIToolStripMenuItem.Name = "toASCIIToolStripMenuItem";
+            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toASCIIToolStripMenuItem.Text = "ToASCII";
+            this.toASCIIToolStripMenuItem.Click += new System.EventHandler(this.ToASCIIToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -220,6 +230,7 @@
         private System.Windows.Forms.ToolStripMenuItem OptionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem HardwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toASCIIToolStripMenuItem;
     }
 }
 

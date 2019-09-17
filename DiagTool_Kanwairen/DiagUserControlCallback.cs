@@ -97,7 +97,7 @@ namespace DiagTool_Kanwairen
         public void TxRxMsgCallDllCallback(byte[] Data)
         {
             string dataStr = "";
-            if (Data[4] == 67)
+            if (Data[4] == 0x67 && Data[5] == Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16))
             {
                 dataStr = Global.diag.Security_DLL(Data, ImportForm.DllPathname);
                 Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);

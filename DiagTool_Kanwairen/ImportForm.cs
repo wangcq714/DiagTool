@@ -44,5 +44,12 @@ namespace DiagTool_Kanwairen
         {
             this.Close();
         }
+
+        /*Redefine FormClosing action*/
+        private void ImportFormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace DiagTool_Kanwairen
         public static ImportForm importForm = new ImportForm();
         public static SetupForm setupForm = new SetupForm();
         public static TxPanelForm txPanelForm = new TxPanelForm();
+        public static ToASCIIForm toASCIIForm = new ToASCIIForm();
 
         public static Diag diag = new Diag();
 

@@ -87,5 +87,11 @@ namespace DiagTool_Kanwairen
         {
             this.Close();
         }
+
+        /*Click Tool->ToASCII*/
+        private void ToASCIIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.toASCIIForm.Show();          /* MainWindow can be operated. */
+        }
     }
 }
