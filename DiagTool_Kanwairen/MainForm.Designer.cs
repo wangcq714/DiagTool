@@ -40,11 +40,12 @@
             this.OptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HardwareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toASCIIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DiagLabel = new System.Windows.Forms.Label();
             this.FlashLabel = new System.Windows.Forms.Label();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
-            this.toASCIIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nRCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,14 +76,14 @@
             // ImportToolStripMenuItem
             // 
             this.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem";
-            this.ImportToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.ImportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ImportToolStripMenuItem.Text = "Import";
             this.ImportToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -97,7 +98,7 @@
             // TxPanelToolStripMenuItem
             // 
             this.TxPanelToolStripMenuItem.Name = "TxPanelToolStripMenuItem";
-            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.TxPanelToolStripMenuItem.Text = "TxPanel";
             this.TxPanelToolStripMenuItem.Click += new System.EventHandler(this.TxPanelToolStripMenuItem_Click);
             // 
@@ -126,17 +127,25 @@
             // HardwareToolStripMenuItem
             // 
             this.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem";
-            this.HardwareToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.HardwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.HardwareToolStripMenuItem.Text = "Setup";
             this.HardwareToolStripMenuItem.Click += new System.EventHandler(this.HardwareToolStripMenuItem_Click);
             // 
             // ToolsToolStripMenuItem
             // 
             this.ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toASCIIToolStripMenuItem});
+            this.toASCIIToolStripMenuItem,
+            this.nRCToolStripMenuItem});
             this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
             this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.ToolsToolStripMenuItem.Text = "Tools";
+            // 
+            // toASCIIToolStripMenuItem
+            // 
+            this.toASCIIToolStripMenuItem.Name = "toASCIIToolStripMenuItem";
+            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toASCIIToolStripMenuItem.Text = "ToASCII";
+            this.toASCIIToolStripMenuItem.Click += new System.EventHandler(this.ToASCIIToolStripMenuItem_Click);
             // 
             // HelpToolStripMenuItem
             // 
@@ -182,12 +191,12 @@
             this.MainGroupBox.TabIndex = 13;
             this.MainGroupBox.TabStop = false;
             // 
-            // toASCIIToolStripMenuItem
+            // nRCToolStripMenuItem
             // 
-            this.toASCIIToolStripMenuItem.Name = "toASCIIToolStripMenuItem";
-            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.toASCIIToolStripMenuItem.Text = "ToASCII";
-            this.toASCIIToolStripMenuItem.Click += new System.EventHandler(this.ToASCIIToolStripMenuItem_Click);
+            this.nRCToolStripMenuItem.Name = "nRCToolStripMenuItem";
+            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nRCToolStripMenuItem.Text = "NRC Table";
+            this.nRCToolStripMenuItem.Click += new System.EventHandler(this.nRCToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -231,6 +240,7 @@
         private System.Windows.Forms.ToolStripMenuItem HardwareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toASCIIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nRCToolStripMenuItem;
     }
 }
 

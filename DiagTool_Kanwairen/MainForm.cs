@@ -93,5 +93,10 @@ namespace DiagTool_Kanwairen
         {
             Global.toASCIIForm.Show();          /* MainWindow can be operated. */
         }
+
+        private void nRCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.nrcTableForm.Show();          /* MainWindow can be operated. */
+        }
     }
 }
