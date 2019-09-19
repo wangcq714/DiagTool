@@ -22,6 +22,7 @@ namespace DiagTool_Kanwairen
         public static TxPanelForm txPanelForm = new TxPanelForm();
         public static ToASCIIForm toASCIIForm = new ToASCIIForm();
         public static NRCTableForm nrcTableForm = new NRCTableForm();
+        public static ScriptForm scriptForm = new ScriptForm();
 
         public static Diag diag = new Diag();
 

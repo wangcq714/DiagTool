@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 using J2534DotNet;
 
@@ -218,6 +219,70 @@ namespace DiagTool_Kanwairen
         private void ClearToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Global.diagUsercontrol.DTCANRxScroll.Clear();
+        }
+
+        private void SaveFile(string data)
+        {
+            string localFilePath = "", fileNameExt = "", newFileName = "", FilePath = "";
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            //设置文件类型
+            //书写规则例如：txt files(*.txt)|*.txt
+            saveFileDialog.Filter = "txt files(*.txt)|*.txt|xls files(*.xls)|*.xls|All files(*.*)|*.*";
+            //设置默认文件名（可以不设置）
+            saveFileDialog.FileName = "data";
+            //主设置默认文件extension（可以不设置）
+            saveFileDialog.DefaultExt = "xml";
+            //获取或设置一个值，该值指示如果用户省略扩展名，文件对话框是否自动在文件名中添加扩展名。（可以不设置）
+            saveFileDialog.AddExtension = true;
+            //设置默认文件类型显示顺序（可以不设置）
+            saveFileDialog.FilterIndex = 1;
+
+            //保存对话框是否记忆上次打开的目录
+            saveFileDialog.RestoreDirectory = true;
+
+            // Show save file dialog box
+            DialogResult result = saveFileDialog.ShowDialog();
+            //点了保存按钮进入
+            if (result == DialogResult.OK)
+            {
+                //获得文件路径
+                localFilePath = saveFileDialog.FileName.ToString();
+                //获取文件名，不带路径
+                fileNameExt = localFilePath.Substring(localFilePath.LastIndexOf("\\") + 1);
+                //获取文件路径，不带文件名
+                FilePath = localFilePath.Substring(0, localFilePath.LastIndexOf("\\"));
+                //给文件名前加上时间
+                //newFileName = DateTime.Now.ToString("yyyyMMdd") + fileNameExt;
+                //在文件名里加字符
+                //saveFileDialog.FileName.Insert(1,"dameng");
+                //为用户使用 SaveFileDialog 选定的文件名创建读/写文件流。
+                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();//输出文件
+                                                                                          //fs可以用于其他要写入的操作
+
+                StreamWriter writer0 = new StreamWriter(fs, Encoding.UTF8);
+                writer0.WriteLine(data);
+                writer0.Flush(); // 使得所有缓冲的数据都写入到文件中
+                fs.Close(); // 方法关闭当前文件流
+            }
+
+        }
+
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string data = "";
+
+            foreach (DataRow dataRow in DTCANRxScroll.Rows)
+            {
+                data += dataRow[0].ToString() + " : ";
+                data += dataRow[1].ToString() + "     ";
+                data += dataRow[2].ToString() + "     ";
+                data += dataRow[3].ToString() + "     ";
+                data += dataRow[4].ToString() + "     ";
+                data += dataRow[5].ToString() + "     ";
+                data += "\r\n\r\n";
+            }
+            SaveFile(data);
+
         }
     }
 }

@@ -98,5 +98,10 @@ namespace DiagTool_Kanwairen
         {
             Global.nrcTableForm.Show();          /* MainWindow can be operated. */
         }
+
+        private void scriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.scriptForm.Show();          /* MainWindow can be operated. */
+        }
     }
 }

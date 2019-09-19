@@ -102,3 +102,4 @@ E:\ToolCode\Diag_Tool\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Ka
 E:\ToolCode\Diag_Tool\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.csproj.GenerateResource.Cache
 D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.ToASCIIForm.resources
 D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.NRCTableForm.resources
+D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.ScriptForm.resources
