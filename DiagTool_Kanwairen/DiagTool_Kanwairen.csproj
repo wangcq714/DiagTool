@@ -99,6 +99,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Dll.cs" />
+    <Compile Include="DTCTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DTCTestForm.Designer.cs">
+      <DependentUpon>DTCTestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlashUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </Compile>
     <EmbeddedResource Include="DiagUserControl.resx">
       <DependentUpon>DiagUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DTCTestForm.resx">
+      <DependentUpon>DTCTestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FlashUserControl.resx">
       <DependentUpon>FlashUserControl.cs</DependentUpon>

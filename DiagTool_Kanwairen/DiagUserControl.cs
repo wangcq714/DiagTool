@@ -70,6 +70,13 @@ namespace DiagTool_Kanwairen
             set { this.ResIDTextBox.Text = value; }
         }
 
+        /*Define external access port for this.RxDataTextBox.Text*/
+        public string RxDataTextBox_Text
+        {
+            get { return this.RxDataTextBox.Text; }
+            set { this.RxDataTextBox.Text = value; }
+        }
+
         /*DeviceConnectInit init*/
         public retstate DeviceConnectInit(List<J2534Device> availableJ2534Devices, Action<List<J2534Device>> Callback)
         {
@@ -221,6 +228,7 @@ namespace DiagTool_Kanwairen
             Global.diagUsercontrol.DTCANRxScroll.Clear();
         }
 
+        /* This fun come from "https://www.cnblogs.com/liao290161655/p/8047344.html" */
         private void SaveFile(string data)
         {
             string localFilePath = "", fileNameExt = "", newFileName = "", FilePath = "";

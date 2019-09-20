@@ -46,6 +46,7 @@
             this.DiagLabel = new System.Windows.Forms.Label();
             this.FlashLabel = new System.Windows.Forms.Label();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
+            this.dTCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +91,8 @@
             // NetworksToolStripMenuItem
             // 
             this.NetworksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TxPanelToolStripMenuItem});
+            this.TxPanelToolStripMenuItem,
+            this.dTCToolStripMenuItem});
             this.NetworksToolStripMenuItem.Name = "NetworksToolStripMenuItem";
             this.NetworksToolStripMenuItem.Size = new System.Drawing.Size(76, 21);
             this.NetworksToolStripMenuItem.Text = "Networks";
@@ -98,7 +100,7 @@
             // TxPanelToolStripMenuItem
             // 
             this.TxPanelToolStripMenuItem.Name = "TxPanelToolStripMenuItem";
-            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.TxPanelToolStripMenuItem.Text = "TxPanel";
             this.TxPanelToolStripMenuItem.Click += new System.EventHandler(this.TxPanelToolStripMenuItem_Click);
             // 
@@ -199,6 +201,13 @@
             this.MainGroupBox.TabIndex = 13;
             this.MainGroupBox.TabStop = false;
             // 
+            // dTCToolStripMenuItem
+            // 
+            this.dTCToolStripMenuItem.Name = "dTCToolStripMenuItem";
+            this.dTCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dTCToolStripMenuItem.Text = "DTC";
+            this.dTCToolStripMenuItem.Click += new System.EventHandler(this.dTCToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -242,6 +251,7 @@
         private System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toASCIIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nRCToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dTCToolStripMenuItem;
     }
 }
 

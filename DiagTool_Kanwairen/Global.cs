@@ -23,6 +23,7 @@ namespace DiagTool_Kanwairen
         public static ToASCIIForm toASCIIForm = new ToASCIIForm();
         public static NRCTableForm nrcTableForm = new NRCTableForm();
         public static ScriptForm scriptForm = new ScriptForm();
+        public static DTCTestForm dtcTestForm = new DTCTestForm();
 
         public static Diag diag = new Diag();
 

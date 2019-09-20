@@ -103,5 +103,10 @@ namespace DiagTool_Kanwairen
         {
             Global.scriptForm.Show();          /* MainWindow can be operated. */
         }
+
+        private void dTCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.dtcTestForm.Show();          /* MainWindow can be operated. */
+        }
     }
 }

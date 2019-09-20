@@ -26,12 +26,17 @@ namespace DiagTool_Kanwairen
 
         private void RunScript()
         {
-            string[] cmdarry = this.ScriptTextBox.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string cmd in cmdarry)
+            if(this.ScriptTextBox.Text != "")
             {
-                Global.passThruWrapper.TxMsg(Global.diagUsercontrol.ReqIDTextBox_Text, cmd.Trim(), Global.diagUsercontrol.TxRxMsgUpdateDiagDataGridViewCallback);
-                Thread.Sleep(100);
+                string[] cmdarry = this.ScriptTextBox.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+                foreach (string cmd in cmdarry)
+                {
+                    Global.passThruWrapper.TxMsg(Global.diagUsercontrol.ReqIDTextBox_Text, cmd.Trim(), Global.diagUsercontrol.TxRxMsgUpdateDiagDataGridViewCallback);
+                    Thread.Sleep(100);
+                }
             }
+            
         }
 
         private void RunButton_Click(object sender, EventArgs e)
