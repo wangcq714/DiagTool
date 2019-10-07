@@ -146,11 +146,11 @@
       <DependentUpon>SetupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="ToASCIIForm.cs">
+    <Compile Include="HexASCIIForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ToASCIIForm.Designer.cs">
-      <DependentUpon>ToASCIIForm.cs</DependentUpon>
+    <Compile Include="HexASCIIForm.Designer.cs">
+      <DependentUpon>HexASCIIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TxPanelForm.cs">
       <SubType>Form</SubType>
@@ -192,8 +192,8 @@
     <EmbeddedResource Include="SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ToASCIIForm.resx">
-      <DependentUpon>ToASCIIForm.cs</DependentUpon>
+    <EmbeddedResource Include="HexASCIIForm.resx">
+      <DependentUpon>HexASCIIForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TxPanelForm.resx">
       <DependentUpon>TxPanelForm.cs</DependentUpon>

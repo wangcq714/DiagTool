@@ -35,6 +35,7 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NetworksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dTCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@
             this.DiagLabel = new System.Windows.Forms.Label();
             this.FlashLabel = new System.Windows.Forms.Label();
             this.MainGroupBox = new System.Windows.Forms.GroupBox();
-            this.dTCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,9 +100,16 @@
             // TxPanelToolStripMenuItem
             // 
             this.TxPanelToolStripMenuItem.Name = "TxPanelToolStripMenuItem";
-            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.TxPanelToolStripMenuItem.Text = "TxPanel";
             this.TxPanelToolStripMenuItem.Click += new System.EventHandler(this.TxPanelToolStripMenuItem_Click);
+            // 
+            // dTCToolStripMenuItem
+            // 
+            this.dTCToolStripMenuItem.Name = "dTCToolStripMenuItem";
+            this.dTCToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.dTCToolStripMenuItem.Text = "DTC";
+            this.dTCToolStripMenuItem.Click += new System.EventHandler(this.dTCToolStripMenuItem_Click);
             // 
             // AutoToolStripMenuItem
             // 
@@ -115,7 +122,7 @@
             // scriptToolStripMenuItem
             // 
             this.scriptToolStripMenuItem.Name = "scriptToolStripMenuItem";
-            this.scriptToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.scriptToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.scriptToolStripMenuItem.Text = "Script";
             this.scriptToolStripMenuItem.Click += new System.EventHandler(this.scriptToolStripMenuItem_Click);
             // 
@@ -146,14 +153,14 @@
             // toASCIIToolStripMenuItem
             // 
             this.toASCIIToolStripMenuItem.Name = "toASCIIToolStripMenuItem";
-            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.toASCIIToolStripMenuItem.Text = "ToASCII";
+            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toASCIIToolStripMenuItem.Text = "HexToAscii";
             this.toASCIIToolStripMenuItem.Click += new System.EventHandler(this.ToASCIIToolStripMenuItem_Click);
             // 
             // nRCToolStripMenuItem
             // 
             this.nRCToolStripMenuItem.Name = "nRCToolStripMenuItem";
-            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nRCToolStripMenuItem.Text = "NRC Table";
             this.nRCToolStripMenuItem.Click += new System.EventHandler(this.nRCToolStripMenuItem_Click);
             // 
@@ -200,13 +207,6 @@
             this.MainGroupBox.Size = new System.Drawing.Size(880, 600);
             this.MainGroupBox.TabIndex = 13;
             this.MainGroupBox.TabStop = false;
-            // 
-            // dTCToolStripMenuItem
-            // 
-            this.dTCToolStripMenuItem.Name = "dTCToolStripMenuItem";
-            this.dTCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dTCToolStripMenuItem.Text = "DTC";
-            this.dTCToolStripMenuItem.Click += new System.EventHandler(this.dTCToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

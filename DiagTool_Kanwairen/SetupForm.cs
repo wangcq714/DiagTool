@@ -39,5 +39,12 @@ namespace DiagTool_Kanwairen
             get { return this.BaudRateComboBox.Text; }
             set { this.BaudRateComboBox.Text = value; }
         }
+
+        /*Define external access port for this.ScriptTimeIntervalTextBox.Text*/
+        public string ScriptTimeIntervalTextBox_Text
+        {
+            get { return this.ScriptTimeIntervalTextBox.Text; }
+            set { this.ScriptTimeIntervalTextBox.Text = value; }
+        }
     }
 }

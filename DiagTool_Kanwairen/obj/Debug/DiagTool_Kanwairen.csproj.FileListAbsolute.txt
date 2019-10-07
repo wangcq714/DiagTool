@@ -104,3 +104,7 @@ D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.To
 D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.NRCTableForm.resources
 D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.ScriptForm.resources
 D:\ToolCode\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.DTCTestForm.resources
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.DTCTestForm.resources
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.NRCTableForm.resources
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.ScriptForm.resources
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\DiagTool_Kanwairen\obj\Debug\DiagTool_Kanwairen.HexASCIIForm.resources

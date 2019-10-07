@@ -88,22 +88,25 @@ namespace DiagTool_Kanwairen
             this.Close();
         }
 
-        /*Click Tool->ToASCII*/
+        /* Click Tool->ToASCII*/
         private void ToASCIIToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Global.toASCIIForm.Show();          /* MainWindow can be operated. */
+            Global.hexAsciiForm.Show();          /* MainWindow can be operated. */
         }
 
+        /* Click Tool->NRCTable*/
         private void nRCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Global.nrcTableForm.Show();          /* MainWindow can be operated. */
         }
 
+        /* Click Auto->Script */
         private void scriptToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Global.scriptForm.Show();          /* MainWindow can be operated. */
         }
 
+        /* Click Networks->DTC */
         private void dTCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Global.dtcTestForm.Show();          /* MainWindow can be operated. */
