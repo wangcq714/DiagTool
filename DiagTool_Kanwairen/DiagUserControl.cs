@@ -14,7 +14,9 @@ namespace DiagTool_Kanwairen
 {
     public partial class DiagUserControl : UserControl
     {
-        retstate retVal;
+        public bool isCallKeyToSeedDll = false;
+        public byte subFunctionSeedkey = 0;
+        private retstate retVal;
         public DataTable DTCANRxScroll = new DataTable();
 
         public DiagUserControl()
@@ -203,13 +205,15 @@ namespace DiagTool_Kanwairen
         /*Click SecurityAccessButton*/
         private void SecurityAccessButton_Click(object sender, EventArgs e)
         {
-            string dataStr = "27";
+            string dataStr = "27 ";
 
             /* if not connect device, return */
             if (!Global.passThruWrapper.IsConnectDevice)
                 return;
 
-            dataStr += " " + SecurityAccessComboBox.Text.Substring(3, 2);
+            isCallKeyToSeedDll = true;
+            subFunctionSeedkey = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
+            dataStr += SecurityAccessComboBox.Text.Substring(3, 2);
             Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
         }
 

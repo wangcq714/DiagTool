@@ -58,3 +58,8 @@ E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\bin\Debug\J2534DotNet
 E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\obj\Debug\J2534DotNet.dll
 E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\obj\Debug\J2534DotNet.pdb
 E:\ToolCode\Diag_Tool\Diag_Tool_leon_kanwairen\J2534DotNet\obj\Debug\J2534DotNet.csprojResolveAssemblyReference.cache
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\J2534DotNet\bin\Debug\J2534DotNet.dll
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\J2534DotNet\bin\Debug\J2534DotNet.pdb
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\J2534DotNet\obj\Debug\J2534DotNet.csprojResolveAssemblyReference.cache
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\J2534DotNet\obj\Debug\J2534DotNet.dll
+E:\ToolCode\Diag_Tool\DiagTool\DiagTool\J2534DotNet\obj\Debug\J2534DotNet.pdb

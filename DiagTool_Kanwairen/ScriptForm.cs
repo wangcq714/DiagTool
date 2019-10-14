@@ -29,6 +29,8 @@ namespace DiagTool_Kanwairen
         private void parseScript(string[] cmdarry, int time)
         {
             bool preCmdIsSleep = false;  // Represent previous cmd is or not Sleep(n)
+            int indexCmd = 0;
+            int numCmd = cmdarry.Length;
 
             foreach (string cmd in cmdarry)
             {
@@ -39,6 +41,20 @@ namespace DiagTool_Kanwairen
                     {
                         Thread.Sleep(time);
                     }
+                    if (Regex.IsMatch(cmd, "27 [0-9]{2}"))
+                    {
+                        if (indexCmd < numCmd)
+                        {
+                            if (Regex.IsMatch(cmdarry[indexCmd + 1], "27 [0-9]{2}=67 [0-9]{2}"))
+                            {
+                                indexCmd++;
+                                Global.diagUsercontrol.isCallKeyToSeedDll = true;
+                                Global.diagUsercontrol.subFunctionSeedkey = (byte)Convert.ToInt32(cmdarry[indexCmd + 1].Substring(3, 2), 16);
+                            }
+                            
+                        }
+                    }
+                    
                     Global.passThruWrapper.TxMsg(Global.diagUsercontrol.ReqIDTextBox_Text, cmd.Trim(), Global.diagUsercontrol.TxRxMsgUpdateDiagDataGridViewCallback);
                 }
                 else
@@ -46,6 +62,7 @@ namespace DiagTool_Kanwairen
                     Thread.Sleep(time);
                     preCmdIsSleep = true;
                 }
+                indexCmd++;
             }
         }
 
