@@ -49,6 +49,32 @@ namespace DiagTool_Kanwairen
             }
         }
 
+        private delegate void DoRxDataTextBoxText(string text);
+        /* This method demonstrates a pattern for making thread-safe
+         * calls on a Windows Forms control. 
+         * If the calling thread is different from the thread that
+         * created the TextBox control, this method creates a
+         * SetTextCallback and calls itself asynchronously using the
+         * Invoke method.
+         * If the calling thread is the same as the thread that created
+         * the TextBox control, the Text property is set directly. */
+        private void UpdateRxDataTextBoxText(string text)
+        {
+            /* InvokeRequired required compares the thread ID of the
+             * calling thread to the thread ID of the creating thread.
+             * If these threads are different, it returns true. */
+            if (this.RxDataTextBox.InvokeRequired)
+            {
+                DoRxDataTextBoxText UpdateText = new DoRxDataTextBoxText(UpdateRxDataTextBoxText);
+                this.Invoke(UpdateText, new object[] { text });
+            }
+            else
+            {
+                RxDataTextBox.Text = text;
+
+            }
+        }
+
         /*TxRxMsg callback*/
         public void TxRxMsgUpdateDiagDataGridViewCallback(string strDataID, int strDateLen, string strDatebyte, string type)
         {
@@ -72,18 +98,15 @@ namespace DiagTool_Kanwairen
 
             //canRow[1] = ((float)(rxMsgs[k].Timestamp - INIT_Timestamp) / 1000).ToString("F2");//float 保留两位小数？
             Global.diagUsercontrol.DTCANRxScroll.Rows.Add(canRow);
-            //Global.diagUsercontrol.DTCANRxScroll.AcceptChanges();
-            ////INIT_Timestamp = rxMsgs[k].Timestamp;
-            //this.TxRxDataGridView.FirstDisplayedScrollingRowIndex = this.TxRxDataGridView.RowCount - 1;
 
             UpdateFirstDisplayedScrollingRowIndex(this.TxRxDataGridView.RowCount - 1);
 
             /* Regardless of Tx or Rx, clear RxDataTextBox. */
-            RxDataTextBox.Text = "";
+            UpdateRxDataTextBoxText("");
             /* if Recieve Msg， update RxDataTextBox. */
             if (type == "Rx")
             {
-                RxDataTextBox.Text = strDatebyte;
+                UpdateRxDataTextBoxText(strDatebyte);
             }
         }
 

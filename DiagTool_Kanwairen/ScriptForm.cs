@@ -32,37 +32,40 @@ namespace DiagTool_Kanwairen
             int indexCmd = 0;
             int numCmd = cmdarry.Length;
 
-            foreach (string cmd in cmdarry)
+            for(indexCmd=0; indexCmd < numCmd; indexCmd++)
             {
-                if (!Regex.IsMatch(cmd, @"Sleep\([0-9]+\)"))
+                if (!Regex.IsMatch(cmdarry[indexCmd], @"Sleep\([0-9]+\)"))
                 {
                     /* If previous cmd is not Sleep(n), then sleep by default time interval */
                     if (!preCmdIsSleep)
                     {
                         Thread.Sleep(time);
                     }
-                    if (Regex.IsMatch(cmd, "27 [0-9]{2}"))
+                    if (Regex.IsMatch(cmdarry[indexCmd], "^27 [0-9]{2}$"))
                     {
-                        if (indexCmd < numCmd)
+                        
+                        if (indexCmd < numCmd -1)
                         {
-                            if (Regex.IsMatch(cmdarry[indexCmd + 1], "27 [0-9]{2}=67 [0-9]{2}"))
-                            {
-                                indexCmd++;
+                            if (Regex.IsMatch(cmdarry[indexCmd + 1], "^27 [0-9]{2}=67 [0-9]{2}$"))
+                            {                                
                                 Global.diagUsercontrol.isCallKeyToSeedDll = true;
-                                Global.diagUsercontrol.subFunctionSeedkey = (byte)Convert.ToInt32(cmdarry[indexCmd + 1].Substring(3, 2), 16);
+                                
+                                Global.diagUsercontrol.subFunctionSeedkey = (byte)Convert.ToInt32(cmdarry[indexCmd].Substring(3, 2), 16);
                             }
                             
                         }
                     }
-                    
-                    Global.passThruWrapper.TxMsg(Global.diagUsercontrol.ReqIDTextBox_Text, cmd.Trim(), Global.diagUsercontrol.TxRxMsgUpdateDiagDataGridViewCallback);
+                    if (Regex.IsMatch(cmdarry[indexCmd], @"^27 [0-9]{2}=67 [0-9]{2}$"))
+                    {
+                        continue;
+                    }
+                    Global.passThruWrapper.TxMsg(Global.diagUsercontrol.ReqIDTextBox_Text, cmdarry[indexCmd].Trim(), Global.diagUsercontrol.TxRxMsgUpdateDiagDataGridViewCallback);
                 }
                 else
                 {
-                    Thread.Sleep(time);
+                    Thread.Sleep(Convert.ToInt32(cmdarry[indexCmd].Substring(6, cmdarry[indexCmd].Length - 7)));
                     preCmdIsSleep = true;
                 }
-                indexCmd++;
             }
         }
 
@@ -74,12 +77,37 @@ namespace DiagTool_Kanwairen
             if(this.ScriptTextBox.Text != "")
             {
                 string[] cmdarry = this.ScriptTextBox.Text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-                while(this.LoopCheckBox.Checked)
+                do
                 {
                     parseScript(cmdarry, time);
-                }             
+                } while (this.LoopCheckBox.Checked);
             }
             
+        }
+
+        private delegate void DoLoopTextBoxText(string text);
+        /* This method demonstrates a pattern for making thread-safe
+         * calls on a Windows Forms control. 
+         * If the calling thread is different from the thread that
+         * created the TextBox control, this method creates a
+         * SetTextCallback and calls itself asynchronously using the
+         * Invoke method.
+         * If the calling thread is the same as the thread that created
+         * the TextBox control, the Text property is set directly. */
+        private void UpdateLoopTextBoxText(string text)
+        {
+            /* InvokeRequired required compares the thread ID of the
+             * calling thread to the thread ID of the creating thread.
+             * If these threads are different, it returns true. */
+            if (this.LoopTextBox.InvokeRequired)
+            {
+                DoLoopTextBoxText UpdateText = new DoLoopTextBoxText(UpdateLoopTextBoxText);
+                this.Invoke(UpdateText, new object[] { text });
+            }
+            else
+            {
+                this.LoopTextBox.Text = text;
+            }
         }
 
         /* Loop script thread */
@@ -93,8 +121,7 @@ namespace DiagTool_Kanwairen
                 while (Convert.ToInt32(this.LoopTextBox.Text) > 0)
                 {
                     /* Loop count subtract 1 and update LoopTextBox.Text */
-                    this.LoopTextBox.Text = (Convert.ToInt32(this.LoopTextBox.Text) - 1).ToString();
-
+                    UpdateLoopTextBoxText((Convert.ToInt32(this.LoopTextBox.Text) - 1).ToString());
                     parseScript(cmdarry, time);
                 }
 
