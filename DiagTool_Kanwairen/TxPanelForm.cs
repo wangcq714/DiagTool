@@ -48,10 +48,6 @@ namespace DiagTool_Kanwairen
             string msgData = "";
             int msgDataLen = 0;
 
-            /* if not connect device, return */
-            if (!Global.passThruWrapper.IsConnectDevice)
-                return;
-
             /* Get ID */
             msgID = TxPanelDataGridView.Rows[RowIndex].Cells["AbrID"].EditedFormattedValue.ToString().Trim();
             /* Get data length */

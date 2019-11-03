@@ -125,6 +125,13 @@ namespace DiagTool_Kanwairen
 
         public void TxMsg(string msgID, string msgData, Action<string, int, string, string> Callback)
         {
+            /* if not connect device, return */
+            if (!IsConnectDevice)
+            {
+                MessageBox.Show("Please connect device！", "Error");
+                return;
+            }
+                
             string strDatebyte = "";
             int ID = Convert.ToInt32(msgID.Trim(), 16);
             string[] dataStr = msgData.Trim().Split(' ');
@@ -136,7 +143,7 @@ namespace DiagTool_Kanwairen
 
             for (int i = 0; i < dataStr.Length; i++)
             {
-                byteStr[i + 4] = Convert.ToInt32(dataStr[i], 16);
+                byteStr[i + 4] = Convert.ToInt32("0x" + dataStr[i], 16);
             }
 
             PassThruMsg TxMsg = new PassThruMsg();
@@ -163,7 +170,7 @@ namespace DiagTool_Kanwairen
 
         }
 
-        public void RxMsg(TextBox ResponseID, Action<string, int, string, string> Callback, Action<byte[]> CallDllCallback)
+        public void RxMsg(TextBox ResponseID, Action<string, int, string, string> Callback, Action<byte[]> CallDllCallback, Action<byte[]> CallSyncCallback)
         {
             int numMsgs = 100;
             int msgCount = 0;
@@ -198,7 +205,9 @@ namespace DiagTool_Kanwairen
                             /*Update UI*/
                             Callback(strDataID.TrimStart('0'), rxMsgs[k].Data.Length - 4, strDatebyte, "Rx");
                             /*calldll caculate  key by receive seed*/
-                            CallDllCallback(rxMsgs[k].Data); 
+                            CallDllCallback(rxMsgs[k].Data);
+                            /* synchronous rx data for other module */
+                            CallSyncCallback(rxMsgs[k].Data);
                         }
                         else
                         {

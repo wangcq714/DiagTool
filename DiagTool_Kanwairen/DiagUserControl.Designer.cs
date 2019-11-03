@@ -99,19 +99,19 @@
             this.ClearToolStripMenuItem,
             this.SaveToolStripMenuItem});
             this.ContextMenuStripForDiagDataGridView.Name = "ContextMenuStripForDiagDataGridView";
-            this.ContextMenuStripForDiagDataGridView.Size = new System.Drawing.Size(153, 70);
+            this.ContextMenuStripForDiagDataGridView.Size = new System.Drawing.Size(107, 48);
             // 
             // ClearToolStripMenuItem
             // 
             this.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem";
-            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ClearToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.ClearToolStripMenuItem.Text = "Clear";
             this.ClearToolStripMenuItem.Click += new System.EventHandler(this.ClearToolStripMenuItem_Click);
             // 
             // SaveToolStripMenuItem
             // 
             this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
-            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.SaveToolStripMenuItem.Text = "Save";
             this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
@@ -268,6 +268,7 @@
             // 
             // DeviceSelectComboBox
             // 
+            this.DeviceSelectComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DeviceSelectComboBox.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeviceSelectComboBox.FormattingEnabled = true;
             this.DeviceSelectComboBox.Location = new System.Drawing.Point(88, 24);

@@ -144,15 +144,12 @@ namespace DiagTool_Kanwairen
         /*Trigger RxMsgTimer for Rx Msg*/
         private void RxMsgTimer_Tick(object sender, EventArgs e)
         {
-            Global.passThruWrapper.RxMsg(ResIDTextBox, TxRxMsgUpdateDiagDataGridViewCallback, TxRxMsgCallDllCallback);
+            Global.passThruWrapper.RxMsg(ResIDTextBox, TxRxMsgUpdateDiagDataGridViewCallback, TxRxMsgCallDllCallback, TxRxMsgCallSyncCallback);
         }
 
         /*Trigger TestPresentTimer for Tx TestPresent Msg periodically */
         private void TestPresentTimer_Tick(object sender, EventArgs e)
         {
-            /* if not connect device, return */
-            if (!Global.passThruWrapper.IsConnectDevice)
-                return;
             /* if ReqID is empty, return */
             if (ReqIDTextBox.Text.Trim() == "")
                 return;
@@ -184,9 +181,6 @@ namespace DiagTool_Kanwairen
         /*Click SendButton*/
         private void SendButton_Click(object sender, EventArgs e)
         {
-            /* if not connect device, return */
-            if (!Global.passThruWrapper.IsConnectDevice)
-                return;
             /* if ReqID or Txdata is empty, return */
             if ((ReqIDTextBox.Text.Trim() == "") || (TxDataTextBox.Text.Trim() == ""))
                 return;
@@ -206,10 +200,6 @@ namespace DiagTool_Kanwairen
         private void SecurityAccessButton_Click(object sender, EventArgs e)
         {
             string dataStr = "27 ";
-
-            /* if not connect device, return */
-            if (!Global.passThruWrapper.IsConnectDevice)
-                return;
 
             isCallKeyToSeedDll = true;
             subFunctionSeedkey = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);

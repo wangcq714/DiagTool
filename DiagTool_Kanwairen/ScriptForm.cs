@@ -132,10 +132,6 @@ namespace DiagTool_Kanwairen
         /* Click Run button */
         private void RunButton_Click(object sender, EventArgs e)
         {
-            /* if not connect device, return */
-            if (!Global.passThruWrapper.IsConnectDevice)
-                return;
-
             /* Build a new thread to run script */
             Thread childThread = new Thread(RunScript);
             childThread.Start(Global.setupForm.ScriptTimeIntervalTextBox_Text);
@@ -144,10 +140,6 @@ namespace DiagTool_Kanwairen
         /* Click Loop button */
         private void LoopButton_Click(object sender, EventArgs e)
         {
-            /* if not connect device, return */
-            if (!Global.passThruWrapper.IsConnectDevice)
-                return;
-
             /* Build a new thread to run loop script */
             Thread childThread = new Thread(LoopScript);
             childThread.Start(Global.setupForm.ScriptTimeIntervalTextBox_Text);
