@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>发布\</PublishUrl>
+    <PublishUrl>C:\Users\Cunqiang.Wang\Desktop\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,9 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,7 +41,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -48,6 +49,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0B9B8867341F1B0C6C38174EEA311C33826CCA65</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>DiagTool_Kanwairen_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GKarch.Glace.Auth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
@@ -76,6 +89,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -88,6 +102,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComputerInfo.cs" />
     <Compile Include="Diag.cs" />
     <Compile Include="DiagUserControl.cs">
       <SubType>UserControl</SubType>
@@ -105,6 +126,7 @@
     <Compile Include="DTCTestForm.Designer.cs">
       <DependentUpon>DTCTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Encryption.cs" />
     <Compile Include="FlashUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +139,7 @@
     <Compile Include="ImportForm.Designer.cs">
       <DependentUpon>ImportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LicenseManagement.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +162,7 @@
     <Compile Include="ReadDTCForm.Designer.cs">
       <DependentUpon>ReadDTCForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegistFile.cs" />
     <Compile Include="ScriptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +188,9 @@
     <Compile Include="TxPanelForm.Designer.cs">
       <DependentUpon>TxPanelForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DiagUserControl.resx">
       <DependentUpon>DiagUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +234,7 @@
     <EmbeddedResource Include="TxPanelForm.resx">
       <DependentUpon>TxPanelForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DiagTool_Kanwairen_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Diag.datasource" />
     <None Include="Properties\Settings.settings">

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diag_Tool_leon", "Diag_Tool_leon\Diag_Tool_leon.csproj", "{6CAAE3EE-1AE3-4DB7-B0AD-8C7C562283E2}"
 EndProject
@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagTool_Kanwairen", "DiagT
 	ProjectSection(ProjectDependencies) = postProject
 		{C85973CB-AA27-4F7D-92B1-8363F0658D9C} = {C85973CB-AA27-4F7D-92B1-8363F0658D9C}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keygen", "Keygen\Keygen.csproj", "{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +54,18 @@ Global
 		{A423FA14-D7B8-41A8-9BBA-4B3A50AA31D6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A423FA14-D7B8-41A8-9BBA-4B3A50AA31D6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A423FA14-D7B8-41A8-9BBA-4B3A50AA31D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Debug|x86.Build.0 = Debug|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D1EE3BA8-CD68-443A-9C2F-72A88164DD8A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

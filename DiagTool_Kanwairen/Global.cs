@@ -25,6 +25,8 @@ namespace DiagTool_Kanwairen
         public static ScriptForm scriptForm = new ScriptForm();
         public static DTCTestForm dtcTestForm = new DTCTestForm();
         public static ReadDTCForm readDTCForm = new ReadDTCForm();
+        public static AboutForm aboutForm = new AboutForm();
+        public static LicenseManagement licenseManagement = new LicenseManagement();
 
         public static Diag diag = new Diag();
 

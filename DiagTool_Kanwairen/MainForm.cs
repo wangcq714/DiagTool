@@ -11,25 +11,31 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
-
-
+using System.IO;
 
 namespace DiagTool_Kanwairen
 {
     public partial class MainWindow : Form
-    {
+    {        
         public MainWindow()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;// Disable security check for multithread modify UI
             //Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.RealTime; //seemingly it has no effect at all.
+            
+
         }
 
         /*Run before display*/
         private void MainWindowLoad(object sender, EventArgs e)
         {
+            if (!Global.licenseManagement.LicenseCheck())
+            {
+                this.Close();
+            }
             Global.diagUsercontrol.Show();
             MainGroupBox.Controls.Clear();
-            MainGroupBox.Controls.Add(Global.diagUsercontrol);
+            MainGroupBox.Controls.Add(Global.diagUsercontrol);            
         }
 
         /*DiagWin Display*/
@@ -112,9 +118,24 @@ namespace DiagTool_Kanwairen
             Global.dtcTestForm.Show();          /* MainWindow can be operated. */
         }
 
+        /* Click Tool->ReadDTC */
         private void readDTCToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Global.readDTCForm.Show();          /* MainWindow can be operated. */
         }
+
+        /* Click Help->About */
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.aboutForm.Show();          /* MainWindow can be operated. */
+        }
+
+        /* Click Help->Register */
+        private void registerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.licenseManagement.Register();
+        }
+
+        
     }
 }

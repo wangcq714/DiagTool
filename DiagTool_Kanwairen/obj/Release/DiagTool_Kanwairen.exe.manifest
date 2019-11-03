@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DiagTool_Kanwairen.exe" size="178096">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DiagTool_Kanwairen.exe" size="173488">
       <assemblyIdentity name="DiagTool_Kanwairen" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>x+kMQ+kZbCZoER3kbKBuK7VrsRM=</dsig:DigestValue>
+        <dsig:DigestValue>zW/a7eKJc8K4oN4idSPairsYXTo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,14 +138,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="J2534DotNet.dll" size="25088">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="J2534DotNet.dll" size="24064">
       <assemblyIdentity name="J2534DotNet" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rYyX1XMPpDJlJ+2ATIk6d+mALbY=</dsig:DigestValue>
+        <dsig:DigestValue>CQp2rR3X5Uljc+Klz4xXHxwLEwM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

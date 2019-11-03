@@ -23,3 +23,8 @@ D:\J2435 Device\J3534 Tool_54_V3.1.2\J2534DotNet\bin\Release\J2534DotNet.pdb
 D:\J2435 Device\J3534 Tool_54_V3.1.2\J2534DotNet\obj\Release\ResolveAssemblyReference.cache
 D:\J2435 Device\J3534 Tool_54_V3.1.2\J2534DotNet\obj\Release\J2534DotNet.dll
 D:\J2435 Device\J3534 Tool_54_V3.1.2\J2534DotNet\obj\Release\J2534DotNet.pdb
+D:\ToolCode\DiagTool\DiagTool3\DiagTool\J2534DotNet\bin\Release\J2534DotNet.dll
+D:\ToolCode\DiagTool\DiagTool3\DiagTool\J2534DotNet\bin\Release\J2534DotNet.pdb
+D:\ToolCode\DiagTool\DiagTool3\DiagTool\J2534DotNet\obj\Release\J2534DotNet.csprojResolveAssemblyReference.cache
+D:\ToolCode\DiagTool\DiagTool3\DiagTool\J2534DotNet\obj\Release\J2534DotNet.dll
+D:\ToolCode\DiagTool\DiagTool3\DiagTool\J2534DotNet\obj\Release\J2534DotNet.pdb
