@@ -41,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TxPanelForm));
             this.TxPanelDataGridView = new System.Windows.Forms.DataGridView();
             this.Tx = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Auto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -241,6 +242,7 @@
             this.ClientSize = new System.Drawing.Size(514, 262);
             this.Controls.Add(this.TxPanelDataGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TxPanelForm";
             this.Text = "TxPanel";

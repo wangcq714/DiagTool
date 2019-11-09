@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HexASCIIForm));
             this.HexTextBox = new System.Windows.Forms.TextBox();
             this.ASCIITextBox = new System.Windows.Forms.TextBox();
             this.ToASCIIButton = new System.Windows.Forms.Button();
@@ -100,6 +101,7 @@
             this.Controls.Add(this.ASCIITextBox);
             this.Controls.Add(this.HexTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "HexASCIIForm";
             this.Text = "Hex&&ASCII";

@@ -96,10 +96,11 @@
             this.Controls.Add(this.DllSelectButton);
             this.Controls.Add(this.DllPathnameTextBox);
             this.Controls.Add(this.DllPathnameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImportFormClosing);
             this.Name = "ImportForm";
             this.Text = "Import";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImportFormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

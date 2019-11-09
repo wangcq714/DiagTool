@@ -35,7 +35,6 @@
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NetworksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dTCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AutoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,8 +93,7 @@
             // NetworksToolStripMenuItem
             // 
             this.NetworksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TxPanelToolStripMenuItem,
-            this.dTCToolStripMenuItem});
+            this.TxPanelToolStripMenuItem});
             this.NetworksToolStripMenuItem.Name = "NetworksToolStripMenuItem";
             this.NetworksToolStripMenuItem.Size = new System.Drawing.Size(76, 21);
             this.NetworksToolStripMenuItem.Text = "Networks";
@@ -103,16 +101,9 @@
             // TxPanelToolStripMenuItem
             // 
             this.TxPanelToolStripMenuItem.Name = "TxPanelToolStripMenuItem";
-            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.TxPanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.TxPanelToolStripMenuItem.Text = "TxPanel";
             this.TxPanelToolStripMenuItem.Click += new System.EventHandler(this.TxPanelToolStripMenuItem_Click);
-            // 
-            // dTCToolStripMenuItem
-            // 
-            this.dTCToolStripMenuItem.Name = "dTCToolStripMenuItem";
-            this.dTCToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.dTCToolStripMenuItem.Text = "DTC";
-            this.dTCToolStripMenuItem.Click += new System.EventHandler(this.dTCToolStripMenuItem_Click);
             // 
             // AutoToolStripMenuItem
             // 
@@ -125,7 +116,7 @@
             // scriptToolStripMenuItem
             // 
             this.scriptToolStripMenuItem.Name = "scriptToolStripMenuItem";
-            this.scriptToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.scriptToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.scriptToolStripMenuItem.Text = "Script";
             this.scriptToolStripMenuItem.Click += new System.EventHandler(this.scriptToolStripMenuItem_Click);
             // 
@@ -140,16 +131,16 @@
             // HardwareToolStripMenuItem
             // 
             this.HardwareToolStripMenuItem.Name = "HardwareToolStripMenuItem";
-            this.HardwareToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.HardwareToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.HardwareToolStripMenuItem.Text = "Setup";
             this.HardwareToolStripMenuItem.Click += new System.EventHandler(this.HardwareToolStripMenuItem_Click);
             // 
             // ToolsToolStripMenuItem
             // 
             this.ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.readDTCToolStripMenuItem,
             this.toASCIIToolStripMenuItem,
-            this.nRCToolStripMenuItem,
-            this.readDTCToolStripMenuItem});
+            this.nRCToolStripMenuItem});
             this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
             this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.ToolsToolStripMenuItem.Text = "Tools";
@@ -157,21 +148,21 @@
             // toASCIIToolStripMenuItem
             // 
             this.toASCIIToolStripMenuItem.Name = "toASCIIToolStripMenuItem";
-            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.toASCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.toASCIIToolStripMenuItem.Text = "HexToAscii";
             this.toASCIIToolStripMenuItem.Click += new System.EventHandler(this.ToASCIIToolStripMenuItem_Click);
             // 
             // nRCToolStripMenuItem
             // 
             this.nRCToolStripMenuItem.Name = "nRCToolStripMenuItem";
-            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nRCToolStripMenuItem.Text = "NRC Table";
             this.nRCToolStripMenuItem.Click += new System.EventHandler(this.nRCToolStripMenuItem_Click);
             // 
             // readDTCToolStripMenuItem
             // 
             this.readDTCToolStripMenuItem.Name = "readDTCToolStripMenuItem";
-            this.readDTCToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.readDTCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.readDTCToolStripMenuItem.Text = "ReadDTC";
             this.readDTCToolStripMenuItem.Click += new System.EventHandler(this.readDTCToolStripMenuItem_Click);
             // 
@@ -187,14 +178,14 @@
             // registerToolStripMenuItem
             // 
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.registerToolStripMenuItem.Text = "Register";
             this.registerToolStripMenuItem.Click += new System.EventHandler(this.registerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -279,7 +270,6 @@
         private System.Windows.Forms.ToolStripMenuItem scriptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toASCIIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nRCToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dTCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readDTCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

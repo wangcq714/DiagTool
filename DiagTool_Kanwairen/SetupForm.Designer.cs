@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupForm));
             this.BaudRateComboBox = new System.Windows.Forms.ComboBox();
             this.BaudRateLabel = new System.Windows.Forms.Label();
             this.ScriptTimeIntervalLabel = new System.Windows.Forms.Label();
@@ -97,6 +98,7 @@
             this.Controls.Add(this.BaudRateComboBox);
             this.Controls.Add(this.BaudRateLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SetupForm";
             this.Text = "Setup";
