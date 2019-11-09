@@ -102,13 +102,13 @@ namespace DiagTool_Kanwairen
             string strDTC = "";
             int NumDTC = 0;
 
-            NumDTC = (Data.Length - 3) / 4;
+            NumDTC = (Data.Length - 7) / 4;
             for (int i = 0; i < NumDTC; i++)
             {
-                strDTC += (Data[i * 4 + 3]).ToString("X2");
-                strDTC += Data[i * 4 + 4].ToString("X2");
-                strDTC += Data[i * 4 + 5].ToString("X2") + " ";
-                strDTC += Data[i * 4 + 6].ToString("X2") + "\r\n";
+                strDTC += Data[i * 4 + 7].ToString("X2");
+                strDTC += Data[i * 4 + 8].ToString("X2");
+                strDTC += Data[i * 4 + 9].ToString("X2") + " ";
+                strDTC += Data[i * 4 + 10].ToString("X2") + "\r\n";
             }
 
             UpdateDTCDisplayTextBoxText(strDTC);

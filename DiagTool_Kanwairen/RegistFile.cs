@@ -8,8 +8,8 @@ namespace DiagTool_Kanwairen
 {
     class RegistFile
     {
-        public static string ComputerInfofile = "License\\ComputerInfo.key";
-        public static string RegistInfofile = "License\\RegistInfo.key";
+        public static string ComputerInfofile = "License\\computer.info";
+        public static string RegistInfofile = "License\\lisence.lic";
         public static void WriteRegistFile(string info)
         {
             WriteFile(info, RegistInfofile);
