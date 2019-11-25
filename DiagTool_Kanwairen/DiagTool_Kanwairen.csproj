@@ -62,6 +62,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HLM.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="GKarch.Glace.Auth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=44e488bdf381cddb, processorArchitecture=MSIL">
       <HintPath>..\packages\GKarch.Fomalhaut.Auth.2.0.0\lib\net40\GKarch.Glace.Auth.dll</HintPath>
@@ -272,6 +275,9 @@
       <Project>{c85973cb-aa27-4f7d-92b1-8363f0658d9c}</Project>
       <Name>J2534DotNet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HLM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
