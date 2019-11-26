@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DiagTool_Kanwairen.exe" size="1077168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DiagTool_Kanwairen.exe" size="1077680">
       <assemblyIdentity name="DiagTool_Kanwairen" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>GqpkXhWC/9SP7QncTMJCoMuYpfs=</dsig:DigestValue>
+        <dsig:DigestValue>G4H3DWnSkHbCdoixO5aFx8kKEmk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -146,7 +146,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SYucFstHx/NkbGEvC+izut8TPvQ=</dsig:DigestValue>
+        <dsig:DigestValue>5MVb5g5fxCOkwsQhYHxel2I5ojg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

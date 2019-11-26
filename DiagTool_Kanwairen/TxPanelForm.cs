@@ -41,6 +41,25 @@ namespace DiagTool_Kanwairen
             e.Cancel = true;
         }
 
+        /*Define external access port for this.ReqIDTextBox.Text*/
+        public System.Windows.Forms.Timer PeriodTxMsgTimer
+        {
+            get { return this.TxMsgTimer; }
+            set { this.TxMsgTimer = value; }
+        }
+
+        /* Start TxMsgTimer */
+        public void TxMsgTimerStart()
+        {
+            this.TxMsgTimer.Start();
+        }
+
+        /* Stop TxMsgTimer */
+        public void TxMsgTimerStop()
+        {
+            this.TxMsgTimer.Stop();
+        }
+
         /* Define Tx function at a time */
         private void TxMsgOneFrame(int RowIndex)
         {
@@ -254,6 +273,27 @@ namespace DiagTool_Kanwairen
                     TxPeriodInfoArray[i].TimeValue += 2;
                     msgPeriod = Convert.ToInt32(this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["Period"].Value);
                     msgPeriod = (msgPeriod % 2 == 0) ? msgPeriod : msgPeriod +1;
+                    if (TxPeriodInfoArray[i].TimeValue % msgPeriod == 0)
+                    {
+                        TxMsgOneFrame(i);
+                    }
+                    Console.WriteLine("Timer{0}:{1}", i, ((TxPeriodInfoType)TxPeriodInfoArray[i]).TimeValue);
+                }
+            }
+        }
+
+        /* Tx Msg Periodly by system timer */
+        private void TxMsgTimer_Tick(object sender, EventArgs e)
+        {
+            int msgPeriod = 0;
+
+            for (int i = 0; i < this.TxPanelDataGridView.Rows.Count; i++)
+            {
+                if ((TxPeriodInfoArray[i]).TxEable == true)
+                {
+                    TxPeriodInfoArray[i].TimeValue += this.TxMsgTimer.Interval;
+                    msgPeriod = Convert.ToInt32(this.TxPanelDataGridView.Rows[this.TxPanelDataGridView.Rows.Count - 1].Cells["Period"].Value);
+                    msgPeriod = (msgPeriod % 2 == 0) ? msgPeriod : msgPeriod + 1;
                     if (TxPeriodInfoArray[i].TimeValue % msgPeriod == 0)
                     {
                         TxMsgOneFrame(i);

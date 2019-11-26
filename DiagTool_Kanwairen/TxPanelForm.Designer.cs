@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TxPanelForm));
             this.TxPanelDataGridView = new System.Windows.Forms.DataGridView();
             this.Tx = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -58,6 +58,7 @@
             this.B7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TxPanelDGVContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TxMsgTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.TxPanelDataGridView)).BeginInit();
             this.TxPanelDGVContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -85,14 +86,14 @@
             this.TxPanelDataGridView.ContextMenuStrip = this.TxPanelDGVContextMenuStrip;
             this.TxPanelDataGridView.Location = new System.Drawing.Point(12, 12);
             this.TxPanelDataGridView.Name = "TxPanelDataGridView";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TxPanelDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TxPanelDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.TxPanelDataGridView.RowTemplate.Height = 23;
             this.TxPanelDataGridView.Size = new System.Drawing.Size(490, 238);
             this.TxPanelDataGridView.TabIndex = 11;
@@ -113,8 +114,8 @@
             // 
             // Period
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Period.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Period.DefaultCellStyle = dataGridViewCellStyle13;
             this.Period.HeaderText = "Period(ms)";
             this.Period.Name = "Period";
             this.Period.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -123,8 +124,8 @@
             // 
             // AbrID
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.AbrID.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.AbrID.DefaultCellStyle = dataGridViewCellStyle14;
             this.AbrID.HeaderText = "AbrID";
             this.AbrID.MaxInputLength = 3;
             this.AbrID.Name = "AbrID";
@@ -133,8 +134,8 @@
             // 
             // DLC
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DLC.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DLC.DefaultCellStyle = dataGridViewCellStyle15;
             this.DLC.HeaderText = "DLC";
             this.DLC.MaxInputLength = 1;
             this.DLC.Name = "DLC";
@@ -143,8 +144,8 @@
             // 
             // B0
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B0.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B0.DefaultCellStyle = dataGridViewCellStyle16;
             this.B0.HeaderText = "B0";
             this.B0.MaxInputLength = 4;
             this.B0.Name = "B0";
@@ -153,8 +154,8 @@
             // 
             // B1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B1.DefaultCellStyle = dataGridViewCellStyle17;
             this.B1.HeaderText = "B1";
             this.B1.MaxInputLength = 4;
             this.B1.Name = "B1";
@@ -163,8 +164,8 @@
             // 
             // B2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B2.DefaultCellStyle = dataGridViewCellStyle18;
             this.B2.HeaderText = "B2";
             this.B2.MaxInputLength = 4;
             this.B2.Name = "B2";
@@ -173,8 +174,8 @@
             // 
             // B3
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B3.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B3.DefaultCellStyle = dataGridViewCellStyle19;
             this.B3.HeaderText = "B3";
             this.B3.MaxInputLength = 4;
             this.B3.Name = "B3";
@@ -183,8 +184,8 @@
             // 
             // B4
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B4.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B4.DefaultCellStyle = dataGridViewCellStyle20;
             this.B4.HeaderText = "B4";
             this.B4.MaxInputLength = 4;
             this.B4.Name = "B4";
@@ -193,8 +194,8 @@
             // 
             // B5
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B5.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B5.DefaultCellStyle = dataGridViewCellStyle21;
             this.B5.HeaderText = "B5";
             this.B5.MaxInputLength = 4;
             this.B5.Name = "B5";
@@ -203,8 +204,8 @@
             // 
             // B6
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B6.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B6.DefaultCellStyle = dataGridViewCellStyle22;
             this.B6.HeaderText = "B6";
             this.B6.MaxInputLength = 4;
             this.B6.Name = "B6";
@@ -213,8 +214,8 @@
             // 
             // B7
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.B7.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.B7.DefaultCellStyle = dataGridViewCellStyle23;
             this.B7.HeaderText = "B7";
             this.B7.MaxInputLength = 4;
             this.B7.Name = "B7";
@@ -234,6 +235,11 @@
             this.AddMessageToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.AddMessageToolStripMenuItem.Text = "Add message";
             this.AddMessageToolStripMenuItem.Click += new System.EventHandler(this.AddMessageToolStripMenuItem_Click);
+            // 
+            // TxMsgTimer
+            // 
+            this.TxMsgTimer.Interval = 100;
+            this.TxMsgTimer.Tick += new System.EventHandler(this.TxMsgTimer_Tick);
             // 
             // TxPanelForm
             // 
@@ -272,5 +278,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn B5;
         private System.Windows.Forms.DataGridViewTextBoxColumn B6;
         private System.Windows.Forms.DataGridViewTextBoxColumn B7;
+        private System.Windows.Forms.Timer TxMsgTimer;
     }
 }

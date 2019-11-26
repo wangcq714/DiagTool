@@ -30,6 +30,6 @@ namespace DiagTool_Kanwairen
 
         public static Diag diag = new Diag();
 
-        public static MMTimer mmTimer = new MMTimer(txPanelForm.MMTimerCBFunc);
+        //public static MMTimer mmTimer = new MMTimer(txPanelForm.MMTimerCBFunc);
     }
 }
