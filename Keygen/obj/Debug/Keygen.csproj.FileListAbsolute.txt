@@ -16,3 +16,12 @@ E:\ToolCode\DiagTool\DiagTool\Keygen\obj\Debug\Keygen.Properties.Resources.resou
 E:\ToolCode\DiagTool\DiagTool\Keygen\obj\Debug\Keygen.csproj.GenerateResource.Cache
 E:\ToolCode\DiagTool\DiagTool\Keygen\obj\Debug\Keygen.exe
 E:\ToolCode\DiagTool\DiagTool\Keygen\obj\Debug\Keygen.pdb
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\bin\Debug\Keygen.exe.config
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\bin\Debug\Keygen.exe
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\bin\Debug\Keygen.pdb
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\obj\Debug\Keygen.csprojResolveAssemblyReference.cache
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\obj\Debug\Keygen.KeygenForm.resources
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\obj\Debug\Keygen.Properties.Resources.resources
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\obj\Debug\Keygen.csproj.GenerateResource.Cache
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\obj\Debug\Keygen.exe
+E:\ToolCode\DiagTool20200516\DiagTool\Keygen\obj\Debug\Keygen.pdb
