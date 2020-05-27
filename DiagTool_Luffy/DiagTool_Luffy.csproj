@@ -72,12 +72,6 @@
     <Compile Include="NRCTableForm.Designer.cs">
       <DependentUpon>NRCTableForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReadDTCForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ReadDTCForm.Designer.cs">
-      <DependentUpon>ReadDTCForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="RegistFile.cs" />
     <Compile Include="SecurityAlgorithm.cs" />
     <Compile Include="DiagCallback.cs">
@@ -129,9 +123,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReadDTCForm.resx">
-      <DependentUpon>ReadDTCForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
     </EmbeddedResource>

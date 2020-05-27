@@ -45,7 +45,6 @@
             this.optionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readDTCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hexTooTASCIIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nRCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,10 +75,39 @@
             this.LoopCheckBox = new System.Windows.Forms.CheckBox();
             this.RunButton = new System.Windows.Forms.Button();
             this.ScriptTextBox = new System.Windows.Forms.TextBox();
-            this.ScriptLabel = new System.Windows.Forms.Label();
-            this.SplitlineLabel1 = new System.Windows.Forms.Label();
-            this.SplitLineLabel2 = new System.Windows.Forms.Label();
-            this.SplitLinLabel3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MainWinTabControl = new System.Windows.Forms.TabControl();
+            this.LogTabPage = new System.Windows.Forms.TabPage();
+            this.DTCTabPage = new System.Windows.Forms.TabPage();
+            this.RecordNumberLabel = new System.Windows.Forms.Label();
+            this.FaultTypeLabel = new System.Windows.Forms.Label();
+            this.LowByteLabel = new System.Windows.Forms.Label();
+            this.HighByteLabel = new System.Windows.Forms.Label();
+            this.DTCListLabel = new System.Windows.Forms.Label();
+            this.Bit7Label = new System.Windows.Forms.Label();
+            this.Bit6Label = new System.Windows.Forms.Label();
+            this.Bit5Label = new System.Windows.Forms.Label();
+            this.Bit4Label = new System.Windows.Forms.Label();
+            this.Bit3Label = new System.Windows.Forms.Label();
+            this.Bit2Label = new System.Windows.Forms.Label();
+            this.Bit1Label = new System.Windows.Forms.Label();
+            this.Bit0Label = new System.Windows.Forms.Label();
+            this.DTCMasklabel = new System.Windows.Forms.Label();
+            this.WarningIndicatorRequestedCheckBox = new System.Windows.Forms.CheckBox();
+            this.TestNotCompletedThisMonitoringCycleCheckBox = new System.Windows.Forms.CheckBox();
+            this.TestFailedSinceLastClearCheckBox = new System.Windows.Forms.CheckBox();
+            this.TestNotCompletedSinceLastClearCheckBox = new System.Windows.Forms.CheckBox();
+            this.ConfirmedDTCCheckBox = new System.Windows.Forms.CheckBox();
+            this.PendingDTCCheckBox = new System.Windows.Forms.CheckBox();
+            this.TestFailedThisMonitoringCycleCheckBox = new System.Windows.Forms.CheckBox();
+            this.TestFailedCheckBox = new System.Windows.Forms.CheckBox();
+            this.RecordNumberTextBox = new System.Windows.Forms.TextBox();
+            this.DTCFaultTypeTextBox = new System.Windows.Forms.TextBox();
+            this.DTCLowByteTextBox = new System.Windows.Forms.TextBox();
+            this.DTCHighByteTextBox = new System.Windows.Forms.TextBox();
+            this.ReadDTCComboBox = new System.Windows.Forms.ComboBox();
+            this.ReadDTCButton = new System.Windows.Forms.Button();
+            this.DTCDisplayTextBox = new System.Windows.Forms.TextBox();
             this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,11 +117,15 @@
             this.MainWinMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxRxDataGridView)).BeginInit();
             this.ContextMenuStripForDiagDataGridView.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.MainWinTabControl.SuspendLayout();
+            this.LogTabPage.SuspendLayout();
+            this.DTCTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainWinMenuStrip
             // 
-            this.MainWinMenuStrip.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainWinMenuStrip.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainWinMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.optionToolStripMenuItem,
@@ -101,7 +133,7 @@
             this.helpToolStripMenuItem});
             this.MainWinMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainWinMenuStrip.Name = "MainWinMenuStrip";
-            this.MainWinMenuStrip.Size = new System.Drawing.Size(655, 24);
+            this.MainWinMenuStrip.Size = new System.Drawing.Size(684, 24);
             this.MainWinMenuStrip.TabIndex = 0;
             this.MainWinMenuStrip.Text = "MainWinMenuStrip";
             // 
@@ -111,20 +143,20 @@
             this.importToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(33, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -133,7 +165,7 @@
             this.optionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SettingToolStripMenuItem});
             this.optionToolStripMenuItem.Name = "optionToolStripMenuItem";
-            this.optionToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.optionToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.optionToolStripMenuItem.Text = "Option";
             // 
             // SettingToolStripMenuItem
@@ -146,19 +178,11 @@
             // toolToolStripMenuItem
             // 
             this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.readDTCToolStripMenuItem,
             this.hexTooTASCIIToolStripMenuItem,
             this.nRCToolStripMenuItem});
             this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
-            this.toolToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.toolToolStripMenuItem.Text = "Tool";
-            // 
-            // readDTCToolStripMenuItem
-            // 
-            this.readDTCToolStripMenuItem.Name = "readDTCToolStripMenuItem";
-            this.readDTCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.readDTCToolStripMenuItem.Text = "ReadDTC";
-            this.readDTCToolStripMenuItem.Click += new System.EventHandler(this.readDTCToolStripMenuItem_Click);
             // 
             // hexTooTASCIIToolStripMenuItem
             // 
@@ -180,7 +204,7 @@
             this.registerToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // registerToolStripMenuItem
@@ -202,7 +226,7 @@
             this.DeviceConnectButton.BackColor = System.Drawing.Color.White;
             this.DeviceConnectButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeviceConnectButton.ForeColor = System.Drawing.Color.White;
-            this.DeviceConnectButton.Location = new System.Drawing.Point(165, 36);
+            this.DeviceConnectButton.Location = new System.Drawing.Point(188, 37);
             this.DeviceConnectButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DeviceConnectButton.Name = "DeviceConnectButton";
             this.DeviceConnectButton.Size = new System.Drawing.Size(22, 22);
@@ -213,12 +237,12 @@
             // DeviceSelectComboBox
             // 
             this.DeviceSelectComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DeviceSelectComboBox.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeviceSelectComboBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeviceSelectComboBox.FormattingEnabled = true;
-            this.DeviceSelectComboBox.Location = new System.Drawing.Point(20, 37);
+            this.DeviceSelectComboBox.Location = new System.Drawing.Point(19, 37);
             this.DeviceSelectComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DeviceSelectComboBox.Name = "DeviceSelectComboBox";
-            this.DeviceSelectComboBox.Size = new System.Drawing.Size(140, 20);
+            this.DeviceSelectComboBox.Size = new System.Drawing.Size(165, 22);
             this.DeviceSelectComboBox.TabIndex = 68;
             // 
             // TestPresentTimer
@@ -234,7 +258,7 @@
             // ClearButton
             // 
             this.ClearButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearButton.Location = new System.Drawing.Point(588, 89);
+            this.ClearButton.Location = new System.Drawing.Point(621, 90);
             this.ClearButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(45, 22);
@@ -246,7 +270,7 @@
             // ReqIDTextBox
             // 
             this.ReqIDTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReqIDTextBox.Location = new System.Drawing.Point(253, 36);
+            this.ReqIDTextBox.Location = new System.Drawing.Point(268, 37);
             this.ReqIDTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ReqIDTextBox.Name = "ReqIDTextBox";
             this.ReqIDTextBox.Size = new System.Drawing.Size(35, 22);
@@ -261,7 +285,7 @@
             this.TxRxDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -278,20 +302,20 @@
             this.TxRxDataGridView.ContextMenuStrip = this.ContextMenuStripForDiagDataGridView;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.TxRxDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
-            this.TxRxDataGridView.Location = new System.Drawing.Point(208, 121);
+            this.TxRxDataGridView.Location = new System.Drawing.Point(0, 5);
             this.TxRxDataGridView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxRxDataGridView.Name = "TxRxDataGridView";
             this.TxRxDataGridView.ReadOnly = true;
             this.TxRxDataGridView.RowHeadersVisible = false;
             this.TxRxDataGridView.RowTemplate.Height = 20;
             this.TxRxDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TxRxDataGridView.Size = new System.Drawing.Size(425, 286);
+            this.TxRxDataGridView.Size = new System.Drawing.Size(434, 270);
             this.TxRxDataGridView.TabIndex = 64;
             this.TxRxDataGridView.DoubleClick += new System.EventHandler(this.TxRxDataGridView_DoubleClick);
             // 
@@ -320,7 +344,7 @@
             // SecurityAccessButton
             // 
             this.SecurityAccessButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SecurityAccessButton.Location = new System.Drawing.Point(588, 36);
+            this.SecurityAccessButton.Location = new System.Drawing.Point(621, 37);
             this.SecurityAccessButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SecurityAccessButton.Name = "SecurityAccessButton";
             this.SecurityAccessButton.Size = new System.Drawing.Size(45, 22);
@@ -337,7 +361,7 @@
             this.TestPresentComboBox.Items.AddRange(new object[] {
             "3E 80",
             "3E 00"});
-            this.TestPresentComboBox.Location = new System.Drawing.Point(439, 37);
+            this.TestPresentComboBox.Location = new System.Drawing.Point(488, 38);
             this.TestPresentComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TestPresentComboBox.Name = "TestPresentComboBox";
             this.TestPresentComboBox.Size = new System.Drawing.Size(50, 20);
@@ -348,7 +372,7 @@
             this.TestPresentCheckBox.Checked = true;
             this.TestPresentCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TestPresentCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestPresentCheckBox.Location = new System.Drawing.Point(417, 36);
+            this.TestPresentCheckBox.Location = new System.Drawing.Point(466, 37);
             this.TestPresentCheckBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TestPresentCheckBox.Name = "TestPresentCheckBox";
             this.TestPresentCheckBox.Size = new System.Drawing.Size(22, 22);
@@ -359,10 +383,10 @@
             // RxDataTextBox
             // 
             this.RxDataTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RxDataTextBox.Location = new System.Drawing.Point(208, 90);
+            this.RxDataTextBox.Location = new System.Drawing.Point(223, 91);
             this.RxDataTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.RxDataTextBox.Name = "RxDataTextBox";
-            this.RxDataTextBox.Size = new System.Drawing.Size(374, 22);
+            this.RxDataTextBox.Size = new System.Drawing.Size(394, 22);
             this.RxDataTextBox.TabIndex = 58;
             // 
             // SecurityAccessComboBox
@@ -377,7 +401,7 @@
             "09/0A",
             "11/12",
             "13/14"});
-            this.SecurityAccessComboBox.Location = new System.Drawing.Point(527, 37);
+            this.SecurityAccessComboBox.Location = new System.Drawing.Point(562, 38);
             this.SecurityAccessComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SecurityAccessComboBox.Name = "SecurityAccessComboBox";
             this.SecurityAccessComboBox.Size = new System.Drawing.Size(55, 20);
@@ -386,7 +410,7 @@
             // SendButton
             // 
             this.SendButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendButton.Location = new System.Drawing.Point(588, 61);
+            this.SendButton.Location = new System.Drawing.Point(621, 62);
             this.SendButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(45, 22);
@@ -398,17 +422,17 @@
             // TxDataTextBox
             // 
             this.TxDataTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxDataTextBox.Location = new System.Drawing.Point(208, 62);
+            this.TxDataTextBox.Location = new System.Drawing.Point(223, 63);
             this.TxDataTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxDataTextBox.Name = "TxDataTextBox";
-            this.TxDataTextBox.Size = new System.Drawing.Size(374, 22);
+            this.TxDataTextBox.Size = new System.Drawing.Size(394, 22);
             this.TxDataTextBox.TabIndex = 55;
             this.TxDataTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ReqIDTextBox_EnterKeyPress);
             // 
             // ResIDTextBox
             // 
             this.ResIDTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResIDTextBox.Location = new System.Drawing.Point(345, 36);
+            this.ResIDTextBox.Location = new System.Drawing.Point(360, 37);
             this.ResIDTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ResIDTextBox.Name = "ResIDTextBox";
             this.ResIDTextBox.Size = new System.Drawing.Size(35, 22);
@@ -419,7 +443,7 @@
             // ReqIDLabel
             // 
             this.ReqIDLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReqIDLabel.Location = new System.Drawing.Point(207, 36);
+            this.ReqIDLabel.Location = new System.Drawing.Point(222, 37);
             this.ReqIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ReqIDLabel.Name = "ReqIDLabel";
             this.ReqIDLabel.Size = new System.Drawing.Size(40, 22);
@@ -430,7 +454,7 @@
             // ResIDLabel
             // 
             this.ResIDLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResIDLabel.Location = new System.Drawing.Point(300, 36);
+            this.ResIDLabel.Location = new System.Drawing.Point(315, 37);
             this.ResIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ResIDLabel.Name = "ResIDLabel";
             this.ResIDLabel.Size = new System.Drawing.Size(40, 22);
@@ -441,7 +465,7 @@
             // LoopTextBox
             // 
             this.LoopTextBox.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoopTextBox.Location = new System.Drawing.Point(55, 97);
+            this.LoopTextBox.Location = new System.Drawing.Point(54, 24);
             this.LoopTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.LoopTextBox.Name = "LoopTextBox";
             this.LoopTextBox.Size = new System.Drawing.Size(25, 19);
@@ -451,19 +475,20 @@
             // LoopButton
             // 
             this.LoopButton.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoopButton.Location = new System.Drawing.Point(17, 97);
+            this.LoopButton.Location = new System.Drawing.Point(11, 24);
             this.LoopButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.LoopButton.Name = "LoopButton";
             this.LoopButton.Size = new System.Drawing.Size(35, 19);
             this.LoopButton.TabIndex = 73;
             this.LoopButton.Text = "Loop";
             this.LoopButton.UseVisualStyleBackColor = true;
+            this.LoopButton.Click += new System.EventHandler(this.LoopButton_Click);
             // 
             // LoopCheckBox
             // 
             this.LoopCheckBox.AutoSize = true;
             this.LoopCheckBox.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoopCheckBox.Location = new System.Drawing.Point(83, 98);
+            this.LoopCheckBox.Location = new System.Drawing.Point(86, 25);
             this.LoopCheckBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.LoopCheckBox.Name = "LoopCheckBox";
             this.LoopCheckBox.Size = new System.Drawing.Size(45, 16);
@@ -474,7 +499,7 @@
             // RunButton
             // 
             this.RunButton.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RunButton.Location = new System.Drawing.Point(129, 97);
+            this.RunButton.Location = new System.Drawing.Point(130, 24);
             this.RunButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.RunButton.Name = "RunButton";
             this.RunButton.Size = new System.Drawing.Size(35, 19);
@@ -484,101 +509,451 @@
             // 
             // ScriptTextBox
             // 
-            this.ScriptTextBox.Location = new System.Drawing.Point(20, 121);
+            this.ScriptTextBox.Location = new System.Drawing.Point(11, 54);
             this.ScriptTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ScriptTextBox.Multiline = true;
             this.ScriptTextBox.Name = "ScriptTextBox";
-            this.ScriptTextBox.Size = new System.Drawing.Size(140, 286);
+            this.ScriptTextBox.Size = new System.Drawing.Size(154, 283);
             this.ScriptTextBox.TabIndex = 70;
             this.ScriptTextBox.WordWrap = false;
             // 
-            // ScriptLabel
+            // groupBox1
             // 
-            this.ScriptLabel.AutoSize = true;
-            this.ScriptLabel.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScriptLabel.Location = new System.Drawing.Point(67, 70);
-            this.ScriptLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ScriptLabel.Name = "ScriptLabel";
-            this.ScriptLabel.Size = new System.Drawing.Size(30, 12);
-            this.ScriptLabel.TabIndex = 75;
-            this.ScriptLabel.Text = "Script";
+            this.groupBox1.Controls.Add(this.LoopTextBox);
+            this.groupBox1.Controls.Add(this.LoopButton);
+            this.groupBox1.Controls.Add(this.LoopCheckBox);
+            this.groupBox1.Controls.Add(this.RunButton);
+            this.groupBox1.Controls.Add(this.ScriptTextBox);
+            this.groupBox1.Location = new System.Drawing.Point(19, 82);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(178, 345);
+            this.groupBox1.TabIndex = 79;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Script";
             // 
-            // SplitlineLabel1
+            // MainWinTabControl
             // 
-            this.SplitlineLabel1.BackColor = System.Drawing.Color.Silver;
-            this.SplitlineLabel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.SplitlineLabel1.Location = new System.Drawing.Point(20, 75);
-            this.SplitlineLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.SplitlineLabel1.Name = "SplitlineLabel1";
-            this.SplitlineLabel1.Size = new System.Drawing.Size(40, 2);
-            this.SplitlineLabel1.TabIndex = 76;
+            this.MainWinTabControl.Controls.Add(this.LogTabPage);
+            this.MainWinTabControl.Controls.Add(this.DTCTabPage);
+            this.MainWinTabControl.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainWinTabControl.Location = new System.Drawing.Point(223, 122);
+            this.MainWinTabControl.Name = "MainWinTabControl";
+            this.MainWinTabControl.SelectedIndex = 0;
+            this.MainWinTabControl.Size = new System.Drawing.Size(443, 305);
+            this.MainWinTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.MainWinTabControl.TabIndex = 80;
             // 
-            // SplitLineLabel2
+            // LogTabPage
             // 
-            this.SplitLineLabel2.BackColor = System.Drawing.Color.Silver;
-            this.SplitLineLabel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.SplitLineLabel2.Location = new System.Drawing.Point(184, 75);
-            this.SplitLineLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.SplitLineLabel2.Name = "SplitLineLabel2";
-            this.SplitLineLabel2.Size = new System.Drawing.Size(2, 332);
-            this.SplitLineLabel2.TabIndex = 77;
+            this.LogTabPage.Controls.Add(this.TxRxDataGridView);
+            this.LogTabPage.Location = new System.Drawing.Point(4, 23);
+            this.LogTabPage.Name = "LogTabPage";
+            this.LogTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.LogTabPage.Size = new System.Drawing.Size(435, 278);
+            this.LogTabPage.TabIndex = 0;
+            this.LogTabPage.Text = "Log";
+            this.LogTabPage.UseVisualStyleBackColor = true;
             // 
-            // SplitLinLabel3
+            // DTCTabPage
             // 
-            this.SplitLinLabel3.BackColor = System.Drawing.Color.Silver;
-            this.SplitLinLabel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.SplitLinLabel3.Location = new System.Drawing.Point(104, 75);
-            this.SplitLinLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.SplitLinLabel3.Name = "SplitLinLabel3";
-            this.SplitLinLabel3.Size = new System.Drawing.Size(80, 2);
-            this.SplitLinLabel3.TabIndex = 78;
-            this.SplitLinLabel3.Text = "label1";
+            this.DTCTabPage.Controls.Add(this.RecordNumberLabel);
+            this.DTCTabPage.Controls.Add(this.FaultTypeLabel);
+            this.DTCTabPage.Controls.Add(this.LowByteLabel);
+            this.DTCTabPage.Controls.Add(this.HighByteLabel);
+            this.DTCTabPage.Controls.Add(this.DTCListLabel);
+            this.DTCTabPage.Controls.Add(this.Bit7Label);
+            this.DTCTabPage.Controls.Add(this.Bit6Label);
+            this.DTCTabPage.Controls.Add(this.Bit5Label);
+            this.DTCTabPage.Controls.Add(this.Bit4Label);
+            this.DTCTabPage.Controls.Add(this.Bit3Label);
+            this.DTCTabPage.Controls.Add(this.Bit2Label);
+            this.DTCTabPage.Controls.Add(this.Bit1Label);
+            this.DTCTabPage.Controls.Add(this.Bit0Label);
+            this.DTCTabPage.Controls.Add(this.DTCMasklabel);
+            this.DTCTabPage.Controls.Add(this.WarningIndicatorRequestedCheckBox);
+            this.DTCTabPage.Controls.Add(this.TestNotCompletedThisMonitoringCycleCheckBox);
+            this.DTCTabPage.Controls.Add(this.TestFailedSinceLastClearCheckBox);
+            this.DTCTabPage.Controls.Add(this.TestNotCompletedSinceLastClearCheckBox);
+            this.DTCTabPage.Controls.Add(this.ConfirmedDTCCheckBox);
+            this.DTCTabPage.Controls.Add(this.PendingDTCCheckBox);
+            this.DTCTabPage.Controls.Add(this.TestFailedThisMonitoringCycleCheckBox);
+            this.DTCTabPage.Controls.Add(this.TestFailedCheckBox);
+            this.DTCTabPage.Controls.Add(this.RecordNumberTextBox);
+            this.DTCTabPage.Controls.Add(this.DTCFaultTypeTextBox);
+            this.DTCTabPage.Controls.Add(this.DTCLowByteTextBox);
+            this.DTCTabPage.Controls.Add(this.DTCHighByteTextBox);
+            this.DTCTabPage.Controls.Add(this.ReadDTCComboBox);
+            this.DTCTabPage.Controls.Add(this.ReadDTCButton);
+            this.DTCTabPage.Controls.Add(this.DTCDisplayTextBox);
+            this.DTCTabPage.Location = new System.Drawing.Point(4, 23);
+            this.DTCTabPage.Name = "DTCTabPage";
+            this.DTCTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.DTCTabPage.Size = new System.Drawing.Size(435, 276);
+            this.DTCTabPage.TabIndex = 1;
+            this.DTCTabPage.Text = "DTC";
+            this.DTCTabPage.UseVisualStyleBackColor = true;
+            // 
+            // RecordNumberLabel
+            // 
+            this.RecordNumberLabel.AutoSize = true;
+            this.RecordNumberLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecordNumberLabel.Location = new System.Drawing.Point(313, 12);
+            this.RecordNumberLabel.Name = "RecordNumberLabel";
+            this.RecordNumberLabel.Size = new System.Drawing.Size(22, 14);
+            this.RecordNumberLabel.TabIndex = 57;
+            this.RecordNumberLabel.Text = "RN";
+            // 
+            // FaultTypeLabel
+            // 
+            this.FaultTypeLabel.AutoSize = true;
+            this.FaultTypeLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FaultTypeLabel.Location = new System.Drawing.Point(285, 12);
+            this.FaultTypeLabel.Name = "FaultTypeLabel";
+            this.FaultTypeLabel.Size = new System.Drawing.Size(20, 14);
+            this.FaultTypeLabel.TabIndex = 56;
+            this.FaultTypeLabel.Text = "FT";
+            // 
+            // LowByteLabel
+            // 
+            this.LowByteLabel.AutoSize = true;
+            this.LowByteLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LowByteLabel.Location = new System.Drawing.Point(257, 12);
+            this.LowByteLabel.Name = "LowByteLabel";
+            this.LowByteLabel.Size = new System.Drawing.Size(20, 14);
+            this.LowByteLabel.TabIndex = 55;
+            this.LowByteLabel.Text = "LB";
+            // 
+            // HighByteLabel
+            // 
+            this.HighByteLabel.AutoSize = true;
+            this.HighByteLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HighByteLabel.Location = new System.Drawing.Point(226, 12);
+            this.HighByteLabel.Name = "HighByteLabel";
+            this.HighByteLabel.Size = new System.Drawing.Size(22, 14);
+            this.HighByteLabel.TabIndex = 54;
+            this.HighByteLabel.Text = "HB";
+            // 
+            // DTCListLabel
+            // 
+            this.DTCListLabel.AutoSize = true;
+            this.DTCListLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTCListLabel.Location = new System.Drawing.Point(21, 12);
+            this.DTCListLabel.Name = "DTCListLabel";
+            this.DTCListLabel.Size = new System.Drawing.Size(50, 14);
+            this.DTCListLabel.TabIndex = 53;
+            this.DTCListLabel.Text = "DTCList:";
+            // 
+            // Bit7Label
+            // 
+            this.Bit7Label.AutoSize = true;
+            this.Bit7Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit7Label.Location = new System.Drawing.Point(151, 239);
+            this.Bit7Label.Name = "Bit7Label";
+            this.Bit7Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit7Label.TabIndex = 52;
+            this.Bit7Label.Text = "Bit7:";
+            // 
+            // Bit6Label
+            // 
+            this.Bit6Label.AutoSize = true;
+            this.Bit6Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit6Label.Location = new System.Drawing.Point(151, 222);
+            this.Bit6Label.Name = "Bit6Label";
+            this.Bit6Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit6Label.TabIndex = 51;
+            this.Bit6Label.Text = "Bit6:";
+            // 
+            // Bit5Label
+            // 
+            this.Bit5Label.AutoSize = true;
+            this.Bit5Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit5Label.Location = new System.Drawing.Point(151, 205);
+            this.Bit5Label.Name = "Bit5Label";
+            this.Bit5Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit5Label.TabIndex = 50;
+            this.Bit5Label.Text = "Bit5:";
+            // 
+            // Bit4Label
+            // 
+            this.Bit4Label.AutoSize = true;
+            this.Bit4Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit4Label.Location = new System.Drawing.Point(151, 188);
+            this.Bit4Label.Name = "Bit4Label";
+            this.Bit4Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit4Label.TabIndex = 49;
+            this.Bit4Label.Text = "Bit4:";
+            // 
+            // Bit3Label
+            // 
+            this.Bit3Label.AutoSize = true;
+            this.Bit3Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit3Label.Location = new System.Drawing.Point(151, 171);
+            this.Bit3Label.Name = "Bit3Label";
+            this.Bit3Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit3Label.TabIndex = 48;
+            this.Bit3Label.Text = "Bit3:";
+            // 
+            // Bit2Label
+            // 
+            this.Bit2Label.AutoSize = true;
+            this.Bit2Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit2Label.Location = new System.Drawing.Point(151, 154);
+            this.Bit2Label.Name = "Bit2Label";
+            this.Bit2Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit2Label.TabIndex = 47;
+            this.Bit2Label.Text = "Bit2:";
+            // 
+            // Bit1Label
+            // 
+            this.Bit1Label.AutoSize = true;
+            this.Bit1Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit1Label.Location = new System.Drawing.Point(151, 137);
+            this.Bit1Label.Name = "Bit1Label";
+            this.Bit1Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit1Label.TabIndex = 46;
+            this.Bit1Label.Text = "Bit1:";
+            // 
+            // Bit0Label
+            // 
+            this.Bit0Label.AutoSize = true;
+            this.Bit0Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bit0Label.Location = new System.Drawing.Point(151, 120);
+            this.Bit0Label.Name = "Bit0Label";
+            this.Bit0Label.Size = new System.Drawing.Size(31, 14);
+            this.Bit0Label.TabIndex = 45;
+            this.Bit0Label.Text = "Bit0:";
+            // 
+            // DTCMasklabel
+            // 
+            this.DTCMasklabel.AutoSize = true;
+            this.DTCMasklabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTCMasklabel.Location = new System.Drawing.Point(151, 103);
+            this.DTCMasklabel.Name = "DTCMasklabel";
+            this.DTCMasklabel.Size = new System.Drawing.Size(37, 14);
+            this.DTCMasklabel.TabIndex = 44;
+            this.DTCMasklabel.Text = "Mask:";
+            // 
+            // WarningIndicatorRequestedCheckBox
+            // 
+            this.WarningIndicatorRequestedCheckBox.AutoSize = true;
+            this.WarningIndicatorRequestedCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WarningIndicatorRequestedCheckBox.Location = new System.Drawing.Point(192, 239);
+            this.WarningIndicatorRequestedCheckBox.Name = "WarningIndicatorRequestedCheckBox";
+            this.WarningIndicatorRequestedCheckBox.Size = new System.Drawing.Size(175, 18);
+            this.WarningIndicatorRequestedCheckBox.TabIndex = 43;
+            this.WarningIndicatorRequestedCheckBox.Text = "Warning indicator requested";
+            this.WarningIndicatorRequestedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TestNotCompletedThisMonitoringCycleCheckBox
+            // 
+            this.TestNotCompletedThisMonitoringCycleCheckBox.AutoSize = true;
+            this.TestNotCompletedThisMonitoringCycleCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestNotCompletedThisMonitoringCycleCheckBox.Location = new System.Drawing.Point(192, 222);
+            this.TestNotCompletedThisMonitoringCycleCheckBox.Name = "TestNotCompletedThisMonitoringCycleCheckBox";
+            this.TestNotCompletedThisMonitoringCycleCheckBox.Size = new System.Drawing.Size(234, 18);
+            this.TestNotCompletedThisMonitoringCycleCheckBox.TabIndex = 42;
+            this.TestNotCompletedThisMonitoringCycleCheckBox.Text = "Test not completed this monitoring cycle";
+            this.TestNotCompletedThisMonitoringCycleCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TestFailedSinceLastClearCheckBox
+            // 
+            this.TestFailedSinceLastClearCheckBox.AutoSize = true;
+            this.TestFailedSinceLastClearCheckBox.Checked = true;
+            this.TestFailedSinceLastClearCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TestFailedSinceLastClearCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestFailedSinceLastClearCheckBox.Location = new System.Drawing.Point(192, 205);
+            this.TestFailedSinceLastClearCheckBox.Name = "TestFailedSinceLastClearCheckBox";
+            this.TestFailedSinceLastClearCheckBox.Size = new System.Drawing.Size(157, 18);
+            this.TestFailedSinceLastClearCheckBox.TabIndex = 41;
+            this.TestFailedSinceLastClearCheckBox.Text = "Test failed since last clear";
+            this.TestFailedSinceLastClearCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TestNotCompletedSinceLastClearCheckBox
+            // 
+            this.TestNotCompletedSinceLastClearCheckBox.AutoSize = true;
+            this.TestNotCompletedSinceLastClearCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestNotCompletedSinceLastClearCheckBox.Location = new System.Drawing.Point(192, 188);
+            this.TestNotCompletedSinceLastClearCheckBox.Name = "TestNotCompletedSinceLastClearCheckBox";
+            this.TestNotCompletedSinceLastClearCheckBox.Size = new System.Drawing.Size(202, 18);
+            this.TestNotCompletedSinceLastClearCheckBox.TabIndex = 40;
+            this.TestNotCompletedSinceLastClearCheckBox.Text = "Test not completed since last clear";
+            this.TestNotCompletedSinceLastClearCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // ConfirmedDTCCheckBox
+            // 
+            this.ConfirmedDTCCheckBox.AutoSize = true;
+            this.ConfirmedDTCCheckBox.Checked = true;
+            this.ConfirmedDTCCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ConfirmedDTCCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmedDTCCheckBox.Location = new System.Drawing.Point(192, 171);
+            this.ConfirmedDTCCheckBox.Name = "ConfirmedDTCCheckBox";
+            this.ConfirmedDTCCheckBox.Size = new System.Drawing.Size(106, 18);
+            this.ConfirmedDTCCheckBox.TabIndex = 39;
+            this.ConfirmedDTCCheckBox.Text = "Confirmed DTC";
+            this.ConfirmedDTCCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // PendingDTCCheckBox
+            // 
+            this.PendingDTCCheckBox.AutoSize = true;
+            this.PendingDTCCheckBox.Checked = true;
+            this.PendingDTCCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PendingDTCCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PendingDTCCheckBox.Location = new System.Drawing.Point(192, 154);
+            this.PendingDTCCheckBox.Name = "PendingDTCCheckBox";
+            this.PendingDTCCheckBox.Size = new System.Drawing.Size(94, 18);
+            this.PendingDTCCheckBox.TabIndex = 38;
+            this.PendingDTCCheckBox.Text = "Pending DTC";
+            this.PendingDTCCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TestFailedThisMonitoringCycleCheckBox
+            // 
+            this.TestFailedThisMonitoringCycleCheckBox.AutoSize = true;
+            this.TestFailedThisMonitoringCycleCheckBox.Checked = true;
+            this.TestFailedThisMonitoringCycleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TestFailedThisMonitoringCycleCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestFailedThisMonitoringCycleCheckBox.Location = new System.Drawing.Point(192, 137);
+            this.TestFailedThisMonitoringCycleCheckBox.Name = "TestFailedThisMonitoringCycleCheckBox";
+            this.TestFailedThisMonitoringCycleCheckBox.Size = new System.Drawing.Size(189, 18);
+            this.TestFailedThisMonitoringCycleCheckBox.TabIndex = 37;
+            this.TestFailedThisMonitoringCycleCheckBox.Text = "Test failed this monitoring cycle";
+            this.TestFailedThisMonitoringCycleCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // TestFailedCheckBox
+            // 
+            this.TestFailedCheckBox.AutoSize = true;
+            this.TestFailedCheckBox.Checked = true;
+            this.TestFailedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TestFailedCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestFailedCheckBox.Location = new System.Drawing.Point(192, 120);
+            this.TestFailedCheckBox.Name = "TestFailedCheckBox";
+            this.TestFailedCheckBox.Size = new System.Drawing.Size(79, 18);
+            this.TestFailedCheckBox.TabIndex = 36;
+            this.TestFailedCheckBox.Text = "Test failed";
+            this.TestFailedCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // RecordNumberTextBox
+            // 
+            this.RecordNumberTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.RecordNumberTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecordNumberTextBox.Location = new System.Drawing.Point(311, 27);
+            this.RecordNumberTextBox.Name = "RecordNumberTextBox";
+            this.RecordNumberTextBox.Size = new System.Drawing.Size(22, 22);
+            this.RecordNumberTextBox.TabIndex = 35;
+            this.RecordNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DTCFaultTypeTextBox
+            // 
+            this.DTCFaultTypeTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.DTCFaultTypeTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTCFaultTypeTextBox.Location = new System.Drawing.Point(280, 27);
+            this.DTCFaultTypeTextBox.Name = "DTCFaultTypeTextBox";
+            this.DTCFaultTypeTextBox.Size = new System.Drawing.Size(22, 22);
+            this.DTCFaultTypeTextBox.TabIndex = 34;
+            this.DTCFaultTypeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DTCLowByteTextBox
+            // 
+            this.DTCLowByteTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.DTCLowByteTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTCLowByteTextBox.Location = new System.Drawing.Point(249, 27);
+            this.DTCLowByteTextBox.Name = "DTCLowByteTextBox";
+            this.DTCLowByteTextBox.Size = new System.Drawing.Size(22, 22);
+            this.DTCLowByteTextBox.TabIndex = 33;
+            this.DTCLowByteTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DTCHighByteTextBox
+            // 
+            this.DTCHighByteTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.DTCHighByteTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTCHighByteTextBox.Location = new System.Drawing.Point(218, 27);
+            this.DTCHighByteTextBox.Name = "DTCHighByteTextBox";
+            this.DTCHighByteTextBox.Size = new System.Drawing.Size(22, 22);
+            this.DTCHighByteTextBox.TabIndex = 32;
+            this.DTCHighByteTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ReadDTCComboBox
+            // 
+            this.ReadDTCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ReadDTCComboBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReadDTCComboBox.FormattingEnabled = true;
+            this.ReadDTCComboBox.Items.AddRange(new object[] {
+            "19 01",
+            "19 02",
+            "19 04",
+            "19 06",
+            "19 0A"});
+            this.ReadDTCComboBox.Location = new System.Drawing.Point(154, 27);
+            this.ReadDTCComboBox.Name = "ReadDTCComboBox";
+            this.ReadDTCComboBox.Size = new System.Drawing.Size(55, 22);
+            this.ReadDTCComboBox.TabIndex = 31;
+            // 
+            // ReadDTCButton
+            // 
+            this.ReadDTCButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReadDTCButton.Location = new System.Drawing.Point(154, 57);
+            this.ReadDTCButton.Name = "ReadDTCButton";
+            this.ReadDTCButton.Size = new System.Drawing.Size(181, 28);
+            this.ReadDTCButton.TabIndex = 30;
+            this.ReadDTCButton.Text = "Read";
+            this.ReadDTCButton.UseVisualStyleBackColor = true;
+            // 
+            // DTCDisplayTextBox
+            // 
+            this.DTCDisplayTextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DTCDisplayTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTCDisplayTextBox.Location = new System.Drawing.Point(21, 27);
+            this.DTCDisplayTextBox.Multiline = true;
+            this.DTCDisplayTextBox.Name = "DTCDisplayTextBox";
+            this.DTCDisplayTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DTCDisplayTextBox.Size = new System.Drawing.Size(105, 234);
+            this.DTCDisplayTextBox.TabIndex = 29;
+            this.DTCDisplayTextBox.WordWrap = false;
             // 
             // Num
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Num.DefaultCellStyle = dataGridViewCellStyle2;
             this.Num.HeaderText = "Num";
             this.Num.Name = "Num";
             this.Num.ReadOnly = true;
             this.Num.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Num.Width = 30;
+            this.Num.Width = 35;
             // 
             // Type
             // 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Type.DefaultCellStyle = dataGridViewCellStyle3;
             this.Type.HeaderText = "Type";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
-            this.Type.Width = 30;
+            this.Type.Width = 35;
             // 
             // ID
             // 
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ID.DefaultCellStyle = dataGridViewCellStyle4;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 30;
+            this.ID.Width = 35;
             // 
             // Len
             // 
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Len.DefaultCellStyle = dataGridViewCellStyle5;
             this.Len.HeaderText = "Len";
             this.Len.Name = "Len";
             this.Len.ReadOnly = true;
-            this.Len.Width = 30;
+            this.Len.Width = 35;
             // 
             // Data
             // 
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Data.DefaultCellStyle = dataGridViewCellStyle6;
             this.Data.HeaderText = "Data";
             this.Data.Name = "Data";
@@ -588,33 +963,25 @@
             // TimeStamp
             // 
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TimeStamp.DefaultCellStyle = dataGridViewCellStyle7;
             this.TimeStamp.HeaderText = "TimeStamp";
             this.TimeStamp.Name = "TimeStamp";
             this.TimeStamp.ReadOnly = true;
-            this.TimeStamp.Width = 120;
+            this.TimeStamp.Width = 110;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(655, 427);
-            this.Controls.Add(this.SplitLinLabel3);
-            this.Controls.Add(this.SplitLineLabel2);
-            this.Controls.Add(this.SplitlineLabel1);
-            this.Controls.Add(this.ScriptLabel);
-            this.Controls.Add(this.LoopTextBox);
-            this.Controls.Add(this.LoopButton);
-            this.Controls.Add(this.LoopCheckBox);
-            this.Controls.Add(this.RunButton);
-            this.Controls.Add(this.ScriptTextBox);
+            this.ClientSize = new System.Drawing.Size(684, 443);
+            this.Controls.Add(this.MainWinTabControl);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DeviceConnectButton);
             this.Controls.Add(this.DeviceSelectComboBox);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.ReqIDTextBox);
-            this.Controls.Add(this.TxRxDataGridView);
             this.Controls.Add(this.SecurityAccessButton);
             this.Controls.Add(this.TestPresentComboBox);
             this.Controls.Add(this.TestPresentCheckBox);
@@ -639,6 +1006,12 @@
             this.MainWinMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxRxDataGridView)).EndInit();
             this.ContextMenuStripForDiagDataGridView.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.MainWinTabControl.ResumeLayout(false);
+            this.LogTabPage.ResumeLayout(false);
+            this.DTCTabPage.ResumeLayout(false);
+            this.DTCTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,7 +1025,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem readDTCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hexTooTASCIIToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nRCToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingToolStripMenuItem;
@@ -684,10 +1056,39 @@
         private System.Windows.Forms.CheckBox LoopCheckBox;
         private System.Windows.Forms.Button RunButton;
         private System.Windows.Forms.TextBox ScriptTextBox;
-        private System.Windows.Forms.Label ScriptLabel;
-        private System.Windows.Forms.Label SplitlineLabel1;
-        private System.Windows.Forms.Label SplitLineLabel2;
-        private System.Windows.Forms.Label SplitLinLabel3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabControl MainWinTabControl;
+        private System.Windows.Forms.TabPage LogTabPage;
+        private System.Windows.Forms.TabPage DTCTabPage;
+        private System.Windows.Forms.Label RecordNumberLabel;
+        private System.Windows.Forms.Label FaultTypeLabel;
+        private System.Windows.Forms.Label LowByteLabel;
+        private System.Windows.Forms.Label HighByteLabel;
+        private System.Windows.Forms.Label DTCListLabel;
+        private System.Windows.Forms.Label Bit7Label;
+        private System.Windows.Forms.Label Bit6Label;
+        private System.Windows.Forms.Label Bit5Label;
+        private System.Windows.Forms.Label Bit4Label;
+        private System.Windows.Forms.Label Bit3Label;
+        private System.Windows.Forms.Label Bit2Label;
+        private System.Windows.Forms.Label Bit1Label;
+        private System.Windows.Forms.Label Bit0Label;
+        private System.Windows.Forms.Label DTCMasklabel;
+        private System.Windows.Forms.CheckBox WarningIndicatorRequestedCheckBox;
+        private System.Windows.Forms.CheckBox TestNotCompletedThisMonitoringCycleCheckBox;
+        private System.Windows.Forms.CheckBox TestFailedSinceLastClearCheckBox;
+        private System.Windows.Forms.CheckBox TestNotCompletedSinceLastClearCheckBox;
+        private System.Windows.Forms.CheckBox ConfirmedDTCCheckBox;
+        private System.Windows.Forms.CheckBox PendingDTCCheckBox;
+        private System.Windows.Forms.CheckBox TestFailedThisMonitoringCycleCheckBox;
+        private System.Windows.Forms.CheckBox TestFailedCheckBox;
+        private System.Windows.Forms.TextBox RecordNumberTextBox;
+        private System.Windows.Forms.TextBox DTCFaultTypeTextBox;
+        private System.Windows.Forms.TextBox DTCLowByteTextBox;
+        private System.Windows.Forms.TextBox DTCHighByteTextBox;
+        private System.Windows.Forms.ComboBox ReadDTCComboBox;
+        private System.Windows.Forms.Button ReadDTCButton;
+        private System.Windows.Forms.TextBox DTCDisplayTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Num;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;

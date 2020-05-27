@@ -169,11 +169,9 @@ namespace DiagTool_Luffy
             aboutForm.Show();
         }
 
-        private void readDTCToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoopButton_Click(object sender, EventArgs e)
         {
-            ReadDTCForm readDTCForm = new ReadDTCForm();
 
-            readDTCForm.Show();
         }
     }
 }

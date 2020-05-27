@@ -14,4 +14,3 @@ E:\ToolCode\DiagTool20200516\DiagTool\DiagTool_Luffy\obj\Debug\DiagTool_Luffy.Se
 E:\ToolCode\DiagTool20200516\DiagTool\DiagTool_Luffy\obj\Debug\DiagTool_Luffy.NRCTableForm.resources
 E:\ToolCode\DiagTool20200516\DiagTool\DiagTool_Luffy\obj\Debug\DiagTool_Luffy.HexASCIIForm.resources
 E:\ToolCode\DiagTool20200516\DiagTool\DiagTool_Luffy\obj\Debug\DiagTool_Luffy.AboutForm.resources
-E:\ToolCode\DiagTool20200516\DiagTool\DiagTool_Luffy\obj\Debug\DiagTool_Luffy.ReadDTCForm.resources
