@@ -17,13 +17,13 @@ namespace DiagTool_Luffy
         private void MainWindowInit()
         {
             bool retVal = false;
-
+            /* This will result in progrom carsh
             if (!licenseManagement.LicenseCheck())
             {
                 this.Close();
                 return;
             }
-
+            */
             this.TestPresentComboBox.SelectedIndex = 0;
             this.SecurityAccessComboBox.SelectedIndex = 0;
             this.DeviceConnectButton.Image = Image.FromFile("stop.png");

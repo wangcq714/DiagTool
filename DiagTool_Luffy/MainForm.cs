@@ -17,7 +17,7 @@ namespace DiagTool_Luffy
     public partial class MainWindow : Form
     {
         private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
-        private LicenseManagement licenseManagement = new LicenseManagement();
+        //private LicenseManagement licenseManagement = new LicenseManagement();
 
         private bool bDeviceConnectState = false;
 
@@ -159,7 +159,7 @@ namespace DiagTool_Luffy
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            licenseManagement.Register();
+            //licenseManagement.Register();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
