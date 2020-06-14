@@ -189,12 +189,10 @@ namespace DiagTool_Luffy
         /* Synchronous data for other moudle when rx related data */
         public void TxRxMsgCallSyncCallback(byte[] Data)
         {
-            //if (Data[4] == 0x59 && Global.readDTCForm.updateDTCDisplay)
-            //{
-            //    Global.readDTCForm.UpdateDTCDisplayTextBox_Text(Data);
-            //}
-        }
-
-        
+            if (Data[4] == 0x59)
+            {
+                UpdateDTCDisplayTextBox_Text(Data);
+            }
+        }      
     }
 }

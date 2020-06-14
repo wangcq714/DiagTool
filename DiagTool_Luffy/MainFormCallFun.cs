@@ -27,6 +27,7 @@ namespace DiagTool_Luffy
             */
             this.TestPresentComboBox.SelectedIndex = 0;
             this.SecurityAccessComboBox.SelectedIndex = 0;
+            this.ReadDTCComboBox.SelectedIndex = 1;
             this.DeviceConnectButton.Image = Image.FromFile("stop.png");
 
             Result = passThruWrapper.DeviceConnectInit(DeviceConnectInitCallback);

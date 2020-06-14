@@ -74,6 +74,9 @@
       <DependentUpon>NRCTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Queue.cs" />
+    <Compile Include="ReadDTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RegistFile.cs" />
     <Compile Include="Script.cs">
       <SubType>Form</SubType>

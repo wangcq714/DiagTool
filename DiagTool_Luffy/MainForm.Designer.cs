@@ -80,7 +80,7 @@
             this.LoopCheckBox = new System.Windows.Forms.CheckBox();
             this.RunButton = new System.Windows.Forms.Button();
             this.ScriptTextBox = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ScriptGroupBox = new System.Windows.Forms.GroupBox();
             this.MainWinTabControl = new System.Windows.Forms.TabControl();
             this.LogTabPage = new System.Windows.Forms.TabPage();
             this.DTCTabPage = new System.Windows.Forms.TabPage();
@@ -113,10 +113,11 @@
             this.ReadDTCComboBox = new System.Windows.Forms.ComboBox();
             this.ReadDTCButton = new System.Windows.Forms.Button();
             this.DTCDisplayTextBox = new System.Windows.Forms.TextBox();
+            this.ClearDTCButton = new System.Windows.Forms.Button();
             this.MainWinMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxRxDataGridView)).BeginInit();
             this.ContextMenuStripForDiagDataGridView.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.ScriptGroupBox.SuspendLayout();
             this.MainWinTabControl.SuspendLayout();
             this.LogTabPage.SuspendLayout();
             this.DTCTabPage.SuspendLayout();
@@ -251,7 +252,6 @@
             // 
             // RxMsgTimer
             // 
-            this.RxMsgTimer.Interval = 100;
             this.RxMsgTimer.Tick += new System.EventHandler(this.RxMsgTimer_Tick);
             // 
             // ClearButton
@@ -572,19 +572,19 @@
             this.ScriptTextBox.Text = "10 03\r\n27 01\r\n27 02=67 02";
             this.ScriptTextBox.WordWrap = false;
             // 
-            // groupBox1
+            // ScriptGroupBox
             // 
-            this.groupBox1.Controls.Add(this.LoopTextBox);
-            this.groupBox1.Controls.Add(this.LoopButton);
-            this.groupBox1.Controls.Add(this.LoopCheckBox);
-            this.groupBox1.Controls.Add(this.RunButton);
-            this.groupBox1.Controls.Add(this.ScriptTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(19, 82);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(178, 367);
-            this.groupBox1.TabIndex = 79;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Script";
+            this.ScriptGroupBox.Controls.Add(this.LoopTextBox);
+            this.ScriptGroupBox.Controls.Add(this.LoopButton);
+            this.ScriptGroupBox.Controls.Add(this.LoopCheckBox);
+            this.ScriptGroupBox.Controls.Add(this.RunButton);
+            this.ScriptGroupBox.Controls.Add(this.ScriptTextBox);
+            this.ScriptGroupBox.Location = new System.Drawing.Point(19, 82);
+            this.ScriptGroupBox.Name = "ScriptGroupBox";
+            this.ScriptGroupBox.Size = new System.Drawing.Size(178, 367);
+            this.ScriptGroupBox.TabIndex = 79;
+            this.ScriptGroupBox.TabStop = false;
+            this.ScriptGroupBox.Text = "Script";
             // 
             // MainWinTabControl
             // 
@@ -611,6 +611,7 @@
             // 
             // DTCTabPage
             // 
+            this.DTCTabPage.Controls.Add(this.ClearDTCButton);
             this.DTCTabPage.Controls.Add(this.RecordNumberLabel);
             this.DTCTabPage.Controls.Add(this.FaultTypeLabel);
             this.DTCTabPage.Controls.Add(this.LowByteLabel);
@@ -652,7 +653,7 @@
             // 
             this.RecordNumberLabel.AutoSize = true;
             this.RecordNumberLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecordNumberLabel.Location = new System.Drawing.Point(313, 12);
+            this.RecordNumberLabel.Location = new System.Drawing.Point(346, 12);
             this.RecordNumberLabel.Name = "RecordNumberLabel";
             this.RecordNumberLabel.Size = new System.Drawing.Size(22, 14);
             this.RecordNumberLabel.TabIndex = 57;
@@ -662,7 +663,7 @@
             // 
             this.FaultTypeLabel.AutoSize = true;
             this.FaultTypeLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FaultTypeLabel.Location = new System.Drawing.Point(285, 12);
+            this.FaultTypeLabel.Location = new System.Drawing.Point(316, 12);
             this.FaultTypeLabel.Name = "FaultTypeLabel";
             this.FaultTypeLabel.Size = new System.Drawing.Size(20, 14);
             this.FaultTypeLabel.TabIndex = 56;
@@ -672,7 +673,7 @@
             // 
             this.LowByteLabel.AutoSize = true;
             this.LowByteLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LowByteLabel.Location = new System.Drawing.Point(257, 12);
+            this.LowByteLabel.Location = new System.Drawing.Point(285, 12);
             this.LowByteLabel.Name = "LowByteLabel";
             this.LowByteLabel.Size = new System.Drawing.Size(20, 14);
             this.LowByteLabel.TabIndex = 55;
@@ -682,7 +683,7 @@
             // 
             this.HighByteLabel.AutoSize = true;
             this.HighByteLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HighByteLabel.Location = new System.Drawing.Point(226, 12);
+            this.HighByteLabel.Location = new System.Drawing.Point(253, 12);
             this.HighByteLabel.Name = "HighByteLabel";
             this.HighByteLabel.Size = new System.Drawing.Size(22, 14);
             this.HighByteLabel.TabIndex = 54;
@@ -702,7 +703,7 @@
             // 
             this.Bit7Label.AutoSize = true;
             this.Bit7Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit7Label.Location = new System.Drawing.Point(151, 239);
+            this.Bit7Label.Location = new System.Drawing.Point(186, 271);
             this.Bit7Label.Name = "Bit7Label";
             this.Bit7Label.Size = new System.Drawing.Size(31, 14);
             this.Bit7Label.TabIndex = 52;
@@ -712,7 +713,7 @@
             // 
             this.Bit6Label.AutoSize = true;
             this.Bit6Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit6Label.Location = new System.Drawing.Point(151, 222);
+            this.Bit6Label.Location = new System.Drawing.Point(186, 254);
             this.Bit6Label.Name = "Bit6Label";
             this.Bit6Label.Size = new System.Drawing.Size(31, 14);
             this.Bit6Label.TabIndex = 51;
@@ -722,7 +723,7 @@
             // 
             this.Bit5Label.AutoSize = true;
             this.Bit5Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit5Label.Location = new System.Drawing.Point(151, 205);
+            this.Bit5Label.Location = new System.Drawing.Point(186, 237);
             this.Bit5Label.Name = "Bit5Label";
             this.Bit5Label.Size = new System.Drawing.Size(31, 14);
             this.Bit5Label.TabIndex = 50;
@@ -732,7 +733,7 @@
             // 
             this.Bit4Label.AutoSize = true;
             this.Bit4Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit4Label.Location = new System.Drawing.Point(151, 188);
+            this.Bit4Label.Location = new System.Drawing.Point(186, 220);
             this.Bit4Label.Name = "Bit4Label";
             this.Bit4Label.Size = new System.Drawing.Size(31, 14);
             this.Bit4Label.TabIndex = 49;
@@ -742,7 +743,7 @@
             // 
             this.Bit3Label.AutoSize = true;
             this.Bit3Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit3Label.Location = new System.Drawing.Point(151, 171);
+            this.Bit3Label.Location = new System.Drawing.Point(186, 203);
             this.Bit3Label.Name = "Bit3Label";
             this.Bit3Label.Size = new System.Drawing.Size(31, 14);
             this.Bit3Label.TabIndex = 48;
@@ -752,7 +753,7 @@
             // 
             this.Bit2Label.AutoSize = true;
             this.Bit2Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit2Label.Location = new System.Drawing.Point(151, 154);
+            this.Bit2Label.Location = new System.Drawing.Point(186, 186);
             this.Bit2Label.Name = "Bit2Label";
             this.Bit2Label.Size = new System.Drawing.Size(31, 14);
             this.Bit2Label.TabIndex = 47;
@@ -762,7 +763,7 @@
             // 
             this.Bit1Label.AutoSize = true;
             this.Bit1Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit1Label.Location = new System.Drawing.Point(151, 137);
+            this.Bit1Label.Location = new System.Drawing.Point(186, 169);
             this.Bit1Label.Name = "Bit1Label";
             this.Bit1Label.Size = new System.Drawing.Size(31, 14);
             this.Bit1Label.TabIndex = 46;
@@ -772,7 +773,7 @@
             // 
             this.Bit0Label.AutoSize = true;
             this.Bit0Label.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bit0Label.Location = new System.Drawing.Point(151, 120);
+            this.Bit0Label.Location = new System.Drawing.Point(186, 152);
             this.Bit0Label.Name = "Bit0Label";
             this.Bit0Label.Size = new System.Drawing.Size(31, 14);
             this.Bit0Label.TabIndex = 45;
@@ -782,7 +783,7 @@
             // 
             this.DTCMasklabel.AutoSize = true;
             this.DTCMasklabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTCMasklabel.Location = new System.Drawing.Point(151, 103);
+            this.DTCMasklabel.Location = new System.Drawing.Point(186, 134);
             this.DTCMasklabel.Name = "DTCMasklabel";
             this.DTCMasklabel.Size = new System.Drawing.Size(37, 14);
             this.DTCMasklabel.TabIndex = 44;
@@ -792,7 +793,7 @@
             // 
             this.WarningIndicatorRequestedCheckBox.AutoSize = true;
             this.WarningIndicatorRequestedCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarningIndicatorRequestedCheckBox.Location = new System.Drawing.Point(192, 239);
+            this.WarningIndicatorRequestedCheckBox.Location = new System.Drawing.Point(227, 270);
             this.WarningIndicatorRequestedCheckBox.Name = "WarningIndicatorRequestedCheckBox";
             this.WarningIndicatorRequestedCheckBox.Size = new System.Drawing.Size(175, 18);
             this.WarningIndicatorRequestedCheckBox.TabIndex = 43;
@@ -803,7 +804,7 @@
             // 
             this.TestNotCompletedThisMonitoringCycleCheckBox.AutoSize = true;
             this.TestNotCompletedThisMonitoringCycleCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNotCompletedThisMonitoringCycleCheckBox.Location = new System.Drawing.Point(192, 222);
+            this.TestNotCompletedThisMonitoringCycleCheckBox.Location = new System.Drawing.Point(227, 253);
             this.TestNotCompletedThisMonitoringCycleCheckBox.Name = "TestNotCompletedThisMonitoringCycleCheckBox";
             this.TestNotCompletedThisMonitoringCycleCheckBox.Size = new System.Drawing.Size(234, 18);
             this.TestNotCompletedThisMonitoringCycleCheckBox.TabIndex = 42;
@@ -816,7 +817,7 @@
             this.TestFailedSinceLastClearCheckBox.Checked = true;
             this.TestFailedSinceLastClearCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TestFailedSinceLastClearCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestFailedSinceLastClearCheckBox.Location = new System.Drawing.Point(192, 205);
+            this.TestFailedSinceLastClearCheckBox.Location = new System.Drawing.Point(227, 236);
             this.TestFailedSinceLastClearCheckBox.Name = "TestFailedSinceLastClearCheckBox";
             this.TestFailedSinceLastClearCheckBox.Size = new System.Drawing.Size(157, 18);
             this.TestFailedSinceLastClearCheckBox.TabIndex = 41;
@@ -827,7 +828,7 @@
             // 
             this.TestNotCompletedSinceLastClearCheckBox.AutoSize = true;
             this.TestNotCompletedSinceLastClearCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNotCompletedSinceLastClearCheckBox.Location = new System.Drawing.Point(192, 188);
+            this.TestNotCompletedSinceLastClearCheckBox.Location = new System.Drawing.Point(227, 219);
             this.TestNotCompletedSinceLastClearCheckBox.Name = "TestNotCompletedSinceLastClearCheckBox";
             this.TestNotCompletedSinceLastClearCheckBox.Size = new System.Drawing.Size(202, 18);
             this.TestNotCompletedSinceLastClearCheckBox.TabIndex = 40;
@@ -840,7 +841,7 @@
             this.ConfirmedDTCCheckBox.Checked = true;
             this.ConfirmedDTCCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ConfirmedDTCCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmedDTCCheckBox.Location = new System.Drawing.Point(192, 171);
+            this.ConfirmedDTCCheckBox.Location = new System.Drawing.Point(227, 202);
             this.ConfirmedDTCCheckBox.Name = "ConfirmedDTCCheckBox";
             this.ConfirmedDTCCheckBox.Size = new System.Drawing.Size(106, 18);
             this.ConfirmedDTCCheckBox.TabIndex = 39;
@@ -853,7 +854,7 @@
             this.PendingDTCCheckBox.Checked = true;
             this.PendingDTCCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.PendingDTCCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PendingDTCCheckBox.Location = new System.Drawing.Point(192, 154);
+            this.PendingDTCCheckBox.Location = new System.Drawing.Point(227, 185);
             this.PendingDTCCheckBox.Name = "PendingDTCCheckBox";
             this.PendingDTCCheckBox.Size = new System.Drawing.Size(94, 18);
             this.PendingDTCCheckBox.TabIndex = 38;
@@ -866,7 +867,7 @@
             this.TestFailedThisMonitoringCycleCheckBox.Checked = true;
             this.TestFailedThisMonitoringCycleCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TestFailedThisMonitoringCycleCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestFailedThisMonitoringCycleCheckBox.Location = new System.Drawing.Point(192, 137);
+            this.TestFailedThisMonitoringCycleCheckBox.Location = new System.Drawing.Point(227, 168);
             this.TestFailedThisMonitoringCycleCheckBox.Name = "TestFailedThisMonitoringCycleCheckBox";
             this.TestFailedThisMonitoringCycleCheckBox.Size = new System.Drawing.Size(189, 18);
             this.TestFailedThisMonitoringCycleCheckBox.TabIndex = 37;
@@ -879,7 +880,7 @@
             this.TestFailedCheckBox.Checked = true;
             this.TestFailedCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TestFailedCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestFailedCheckBox.Location = new System.Drawing.Point(192, 120);
+            this.TestFailedCheckBox.Location = new System.Drawing.Point(227, 151);
             this.TestFailedCheckBox.Name = "TestFailedCheckBox";
             this.TestFailedCheckBox.Size = new System.Drawing.Size(79, 18);
             this.TestFailedCheckBox.TabIndex = 36;
@@ -890,7 +891,7 @@
             // 
             this.RecordNumberTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.RecordNumberTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecordNumberTextBox.Location = new System.Drawing.Point(311, 27);
+            this.RecordNumberTextBox.Location = new System.Drawing.Point(346, 27);
             this.RecordNumberTextBox.Name = "RecordNumberTextBox";
             this.RecordNumberTextBox.Size = new System.Drawing.Size(22, 22);
             this.RecordNumberTextBox.TabIndex = 35;
@@ -900,7 +901,7 @@
             // 
             this.DTCFaultTypeTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.DTCFaultTypeTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTCFaultTypeTextBox.Location = new System.Drawing.Point(280, 27);
+            this.DTCFaultTypeTextBox.Location = new System.Drawing.Point(315, 27);
             this.DTCFaultTypeTextBox.Name = "DTCFaultTypeTextBox";
             this.DTCFaultTypeTextBox.Size = new System.Drawing.Size(22, 22);
             this.DTCFaultTypeTextBox.TabIndex = 34;
@@ -910,7 +911,7 @@
             // 
             this.DTCLowByteTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.DTCLowByteTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTCLowByteTextBox.Location = new System.Drawing.Point(249, 27);
+            this.DTCLowByteTextBox.Location = new System.Drawing.Point(284, 27);
             this.DTCLowByteTextBox.Name = "DTCLowByteTextBox";
             this.DTCLowByteTextBox.Size = new System.Drawing.Size(22, 22);
             this.DTCLowByteTextBox.TabIndex = 33;
@@ -920,7 +921,7 @@
             // 
             this.DTCHighByteTextBox.BackColor = System.Drawing.SystemColors.Window;
             this.DTCHighByteTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTCHighByteTextBox.Location = new System.Drawing.Point(218, 27);
+            this.DTCHighByteTextBox.Location = new System.Drawing.Point(253, 27);
             this.DTCHighByteTextBox.Name = "DTCHighByteTextBox";
             this.DTCHighByteTextBox.Size = new System.Drawing.Size(22, 22);
             this.DTCHighByteTextBox.TabIndex = 32;
@@ -937,7 +938,7 @@
             "19 04",
             "19 06",
             "19 0A"});
-            this.ReadDTCComboBox.Location = new System.Drawing.Point(154, 27);
+            this.ReadDTCComboBox.Location = new System.Drawing.Point(189, 27);
             this.ReadDTCComboBox.Name = "ReadDTCComboBox";
             this.ReadDTCComboBox.Size = new System.Drawing.Size(55, 22);
             this.ReadDTCComboBox.TabIndex = 31;
@@ -945,12 +946,13 @@
             // ReadDTCButton
             // 
             this.ReadDTCButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReadDTCButton.Location = new System.Drawing.Point(154, 57);
+            this.ReadDTCButton.Location = new System.Drawing.Point(189, 57);
             this.ReadDTCButton.Name = "ReadDTCButton";
             this.ReadDTCButton.Size = new System.Drawing.Size(181, 28);
             this.ReadDTCButton.TabIndex = 30;
             this.ReadDTCButton.Text = "Read";
             this.ReadDTCButton.UseVisualStyleBackColor = true;
+            this.ReadDTCButton.Click += new System.EventHandler(this.ReadDTCButton_Click);
             // 
             // DTCDisplayTextBox
             // 
@@ -960,9 +962,20 @@
             this.DTCDisplayTextBox.Multiline = true;
             this.DTCDisplayTextBox.Name = "DTCDisplayTextBox";
             this.DTCDisplayTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DTCDisplayTextBox.Size = new System.Drawing.Size(105, 234);
+            this.DTCDisplayTextBox.Size = new System.Drawing.Size(118, 267);
             this.DTCDisplayTextBox.TabIndex = 29;
             this.DTCDisplayTextBox.WordWrap = false;
+            // 
+            // ClearDTCButton
+            // 
+            this.ClearDTCButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearDTCButton.Location = new System.Drawing.Point(189, 91);
+            this.ClearDTCButton.Name = "ClearDTCButton";
+            this.ClearDTCButton.Size = new System.Drawing.Size(181, 26);
+            this.ClearDTCButton.TabIndex = 58;
+            this.ClearDTCButton.Text = "Clear";
+            this.ClearDTCButton.UseVisualStyleBackColor = true;
+            this.ClearDTCButton.Click += new System.EventHandler(this.ClearDTCButton_Click);
             // 
             // MainWindow
             // 
@@ -971,7 +984,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(734, 466);
             this.Controls.Add(this.MainWinTabControl);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.ScriptGroupBox);
             this.Controls.Add(this.DeviceConnectButton);
             this.Controls.Add(this.DeviceSelectComboBox);
             this.Controls.Add(this.ClearButton);
@@ -1000,8 +1013,8 @@
             this.MainWinMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxRxDataGridView)).EndInit();
             this.ContextMenuStripForDiagDataGridView.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.ScriptGroupBox.ResumeLayout(false);
+            this.ScriptGroupBox.PerformLayout();
             this.MainWinTabControl.ResumeLayout(false);
             this.LogTabPage.ResumeLayout(false);
             this.DTCTabPage.ResumeLayout(false);
@@ -1050,7 +1063,7 @@
         private System.Windows.Forms.CheckBox LoopCheckBox;
         private System.Windows.Forms.Button RunButton;
         private System.Windows.Forms.TextBox ScriptTextBox;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox ScriptGroupBox;
         private System.Windows.Forms.TabControl MainWinTabControl;
         private System.Windows.Forms.TabPage LogTabPage;
         private System.Windows.Forms.TabPage DTCTabPage;
@@ -1089,6 +1102,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Len;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
+        private System.Windows.Forms.Button ClearDTCButton;
     }
 }
 

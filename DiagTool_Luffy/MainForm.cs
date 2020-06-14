@@ -190,5 +190,15 @@ namespace DiagTool_Luffy
         {
             ScriptRun();
         }
+
+        private void ReadDTCButton_Click(object sender, EventArgs e)
+        {
+            ReadDTC();
+        }
+
+        private void ClearDTCButton_Click(object sender, EventArgs e)
+        {
+            ClearDTC();
+        }
     }
 }

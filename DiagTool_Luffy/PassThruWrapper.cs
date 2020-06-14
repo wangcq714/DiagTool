@@ -171,7 +171,7 @@ namespace DiagTool_Luffy
                         /*calldll caculate  key by receive seed*/
                         //CallDllCallback(rxMsgs[k].Data);
                         /* synchronous rx data for other module */
-                        //CallSyncCallback(rxMsgs[k].Data);
+                        CallSyncCallback(rxMsgs[k].Data);
                     }
                     else if ((rxMsgs[k].RxStatus == (RxStatus.TX_MSG_TYPE | RxStatus.TX_INDICATION)))
                     {
