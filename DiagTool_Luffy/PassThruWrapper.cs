@@ -155,7 +155,7 @@ namespace DiagTool_Luffy
             return Result;
         }
 
-        public void RxMsg(Action<string, string, string, string, string> UpdateUICallback, Action<byte[]> CallDllCallback, Action<byte[]> CallSyncCallback)
+        public void RxMsg(Action<string, string, string, string, string> UpdateUICallback, Action<byte[]> SecurityAccessCallDllCallback, Action<byte[]> SyncUIComponentCallback)
         {
             int numMsgs = 0x10;
             List<PassThruMsg> rxMsgs = new List<PassThruMsg>();
@@ -169,9 +169,9 @@ namespace DiagTool_Luffy
                             
                         UpdateUICallback(string.Format("{0:X}", GetMsgID(rxMsgs[k].Data)), GetMsgDataLengthString(rxMsgs[k].Data), GetMsgDataString(rxMsgs[k].Data), "Rx", DateTime.Now.ToString("HH:mm:ss:fff:ffffff"));
                         /*calldll caculate  key by receive seed*/
-                        CallDllCallback(rxMsgs[k].Data);
+                        SecurityAccessCallDllCallback(rxMsgs[k].Data);
                         /* synchronous rx data for other module */
-                        CallSyncCallback(rxMsgs[k].Data);
+                        SyncUIComponentCallback(rxMsgs[k].Data);
                     }
                     else if ((rxMsgs[k].RxStatus == (RxStatus.TX_MSG_TYPE | RxStatus.TX_INDICATION)))
                     {

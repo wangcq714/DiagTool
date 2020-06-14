@@ -169,7 +169,7 @@ namespace DiagTool_Luffy
         }
 
         /*TxRxMsg callback*/
-        public void TxRxMsgCallDllCallback(byte[] Data)
+        public void SecurityAccessCallDllCallback(byte[] Data)
         {
             string dataStr = "";
 
@@ -197,8 +197,8 @@ namespace DiagTool_Luffy
             }
         }
 
-        /* Synchronous data for other moudle when rx related data */
-        public void TxRxMsgCallSyncCallback(byte[] Data)
+
+        public void SyncUIComponentCallback(byte[] Data)
         {
             if (Data[4] == 0x59)
             {

@@ -82,31 +82,9 @@ namespace DiagTool_Luffy
                     ScriptCmdQueue.PopQueue(ref CmdObject);
                     string Cmd = (string)CmdObject;
 
-                    if (Regex.IsMatch(Cmd, @"Sleep\([0-9]+\)"))
+                    if (ParseCmd(Cmd))
                     {
-                        ScriptTimeCount = Convert.ToInt32(Cmd.Substring(6, Cmd.Length - 7));
                         break;
-                    }
-
-                    else
-                    {
-                        if (Regex.IsMatch(Cmd, "^27 [0-9]{2}$"))
-                        {
-                            SecuritAccessReqSeedSubFunction = (byte)Convert.ToInt32(Cmd.Substring(3, 2), 16);
-                        }
-                        if (Regex.IsMatch(Cmd, @"^27 [0-9]{2}[' ']*=[' ']*67 [0-9]{2}$"))
-                        {
-                            if("" == SecuritAccessKey)
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                Cmd = Cmd.Substring(0, 5) + " " + SecuritAccessKey;
-                            }                            
-                        }
-
-                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(Cmd), TxRxMsgUpdateUIDataCallback);
                     }
                 }
                 else
@@ -115,6 +93,40 @@ namespace DiagTool_Luffy
                 }
             } while (true);
         }
+
+        private bool ParseCmd(string Cmd)
+        {
+            bool Result = false;
+
+            if (Regex.IsMatch(Cmd, @"Sleep\([0-9]+\)"))
+            {
+                ScriptTimeCount = Convert.ToInt32(Cmd.Substring(6, Cmd.Length - 7));
+                return true;
+            }
+            else
+            {
+                if (Regex.IsMatch(Cmd, "^27 [0-9]{2}$"))
+                {
+                    SecuritAccessReqSeedSubFunction = (byte)Convert.ToInt32(Cmd.Substring(3, 2), 16);
+                }
+                if (Regex.IsMatch(Cmd, @"^27 [0-9]{2}[' ']*=[' ']*67 [0-9]{2}$"))
+                {
+                    if ("" == SecuritAccessKey)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        Cmd = Cmd.Substring(0, 5) + " " + SecuritAccessKey;
+                    }
+                }
+
+                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(Cmd), TxRxMsgUpdateUIDataCallback);
+            }
+
+            return Result;
+        }
+
 
         private void RunScript(object ScriptRunTimeInterval)
         {

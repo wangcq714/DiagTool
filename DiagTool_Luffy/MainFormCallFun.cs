@@ -26,7 +26,7 @@ namespace DiagTool_Luffy
             }
             */
 
-            if (DateTime.Now >= DateTime.Parse("2020/06/12 00:00:00"))
+            if (DateTime.Now >= DateTime.Parse("2021/06/12 00:00:00"))
             {
                 MessageBox.Show("-----Sorry, it is expired-----");
                 this.Close();
@@ -129,7 +129,7 @@ namespace DiagTool_Luffy
         public void RxMsgmmTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
         {
             /* Callback from the MMTimer API that fires the Timer event. Note we are in a different thread here */
-            passThruWrapper.RxMsg(TxRxMsgUpdateUIDataCallback, TxRxMsgCallDllCallback, TxRxMsgCallSyncCallback);
+            passThruWrapper.RxMsg(TxRxMsgUpdateUIDataCallback, SecurityAccessCallDllCallback, SyncUIComponentCallback);
             //Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
         }
 
