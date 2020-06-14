@@ -29,10 +29,10 @@ namespace DiagTool_Kanwairen
         /*Run before display*/
         private void MainWindowLoad(object sender, EventArgs e)
         {
-            if (!Global.licenseManagement.LicenseCheck())
-            {
-                this.Close();
-            }
+            //if (!Global.licenseManagement.LicenseCheck())
+            //{
+            //    this.Close();
+            //}
             Global.diagUsercontrol.Show();
             MainGroupBox.Controls.Clear();
             MainGroupBox.Controls.Add(Global.diagUsercontrol);            
@@ -133,7 +133,7 @@ namespace DiagTool_Kanwairen
         /* Click Help->Register */
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Global.licenseManagement.Register();
+            //Global.licenseManagement.Register();
         }
 
         

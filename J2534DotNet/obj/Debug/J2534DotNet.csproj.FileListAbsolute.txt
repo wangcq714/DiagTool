@@ -82,4 +82,3 @@ D:\ToolCode\DiagTool\DiagTool8\DiagTool\J2534DotNet\bin\Debug\J2534DotNet.dll
 D:\ToolCode\DiagTool\DiagTool8\DiagTool\J2534DotNet\bin\Debug\J2534DotNet.pdb
 D:\ToolCode\DiagTool\DiagTool8\DiagTool\J2534DotNet\obj\Debug\J2534DotNet.dll
 D:\ToolCode\DiagTool\DiagTool8\DiagTool\J2534DotNet\obj\Debug\J2534DotNet.pdb
-D:\ToolCode\DiagTool\DiagTool8\DiagTool\J2534DotNet\obj\Debug\J2534DotNet.csprojResolveAssemblyReference.cache
