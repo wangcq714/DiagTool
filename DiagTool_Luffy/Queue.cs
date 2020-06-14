@@ -6,21 +6,12 @@ using System.Threading.Tasks;
 
 namespace DiagTool_Luffy
 {
-    class DiagDataGridViewRowData
+    class GenericQueue
     {
-        public string type = String.Empty;
-        public string id = String.Empty;
-        public string len = String.Empty;
-        public string data = String.Empty;
-        public string ts = String.Empty;
-    }
-
-    class DiagDataGridViewRowDataQueue
-    {
-        public DiagDataGridViewRowDataQueue(DiagDataGridViewRowData[] DiagDataGridViewRowData)
+        public GenericQueue(object[] Datas)
         {
-            this.Depth = DiagDataGridViewRowData.Length;
-            this.DiagDataGridViewRowData = DiagDataGridViewRowData;
+            this.Depth = Datas.Length;
+            this.Datas = Datas;
         }
 
         public int Depth;
@@ -28,7 +19,7 @@ namespace DiagTool_Luffy
         public byte ReadPointer;
         public bool FullFlag;
         public bool EmptyFlag;
-        public DiagDataGridViewRowData[] DiagDataGridViewRowData;
+        public object[] Datas;
 
         public void QueueInit()
         {
@@ -38,7 +29,7 @@ namespace DiagTool_Luffy
             this.FullFlag = false;
         }
 
-        public void PushQueue(DiagDataGridViewRowData data)
+        public void PushQueue(object data)
         {
             byte Writeptr = 0;
 
@@ -52,10 +43,10 @@ namespace DiagTool_Luffy
             {
                 this.EmptyFlag = false;
                 this.WritePointer = Writeptr;
-                this.DiagDataGridViewRowData[this.WritePointer] = data;
+                this.Datas[this.WritePointer] = data;
             }
         }
-        public void PopQueue(ref DiagDataGridViewRowData data)
+        public void PopQueue(ref object data)
         {
             if (this.ReadPointer < (this.Depth - 1))
             {
@@ -66,7 +57,7 @@ namespace DiagTool_Luffy
                 this.ReadPointer = 0x00;
             }
 
-            data = this.DiagDataGridViewRowData[this.ReadPointer];
+            data = this.Datas[this.ReadPointer];
 
             if (this.WritePointer == this.ReadPointer)
             {

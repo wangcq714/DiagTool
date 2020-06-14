@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Threading;
 
 using J2534DotNet;
 namespace DiagTool_Luffy
@@ -29,7 +30,8 @@ namespace DiagTool_Luffy
             this.DeviceConnectButton.Image = Image.FromFile("stop.png");
 
             Result = passThruWrapper.DeviceConnectInit(DeviceConnectInitCallback);
-            diagDataGridViewRowDataQueue.QueueInit();
+            DiagDataGridViewRowDataQueue.QueueInit();
+            ScriptCmdQueue.QueueInit();
             if (!Result)
             {
                 MessageBox.Show("-----Please device driver!!!-----");
@@ -62,7 +64,8 @@ namespace DiagTool_Luffy
                 {
                     this.RxMsgTimer.Start();
                     this.TestPresentTimer.Start();
-                    mmTimer.Start(10, true, MMTimerCBFunc);
+                    RxMsgmmTimer.Start(10, true, RxMsgmmTimerCBFunc);
+                    ScriptRunmmTimer.Start(100, true, ScriptRunmmTimerCBFunc);
                     this.DeviceConnectButton.Image = Image.FromFile("run.png");
                     bDeviceConnectState = true;
                 }
@@ -75,14 +78,15 @@ namespace DiagTool_Luffy
             {
                 this.RxMsgTimer.Stop();
                 this.TestPresentTimer.Stop();
-                mmTimer.Stop();
+                RxMsgmmTimer.Stop();
+                ScriptRunmmTimer.Stop();
                 passThruWrapper.deviceClose();
                 this.DeviceConnectButton.Image = Image.FromFile("stop.png");
                 bDeviceConnectState = false;
             }
         }
-        /* Millisecond Timer callback */
-        public void MMTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
+
+        public void RxMsgmmTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
         {
             /* Callback from the MMTimer API that fires the Timer event. Note we are in a different thread here */
             passThruWrapper.RxMsg(TxRxMsgUpdateUIDataCallback, TxRxMsgCallDllCallback, TxRxMsgCallSyncCallback);
@@ -97,11 +101,12 @@ namespace DiagTool_Luffy
 
         private void UpdateMainWindowUI()
         {
-            if (!diagDataGridViewRowDataQueue.EmptyFlag)
+            if (!DiagDataGridViewRowDataQueue.EmptyFlag)
             {
-                DiagDataGridViewRowData RowData = new DiagDataGridViewRowData();
-                diagDataGridViewRowDataQueue.PopQueue(ref RowData);
-
+                //DiagDataGridViewRowData RowData = new DiagDataGridViewRowData();
+                object RowDataObject = new object();
+                DiagDataGridViewRowDataQueue.PopQueue(ref RowDataObject);
+                DiagDataGridViewRowData RowData = RowDataObject as DiagDataGridViewRowData;
                 /* Regardless of Tx or Rx, clear RxDataTextBox. */
                 UpdateRxDataTextBoxText("");
                 /* if Recieve Msg， update RxDataTextBox. */
@@ -124,7 +129,7 @@ namespace DiagTool_Luffy
                     /* if "3E 80" is sent, don't display in DiagDataGridView */
                     if (TestPresentComboBox.SelectedIndex == 0)
                     {
-                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(TestPresentComboBox.Text), TxRxMsgNotUpdateUICallback);
+                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(TestPresentComboBox.Text), TxRxMsgNotUpdateUIDataCallback);
                     }
                     /* if "3E 00" is sent, display in DiagDataGridView */
                     else if (TestPresentComboBox.SelectedIndex == 1)
@@ -172,6 +177,21 @@ namespace DiagTool_Luffy
             subFunctionSeedkey = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
             dataStr += SecurityAccessComboBox.Text.Substring(3, 2);
             //passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
+        }
+
+
+        private void ScriptRun()
+        {
+            /* Build a new thread to run script */
+            Thread childThread = new Thread(RunScript);
+            childThread.Start(Global.ScriptRunTimeInterval);
+        }
+
+        private void ScriptLoop()
+        {
+            /* Build a new thread to run loop script */
+            Thread childThread = new Thread(LoopScript);
+            childThread.Start(Global.ScriptRunTimeInterval);
         }
 
 
@@ -236,7 +256,15 @@ namespace DiagTool_Luffy
                 writer0.Flush(); // 使得所有缓冲的数据都写入到文件中
                 fs.Close(); // 方法关闭当前文件流
             }
-
         }
+    }
+
+    class DiagDataGridViewRowData
+    {
+        public string type = String.Empty;
+        public string id = String.Empty;
+        public string len = String.Empty;
+        public string data = String.Empty;
+        public string ts = String.Empty;
     }
 }

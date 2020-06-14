@@ -19,10 +19,13 @@ namespace DiagTool_Luffy
         private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
         //private LicenseManagement licenseManagement = new LicenseManagement();
         private PassThruWrapper passThruWrapper = new PassThruWrapper();
-        MMTimer mmTimer = new MMTimer();
+        MMTimer RxMsgmmTimer = new MMTimer();
+        MMTimer ScriptRunmmTimer = new MMTimer();
 
-        private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[32];
-        private static DiagDataGridViewRowDataQueue diagDataGridViewRowDataQueue = new DiagDataGridViewRowDataQueue(DiagDataGridViewRowDatas);
+        private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[64];
+        private static GenericQueue DiagDataGridViewRowDataQueue = new GenericQueue(DiagDataGridViewRowDatas);
+        private static string[] ScriptCmds = new string[1024];
+        private static GenericQueue ScriptCmdQueue = new GenericQueue(ScriptCmds);
 
         static object DiagDataGridViewAddRowLocker = new object();
 
@@ -180,7 +183,12 @@ namespace DiagTool_Luffy
 
         private void LoopButton_Click(object sender, EventArgs e)
         {
+            ScriptLoop();
+        }
 
+        private void RunButton_Click(object sender, EventArgs e)
+        {
+            ScriptRun();
         }
     }
 }

@@ -123,8 +123,7 @@ namespace DiagTool_Luffy
         public void TxMsg(UInt32 RequestID, byte[] msgData, Action<string, string, string, string, string> UpdateUICallback)
         {
             J2534Err J2534ErrStatus;
-            int numMsgs = 1; 
-
+            int numMsgs = 1;
             PassThruMsg TxMsg = new PassThruMsg();
             TxMsg.ProtocolID = ProtocolID.ISO15765;   //SEND
             TxMsg.TxFlags = TxFlag.ISO15765_FRAME_PAD;
@@ -134,10 +133,8 @@ namespace DiagTool_Luffy
             TxMsg.Data = PackMsgTxData(RequestID, msgData);
 
             //passThru.ClearRxBuffer(channelId);
-            
             J2534ErrStatus = passThru.WriteMsgs(channelId, ref TxMsg, ref numMsgs, 10);
 
-            /* Update UI */
             UpdateUICallback(string.Format("{0:X}", RequestID), Convert.ToString(TxMsg.Data.Length - 4), GetMsgDataString(TxMsg.Data), "Tx", DateTime.Now.ToString("HH:mm:ss:fff:ffffff"));
         }
 

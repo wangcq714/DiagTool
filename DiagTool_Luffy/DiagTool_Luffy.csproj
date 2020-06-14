@@ -75,6 +75,9 @@
     </Compile>
     <Compile Include="Queue.cs" />
     <Compile Include="RegistFile.cs" />
+    <Compile Include="Script.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SecurityAlgorithm.cs" />
     <Compile Include="DiagCallback.cs">
       <SubType>Form</SubType>

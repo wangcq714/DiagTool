@@ -89,17 +89,17 @@ namespace DiagTool_Luffy
          * the TextBox control, the Text property is set directly. */
         private void UpdateTxRxMsgUpdateDiagDataGridView(string type, string id, string len, string data, string ts)
         {
-            /* InvokeRequired required compares the thread ID of the
-             * calling thread to the thread ID of the creating thread.
-             * If these threads are different, it returns true. */
-            if (this.TxRxDataGridView.InvokeRequired)
+            lock (DiagDataGridViewAddRowLocker)
             {
-                DoTxRxMsgUpdateDiagDataGridView UpdateData = new DoTxRxMsgUpdateDiagDataGridView(UpdateTxRxMsgUpdateDiagDataGridView);
-                this.Invoke(UpdateData, new object[] { type, id, len, data, ts });
-            }
-            else
-            {
-                lock (DiagDataGridViewAddRowLocker)
+                /* InvokeRequired required compares the thread ID of the
+                 * calling thread to the thread ID of the creating thread.
+                 * If these threads are different, it returns true. */
+                if (this.TxRxDataGridView.InvokeRequired)
+                {
+                    DoTxRxMsgUpdateDiagDataGridView UpdateData = new DoTxRxMsgUpdateDiagDataGridView(UpdateTxRxMsgUpdateDiagDataGridView);
+                    this.Invoke(UpdateData, new object[] { type, id, len, data, ts });
+                }
+                else
                 {
                     int index = this.TxRxDataGridView.Rows.Add();
 
@@ -113,7 +113,32 @@ namespace DiagTool_Luffy
 
                     this.TxRxDataGridView.Refresh();
                 }
-                
+            }
+        }
+
+        private delegate void DoLoopTextBoxText(string text);
+        /* This method demonstrates a pattern for making thread-safe
+         * calls on a Windows Forms control. 
+         * If the calling thread is different from the thread that
+         * created the TextBox control, this method creates a
+         * SetTextCallback and calls itself asynchronously using the
+         * Invoke method.
+         * If the calling thread is the same as the thread that created
+         * the TextBox control, the Text property is set directly. */
+        private void UpdateLoopTextBoxText(string text)
+        {
+            /* InvokeRequired required compares the thread ID of the
+             * calling thread to the thread ID of the creating thread.
+             * If these threads are different, it returns true. */
+            if (this.LoopTextBox.InvokeRequired)
+            {
+                DoLoopTextBoxText UpdateText = new DoLoopTextBoxText(UpdateLoopTextBoxText);
+                this.Invoke(UpdateText, new object[] { text });
+            }
+            else
+            {
+                this.LoopTextBox.Text = text;
+                this.LoopTextBox.Refresh();
             }
         }
 
@@ -131,14 +156,14 @@ namespace DiagTool_Luffy
             RowData.len = dataLenStr;
             RowData.data = dataStr;
             RowData.ts = timeStampStr;
-            if (!diagDataGridViewRowDataQueue.FullFlag)
+            if (!DiagDataGridViewRowDataQueue.FullFlag)
             {
-                diagDataGridViewRowDataQueue.PushQueue(RowData);
+                DiagDataGridViewRowDataQueue.PushQueue(RowData);
             }
         }
 
         /*TxRxMsg callback*/
-        public void TxRxMsgNotUpdateUICallback(string strDataID, string strDateLen, string strDatebyte, string type, string timeStampStr)
+        public void TxRxMsgNotUpdateUIDataCallback(string strDataID, string strDateLen, string strDatebyte, string type, string timeStampStr)
         {
             /* Do nothing */
         }

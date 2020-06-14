@@ -56,6 +56,12 @@
             this.ClearButton = new System.Windows.Forms.Button();
             this.ReqIDTextBox = new System.Windows.Forms.TextBox();
             this.TxRxDataGridView = new System.Windows.Forms.DataGridView();
+            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Len = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContextMenuStripForDiagDataGridView = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ClearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,12 +113,6 @@
             this.ReadDTCComboBox = new System.Windows.Forms.ComboBox();
             this.ReadDTCButton = new System.Windows.Forms.Button();
             this.DTCDisplayTextBox = new System.Windows.Forms.TextBox();
-            this.Num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Len = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainWinMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxRxDataGridView)).BeginInit();
             this.ContextMenuStripForDiagDataGridView.SuspendLayout();
@@ -251,7 +251,7 @@
             // 
             // RxMsgTimer
             // 
-            this.RxMsgTimer.Interval = 10;
+            this.RxMsgTimer.Interval = 100;
             this.RxMsgTimer.Tick += new System.EventHandler(this.RxMsgTimer_Tick);
             // 
             // ClearButton
@@ -309,6 +309,67 @@
             this.TxRxDataGridView.Size = new System.Drawing.Size(478, 289);
             this.TxRxDataGridView.TabIndex = 64;
             this.TxRxDataGridView.DoubleClick += new System.EventHandler(this.TxRxDataGridView_DoubleClick);
+            // 
+            // Num
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Num.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Num.HeaderText = "Num";
+            this.Num.Name = "Num";
+            this.Num.ReadOnly = true;
+            this.Num.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Num.Width = 40;
+            // 
+            // Type
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Type.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 35;
+            // 
+            // ID
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 35;
+            // 
+            // Len
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Len.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Len.HeaderText = "Len";
+            this.Len.Name = "Len";
+            this.Len.ReadOnly = true;
+            this.Len.Width = 35;
+            // 
+            // Data
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Data.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            this.Data.ReadOnly = true;
+            this.Data.Width = 180;
+            // 
+            // TimeStamp
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeStamp.DefaultCellStyle = dataGridViewCellStyle7;
+            this.TimeStamp.HeaderText = "TimeStamp";
+            this.TimeStamp.Name = "TimeStamp";
+            this.TimeStamp.ReadOnly = true;
+            this.TimeStamp.Width = 130;
             // 
             // ContextMenuStripForDiagDataGridView
             // 
@@ -498,6 +559,7 @@
             this.RunButton.TabIndex = 71;
             this.RunButton.Text = "Run";
             this.RunButton.UseVisualStyleBackColor = true;
+            this.RunButton.Click += new System.EventHandler(this.RunButton_Click);
             // 
             // ScriptTextBox
             // 
@@ -507,6 +569,7 @@
             this.ScriptTextBox.Name = "ScriptTextBox";
             this.ScriptTextBox.Size = new System.Drawing.Size(154, 307);
             this.ScriptTextBox.TabIndex = 70;
+            this.ScriptTextBox.Text = "10 03\r\n27 01\r\n27 02=67 02";
             this.ScriptTextBox.WordWrap = false;
             // 
             // groupBox1
@@ -580,7 +643,7 @@
             this.DTCTabPage.Location = new System.Drawing.Point(4, 23);
             this.DTCTabPage.Name = "DTCTabPage";
             this.DTCTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DTCTabPage.Size = new System.Drawing.Size(435, 278);
+            this.DTCTabPage.Size = new System.Drawing.Size(482, 300);
             this.DTCTabPage.TabIndex = 1;
             this.DTCTabPage.Text = "DTC";
             this.DTCTabPage.UseVisualStyleBackColor = true;
@@ -900,67 +963,6 @@
             this.DTCDisplayTextBox.Size = new System.Drawing.Size(105, 234);
             this.DTCDisplayTextBox.TabIndex = 29;
             this.DTCDisplayTextBox.WordWrap = false;
-            // 
-            // Num
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Num.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Num.HeaderText = "Num";
-            this.Num.Name = "Num";
-            this.Num.ReadOnly = true;
-            this.Num.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Num.Width = 40;
-            // 
-            // Type
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Type.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 35;
-            // 
-            // ID
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ID.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 35;
-            // 
-            // Len
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Len.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Len.HeaderText = "Len";
-            this.Len.Name = "Len";
-            this.Len.ReadOnly = true;
-            this.Len.Width = 35;
-            // 
-            // Data
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Data.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            this.Data.ReadOnly = true;
-            this.Data.Width = 180;
-            // 
-            // TimeStamp
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeStamp.DefaultCellStyle = dataGridViewCellStyle7;
-            this.TimeStamp.HeaderText = "TimeStamp";
-            this.TimeStamp.Name = "TimeStamp";
-            this.TimeStamp.ReadOnly = true;
-            this.TimeStamp.Width = 130;
             // 
             // MainWindow
             // 

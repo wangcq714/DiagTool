@@ -21,7 +21,13 @@ namespace DiagTool_Luffy
         /*Run before display*/
         private void SettingWindowLoad(object sender, EventArgs e)
         {
-            /* Use selected baudrate in setup */
+            LoadBaudRateComboBox();
+
+            LoadScriptTimeIntervalTextBox();
+        }
+
+        private void LoadBaudRateComboBox()
+        {
             switch (Global.CANBaudRate)
             {
                 case BaudRate.ISO15765_125000:
@@ -37,6 +43,11 @@ namespace DiagTool_Luffy
                     this.BaudRateComboBox.SelectedIndex = 2;
                     break;
             }
+        }
+
+        private void LoadScriptTimeIntervalTextBox()
+        {
+            this.ScriptTimeIntervalTextBox.Text = Convert.ToString(Global.ScriptRunTimeInterval);
         }
 
         /*Redefine Formclosing*/
@@ -62,7 +73,14 @@ namespace DiagTool_Luffy
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            /* Update baudrate */
+            UpdateBaudrateData();
+            UpdateScriptRunTimeIntervalData();
+
+            this.Close();
+        }
+
+        private void UpdateBaudrateData()
+        {
             switch (this.BaudRateComboBox.SelectedIndex)
             {
                 case 0:
@@ -78,8 +96,11 @@ namespace DiagTool_Luffy
                     Global.CANBaudRate = BaudRate.ISO15765_500000;
                     break;
             }
+        }
 
-            this.Close();
+        private void UpdateScriptRunTimeIntervalData()
+        {
+            Global.ScriptRunTimeInterval = Convert.ToInt32(this.ScriptTimeIntervalTextBox.Text.ToString().Trim());
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
