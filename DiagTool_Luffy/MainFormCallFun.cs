@@ -25,6 +25,15 @@ namespace DiagTool_Luffy
                 return;
             }
             */
+
+            if (DateTime.Now >= DateTime.Parse("2020/06/12 00:00:00"))
+            {
+                MessageBox.Show("-----Sorry, it is expired-----");
+                this.Close();
+                return;
+            }
+            
+
             this.TestPresentComboBox.SelectedIndex = 0;
             this.SecurityAccessComboBox.SelectedIndex = 0;
             this.ReadDTCComboBox.SelectedIndex = 1;
