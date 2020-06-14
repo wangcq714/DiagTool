@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagTool_Luffy", "DiagTool_
 		{C85973CB-AA27-4F7D-92B1-8363F0658D9C} = {C85973CB-AA27-4F7D-92B1-8363F0658D9C}
 	EndProjectSection
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Luffy", "Luffy\Luffy.vdproj", "{DDB29741-A981-47CE-A251-7D685257CBB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,12 @@ Global
 		{A2B1686A-10A6-4759-90B1-7FE0C4F1C78F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A2B1686A-10A6-4759-90B1-7FE0C4F1C78F}.Release|x86.ActiveCfg = Release|Any CPU
 		{A2B1686A-10A6-4759-90B1-7FE0C4F1C78F}.Release|x86.Build.0 = Release|Any CPU
+		{DDB29741-A981-47CE-A251-7D685257CBB8}.Debug|Any CPU.ActiveCfg = Debug
+		{DDB29741-A981-47CE-A251-7D685257CBB8}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{DDB29741-A981-47CE-A251-7D685257CBB8}.Debug|x86.ActiveCfg = Debug
+		{DDB29741-A981-47CE-A251-7D685257CBB8}.Release|Any CPU.ActiveCfg = Release
+		{DDB29741-A981-47CE-A251-7D685257CBB8}.Release|Mixed Platforms.ActiveCfg = Release
+		{DDB29741-A981-47CE-A251-7D685257CBB8}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
