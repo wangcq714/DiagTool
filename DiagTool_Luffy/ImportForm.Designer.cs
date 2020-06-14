@@ -102,7 +102,7 @@
             this.Name = "ImportForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Import";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ImportFormClosing);
+            this.Load += new System.EventHandler(this.ImportWindowLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

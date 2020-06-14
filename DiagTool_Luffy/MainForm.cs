@@ -32,7 +32,8 @@ namespace DiagTool_Luffy
         private bool bDeviceConnectState = false;
 
         public bool isCallKeyToSeedDll = false;
-        public byte subFunctionSeedkey = 0;
+        public byte SecuritAccessReqSeedSubFunction = 0;
+        public string SecuritAccessKey = "";
         public DataTable DTCANRxScroll = new DataTable();
 
         

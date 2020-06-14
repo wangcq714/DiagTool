@@ -11,5 +11,6 @@ namespace DiagTool_Luffy
     {     
         public static BaudRate CANBaudRate = BaudRate.ISO15765_500000;
         public static int ScriptRunTimeInterval = 100;
+        public static string SecurityAccessDllPathname = "";
     }
 }

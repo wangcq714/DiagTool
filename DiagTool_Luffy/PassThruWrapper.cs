@@ -169,7 +169,7 @@ namespace DiagTool_Luffy
                             
                         UpdateUICallback(string.Format("{0:X}", GetMsgID(rxMsgs[k].Data)), GetMsgDataLengthString(rxMsgs[k].Data), GetMsgDataString(rxMsgs[k].Data), "Rx", DateTime.Now.ToString("HH:mm:ss:fff:ffffff"));
                         /*calldll caculate  key by receive seed*/
-                        //CallDllCallback(rxMsgs[k].Data);
+                        CallDllCallback(rxMsgs[k].Data);
                         /* synchronous rx data for other module */
                         CallSyncCallback(rxMsgs[k].Data);
                     }

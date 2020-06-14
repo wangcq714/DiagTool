@@ -173,17 +173,28 @@ namespace DiagTool_Luffy
         {
             string dataStr = "";
 
+            if (Data[4] == 0x67 && Data[5] == SecuritAccessReqSeedSubFunction)
+            {
+                SecuritAccessReqSeedSubFunction = 0;
+                dataStr = securityAlgorithm.Security_DLL(Data, Global.SecurityAccessDllPathname);
+                if(dataStr != "")
+                {
+                    SecuritAccessKey = dataStr.Substring(6);
+                } 
+                else
+                {
+                    SecuritAccessKey = "";
+                    isCallKeyToSeedDll = false;
+                    return;
+                }              
+            }
+
             /* if "isCallKeyToSeedDll==true", that need to do security verification automaticaly */
             if (isCallKeyToSeedDll)
             {              
-                if (Data[4] == 0x67 && Data[5] == subFunctionSeedkey)
-                {
-                    dataStr = securityAlgorithm.Security_DLL(Data, ImportForm.DllPathname);
-                    //passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
-                }
-
+                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(dataStr), TxRxMsgUpdateUIDataCallback);
                 isCallKeyToSeedDll = false;
-            }          
+            }
         }
 
         /* Synchronous data for other moudle when rx related data */

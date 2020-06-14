@@ -63,10 +63,8 @@ namespace DiagTool_Luffy
                 bDeviceConnectState = passThruWrapper.ConnectDevice(this.DeviceSelectComboBox.SelectedIndex, this.ReqIDTextBox_Text, this.ResIDTextBox_Text, baudRate);
                 if (bDeviceConnectState)
                 {
-                    this.RxMsgTimer.Start();
-                    this.TestPresentTimer.Start();
-                    RxMsgmmTimer.Start(10, true, RxMsgmmTimerCBFunc);
-                    ScriptRunmmTimer.Start(100, true, ScriptRunmmTimerCBFunc);
+                    DisableFormComponent();
+                    StartTimer();
                     this.DeviceConnectButton.Image = Image.FromFile("run.png");
                     bDeviceConnectState = true;
                 }
@@ -77,14 +75,46 @@ namespace DiagTool_Luffy
             }
             else
             {
-                this.RxMsgTimer.Stop();
-                this.TestPresentTimer.Stop();
-                RxMsgmmTimer.Stop();
-                ScriptRunmmTimer.Stop();
+                EnableFormComponent();
+                StopTimer();
                 passThruWrapper.deviceClose();
                 this.DeviceConnectButton.Image = Image.FromFile("stop.png");
                 bDeviceConnectState = false;
             }
+        }
+
+        private void DisableFormComponent()
+        {
+            this.ReqIDTextBox.Enabled = false;
+            this.ResIDTextBox.Enabled = false;
+            this.DeviceSelectComboBox.Enabled = false;
+            this.TestPresentComboBox.Enabled = false;
+            this.SecurityAccessComboBox.Enabled = false;
+        }
+
+        private void EnableFormComponent()
+        {
+            this.ReqIDTextBox.Enabled = true;
+            this.ResIDTextBox.Enabled = true;
+            this.DeviceSelectComboBox.Enabled = true;
+            this.TestPresentComboBox.Enabled = true;
+            this.SecurityAccessComboBox.Enabled = true;
+        }
+
+        private void StartTimer()
+        {
+            this.RxMsgTimer.Start();
+            this.TestPresentTimer.Start();
+            RxMsgmmTimer.Start(10, true, RxMsgmmTimerCBFunc);
+            ScriptRunmmTimer.Start(100, true, ScriptRunmmTimerCBFunc);
+        }
+
+        private void StopTimer()
+        {
+            this.RxMsgTimer.Stop();
+            this.TestPresentTimer.Stop();
+            RxMsgmmTimer.Stop();
+            ScriptRunmmTimer.Stop();
         }
 
         public void RxMsgmmTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
@@ -175,9 +205,9 @@ namespace DiagTool_Luffy
             string dataStr = "27 ";
 
             isCallKeyToSeedDll = true;
-            subFunctionSeedkey = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
+            SecuritAccessReqSeedSubFunction = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
             dataStr += SecurityAccessComboBox.Text.Substring(3, 2);
-            //passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
+            passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(dataStr), TxRxMsgUpdateUIDataCallback);
         }
 
 

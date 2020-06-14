@@ -39,14 +39,18 @@ namespace DiagTool_Luffy
             if (pathname != "")
             {
                 Dll dllinvoke = new Dll(pathname);   //实例化 或者satatic方法
-                doDllFunction show = (doDllFunction)dllinvoke.Invoke("CalcKeys1", typeof(doDllFunction));//InitFunction为需要执行的函数名
-                show(ref seed[0], ref key[0]);
+                doDllFunction CalculateKeyBySeed = (doDllFunction)dllinvoke.Invoke("CalcKeys1", typeof(doDllFunction));//InitFunction为需要执行的函数名
+                CalculateKeyBySeed(ref seed[0], ref key[0]);
 
                 strDatebyte += "27 " + string.Format("{0:X2}", (DataReceive[5] + 1));
                 for (int i = 0; i < 4; i++)
                 {
                     strDatebyte += " " + string.Format("{0:X2}", key[i]);
-                }                  
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Import Dll !!!", "Error");
             }
             return strDatebyte;
         }

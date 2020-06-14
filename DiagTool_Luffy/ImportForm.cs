@@ -11,11 +11,20 @@ namespace DiagTool_Luffy
 {
     public partial class ImportForm : Form
     {
-        static public string DllPathname = "";
-
         public ImportForm()
         {
             InitializeComponent();
+        }
+
+        /*Run before display*/
+        private void ImportWindowLoad(object sender, EventArgs e)
+        {
+            LoadDllPathnameTextBox();
+        }
+
+        private void LoadDllPathnameTextBox()
+        {
+             DllPathnameTextBox.Text = Global.SecurityAccessDllPathname;
         }
 
         private void DllSelectButton_Click(object sender, EventArgs e)
@@ -36,7 +45,7 @@ namespace DiagTool_Luffy
 
         private void YesButton_Click(object sender, EventArgs e)
         {
-            DllPathname = DllPathnameTextBox.Text;
+            Global.SecurityAccessDllPathname = DllPathnameTextBox.Text;
             this.Close();
         }
 
