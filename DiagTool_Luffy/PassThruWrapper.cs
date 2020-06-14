@@ -64,8 +64,7 @@ namespace DiagTool_Luffy
             PassThruMsg patternMsg = new PassThruMsg();
             PassThruMsg flowControlMsg = new PassThruMsg();
 
-            byte i;
-            for (i = 0; i < 1; i++)
+            for (byte i = 0; i < 1; i++)
             {
                 maskMsg.ProtocolID = ProtocolID.ISO15765;
                 maskMsg.TxFlags = TxFlag.ISO15765_FRAME_PAD;
@@ -121,22 +120,10 @@ namespace DiagTool_Luffy
             passThru.FreeLibrary();
         }
 
-        public void TxMsg(string msgID, string msgData, Action<string, int, string, string> Callback)
+        public void TxMsg(UInt32 RequestID, byte[] msgData, Action<string, string, string, string, string> UpdateUICallback)
         {
             J2534Err J2534ErrStatus;
-            string strDatebyte = "";
-            int ID = Convert.ToInt32(msgID.Trim(), 16);
-            string[] dataStr = msgData.Trim().Split(' ');
-            int[] byteStr = new int[dataStr.Length + 4];
-            byteStr[0] = 0;
-            byteStr[1] = 0;
-            byteStr[2] = (byte)((int)ID / 256);
-            byteStr[3] = (byte)((int)ID % 256);
-
-            for (int i = 0; i < dataStr.Length; i++)
-            {
-                byteStr[i + 4] = Convert.ToInt32("0x" + dataStr[i], 16);
-            }
+            int numMsgs = 1; 
 
             PassThruMsg TxMsg = new PassThruMsg();
             TxMsg.ProtocolID = ProtocolID.ISO15765;   //SEND
@@ -144,66 +131,104 @@ namespace DiagTool_Luffy
             //TxMsg.ProtocolID = ProtocolID.CAN;
             //TxMsg.TxFlags = TxFlag.NONE;
 
-            TxMsg.Data = new byte[byteStr.Length];
-            for (int i = 0; i < byteStr.Length; i++)
-            {
-                TxMsg.Data[i] = (byte)byteStr[i];
-            }
-            for (int i = 0; i < (TxMsg.Data.Length - 4); i++)
-                strDatebyte += string.Format("{0:X2}", TxMsg.Data[i + 4]) + " ";
-            //passThru.ClearRxBuffer(channelId);
-            int numMsgs = 1;    //to be tested later
-            J2534ErrStatus = passThru.WriteMsgs(channelId, ref TxMsg, ref numMsgs, 50);
+            TxMsg.Data = PackMsgTxData(RequestID, msgData);
 
-            //Console.Write("Debug"); // Debug
+            //passThru.ClearRxBuffer(channelId);
+            
+            J2534ErrStatus = passThru.WriteMsgs(channelId, ref TxMsg, ref numMsgs, 10);
 
             /* Update UI */
-            Callback(msgID, TxMsg.Data.Length - 4, strDatebyte, "Tx");
-
+            UpdateUICallback(string.Format("{0:X}", RequestID), Convert.ToString(TxMsg.Data.Length - 4), GetMsgDataString(TxMsg.Data), "Tx", DateTime.Now.ToString("HH:mm:ss:fff:ffffff"));
         }
 
-        public void RxMsg(TextBox ResponseID, Action<string, int, string, string> Callback, Action<byte[]> CallDllCallback, Action<byte[]> CallSyncCallback)
+        private byte[] PackMsgTxData(UInt32 RequestID, byte[] msgData)
         {
-            int numMsgs = 100;
-            int msgCount = 0;
-            string strDataID = "";
-            string strDatebyte = "";
-            List<PassThruMsg> rxMsgs = new List<PassThruMsg>();
-            J2534Err status = J2534Err.STATUS_NOERROR;
+            byte[] Result = new byte[msgData.Length + 4];
 
-            numMsgs = 10;//test line
-            status = passThru.ReadMsgs(channelId, ref rxMsgs, ref numMsgs, 0);  /////////////////////
-            if (status == J2534Err.STATUS_NOERROR)    //maybe no use
+            Result[0] = Convert.ToByte((RequestID >> 24) & 0xFF);
+            Result[1] = Convert.ToByte((RequestID >> 16) & 0xFF);
+            Result[2] = Convert.ToByte((RequestID >> 8) & 0xFF);
+            Result[3] = Convert.ToByte((RequestID >> 0) & 0xFF);
+
+            for (int i = 0; i < msgData.Length; i++)
             {
-                msgCount = rxMsgs.Count;
-                for (int k = 0; k < msgCount; k++)
+                Result[i + 4] = msgData[i];
+            }
+
+            return Result;
+        }
+
+        public void RxMsg(Action<string, string, string, string, string> UpdateUICallback, Action<byte[]> CallDllCallback, Action<byte[]> CallSyncCallback)
+        {
+            int numMsgs = 0x10;
+            List<PassThruMsg> rxMsgs = new List<PassThruMsg>();
+
+            if (J2534Err.STATUS_NOERROR == passThru.ReadMsgs(channelId, ref rxMsgs, ref numMsgs, 0))
+            {
+                for (int k = 0; k < rxMsgs.Count; k++)
                 {
-                    strDataID = "";
-                    strDatebyte = "";
-                    if (rxMsgs[k].Data.Length > 4)   //前四个字节是地址  //长帧回的第一帧猜测只是ID的4个字节
+                    if(rxMsgs[k].RxStatus == RxStatus.NONE)
                     {
-                        for (int i = 0; i < 4; i++)
-                            strDataID += string.Format("{0:X2}", rxMsgs[k].Data[i]);   //转2个16进制表示的数字
-                        if (strDataID.TrimStart('0') == ResponseID.Text.Trim().ToUpper())
-                        {
-                            for (int i = 0; i < (rxMsgs[k].Data.Length - 4); i++)
-                            {
-                                strDatebyte += string.Format("{0:X2}", rxMsgs[k].Data[i + 4]) + " ";
-                            }    
-                            /*Update UI*/
-                            Callback(strDataID.TrimStart('0'), rxMsgs[k].Data.Length - 4, strDatebyte, "Rx");
-                            /*calldll caculate  key by receive seed*/
-                            CallDllCallback(rxMsgs[k].Data);
-                            /* synchronous rx data for other module */
-                            CallSyncCallback(rxMsgs[k].Data);
-                        }
-                        else
-                        {
-                            continue;
-                        }
+                            
+                        UpdateUICallback(string.Format("{0:X}", GetMsgID(rxMsgs[k].Data)), GetMsgDataLengthString(rxMsgs[k].Data), GetMsgDataString(rxMsgs[k].Data), "Rx", DateTime.Now.ToString("HH:mm:ss:fff:ffffff"));
+                        /*calldll caculate  key by receive seed*/
+                        //CallDllCallback(rxMsgs[k].Data);
+                        /* synchronous rx data for other module */
+                        //CallSyncCallback(rxMsgs[k].Data);
+                    }
+                    else if ((rxMsgs[k].RxStatus == (RxStatus.TX_MSG_TYPE | RxStatus.TX_INDICATION)))
+                    {
+                        //UpdateUICallback(string.Format("{0:X}", GetMsgID(rxMsgs[k].Data)), GetMsgDataLengthString(rxMsgs[k].Data), GetMsgDataString(rxMsgs[k].Data), "Tx", ConvertMsgTimeStampToString(rxMsgs[k].Timestamp));
                     }
                 }
             }
         }
+
+        private UInt32 GetMsgID(byte[] Data)
+        {
+            UInt32 Result = 0;
+
+            for (int i = 0; i < 4; i++)
+            {
+                Result <<= 8;
+                Result += Data[i];
+            }
+
+            return Result;
+        }
+
+        private string GetMsgDataLengthString(byte[] Data)
+        {
+            string Result = String.Empty;
+
+            Result = Convert.ToString(Data.Length - 4);
+
+            return Result;
+        }
+
+        private string GetMsgDataString(byte[] Data)
+        {
+            string Result = String.Empty;
+
+            for (int i = 0; i < (Data.Length - 4); i++)
+            {
+                Result += string.Format("{0:X2}", Data[i + 4]) + " ";
+            }
+
+            return Result;
+        }
+
+        private string ConvertMsgTimeStampToString(int Timestamp)
+        {
+            string Result = String.Empty;
+
+            string second = Convert.ToString(Timestamp / (1000 * 1000));
+            string millisecond = Convert.ToString(Timestamp / 1000 % 1000).PadLeft(3, '0');
+            string microsecond = Convert.ToString(Timestamp % 1000).PadLeft(3, '0');
+            Result = second + "." + millisecond + "." + microsecond;
+
+            return Result;
+        }
+
     }
 }

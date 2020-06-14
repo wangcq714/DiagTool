@@ -70,40 +70,75 @@ namespace DiagTool_Luffy
             }
             else
             {
-                RxDataTextBox.Text = text;
-
+                this.RxDataTextBox.Text = text;
+                this.RxDataTextBox.Refresh();
             }
+            
         }
 
-        /*TxRxMsg callback*/
-        public void TxRxMsgUpdateDiagDataGridViewCallback(string strDataID, int strDateLen, string strDatebyte, string type)
+        /* This delegate enables asynchronous calls for setting
+         * the text property on a TextBox control.*/
+        private delegate void DoTxRxMsgUpdateDiagDataGridView(string type, string id, string len, string data, string ts);
+        /* This method demonstrates a pattern for making thread-safe
+         * calls on a Windows Forms control. 
+         * If the calling thread is different from the thread that
+         * created the TextBox control, this method creates a
+         * SetTextCallback and calls itself asynchronously using the
+         * Invoke method.
+         * If the calling thread is the same as the thread that created
+         * the TextBox control, the Text property is set directly. */
+        private void UpdateTxRxMsgUpdateDiagDataGridView(string type, string id, string len, string data, string ts)
         {
-            DataRow canRow;
-
-            canRow = this.DTCANRxScroll.NewRow();
-            canRow[0] = this.DTCANRxScroll.Rows.Count + 1;
-            canRow[1] = type;
-            canRow[2] = "0x" + strDataID.TrimStart('0');
-            canRow[3] = strDateLen;
-            canRow[4] = strDatebyte;
-            canRow[5] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");//string.Format("{0:G}", System.DateTime.Now);
-
-            //canRow[1] = ((float)(rxMsgs[k].Timestamp - INIT_Timestamp) / 1000).ToString("F2");//float 保留两位小数？
-            this.DTCANRxScroll.Rows.Add(canRow);
-
-            UpdateFirstDisplayedScrollingRowIndex(this.TxRxDataGridView.RowCount - 1);
-
-            /* Regardless of Tx or Rx, clear RxDataTextBox. */
-            UpdateRxDataTextBoxText("");
-            /* if Recieve Msg， update RxDataTextBox. */
-            if (type == "Rx")
+            /* InvokeRequired required compares the thread ID of the
+             * calling thread to the thread ID of the creating thread.
+             * If these threads are different, it returns true. */
+            if (this.TxRxDataGridView.InvokeRequired)
             {
-                UpdateRxDataTextBoxText(strDatebyte);
+                DoTxRxMsgUpdateDiagDataGridView UpdateData = new DoTxRxMsgUpdateDiagDataGridView(UpdateTxRxMsgUpdateDiagDataGridView);
+                this.Invoke(UpdateData, new object[] { type, id, len, data, ts });
+            }
+            else
+            {
+                lock (DiagDataGridViewAddRowLocker)
+                {
+                    int index = this.TxRxDataGridView.Rows.Add();
+
+                    this.TxRxDataGridView.Rows[index].Cells[0].Value = index;
+                    this.TxRxDataGridView.Rows[index].Cells[1].Value = type;
+                    this.TxRxDataGridView.Rows[index].Cells[2].Value = id;
+                    this.TxRxDataGridView.Rows[index].Cells[3].Value = len;
+                    this.TxRxDataGridView.Rows[index].Cells[4].Value = data;
+                    this.TxRxDataGridView.Rows[index].Cells[5].Value = ts;
+                    this.TxRxDataGridView.FirstDisplayedScrollingRowIndex = this.TxRxDataGridView.RowCount - 1;
+
+                    this.TxRxDataGridView.Refresh();
+                }
+                
             }
         }
 
         /*TxRxMsg callback*/
-        public void TxRxMsgNotUpdateDiagDataGridViewCallback(string strDataID, int strDateLen, string strDatebyte, string type)
+        public void TxRxMsgUpdateUIDataCallback(string msgIdStr, string dataLenStr, string dataStr, string typeStr, string timeStampStr)
+        {
+            DataGridViewRowDataPushQueue(msgIdStr, dataLenStr, dataStr, typeStr, timeStampStr);
+        }
+
+        private void DataGridViewRowDataPushQueue(string msgIdStr, string dataLenStr, string dataStr, string typeStr, string timeStampStr)
+        {
+            DiagDataGridViewRowData RowData = new DiagDataGridViewRowData();
+            RowData.type = typeStr;
+            RowData.id = msgIdStr;
+            RowData.len = dataLenStr;
+            RowData.data = dataStr;
+            RowData.ts = timeStampStr;
+            if (!diagDataGridViewRowDataQueue.FullFlag)
+            {
+                diagDataGridViewRowDataQueue.PushQueue(RowData);
+            }
+        }
+
+        /*TxRxMsg callback*/
+        public void TxRxMsgNotUpdateUICallback(string strDataID, string strDateLen, string strDatebyte, string type, string timeStampStr)
         {
             /* Do nothing */
         }
@@ -119,7 +154,7 @@ namespace DiagTool_Luffy
                 if (Data[4] == 0x67 && Data[5] == subFunctionSeedkey)
                 {
                     dataStr = securityAlgorithm.Security_DLL(Data, ImportForm.DllPathname);
-                    Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
+                    //passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
                 }
 
                 isCallKeyToSeedDll = false;
@@ -134,5 +169,7 @@ namespace DiagTool_Luffy
             //    Global.readDTCForm.UpdateDTCDisplayTextBox_Text(Data);
             //}
         }
+
+        
     }
 }

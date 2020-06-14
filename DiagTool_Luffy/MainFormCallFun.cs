@@ -16,7 +16,7 @@ namespace DiagTool_Luffy
     {
         private void MainWindowInit()
         {
-            bool retVal = false;
+            bool Result = false;
             /* This will result in progrom carsh
             if (!licenseManagement.LicenseCheck())
             {
@@ -28,18 +28,9 @@ namespace DiagTool_Luffy
             this.SecurityAccessComboBox.SelectedIndex = 0;
             this.DeviceConnectButton.Image = Image.FromFile("stop.png");
 
-            int index = this.TxRxDataGridView.Rows.Add();
-            this.TxRxDataGridView.Rows[index].Cells[0].Value = "1";
-            this.TxRxDataGridView.Rows[index].Cells[1].Value = "Tx";
-            this.TxRxDataGridView.Rows[index].Cells[2].Value = "734";
-            this.TxRxDataGridView.Rows[index].Cells[3].Value = "2";
-            this.TxRxDataGridView.Rows[index].Cells[4].Value = "10 02";
-            this.TxRxDataGridView.Rows[index].Cells[5].Value = "2020:05:17";
-
-            TxRxDataGridViewAddRow("2", "Rx", "634", "6", "50 02 00 00 00 00", "2020:05:17");
-
-            retVal = Global.passThruWrapper.DeviceConnectInit(DeviceConnectInitCallback);
-            if (!retVal)
+            Result = passThruWrapper.DeviceConnectInit(DeviceConnectInitCallback);
+            diagDataGridViewRowDataQueue.QueueInit();
+            if (!Result)
             {
                 MessageBox.Show("-----Please device driver!!!-----");
             }
@@ -49,12 +40,14 @@ namespace DiagTool_Luffy
         {
             int index = this.TxRxDataGridView.Rows.Add();
 
-            this.TxRxDataGridView.Rows[index].Cells[0].Value = num;
+            this.TxRxDataGridView.Rows[index].Cells[0].Value = index;
             this.TxRxDataGridView.Rows[index].Cells[1].Value = type;
             this.TxRxDataGridView.Rows[index].Cells[2].Value = id;
             this.TxRxDataGridView.Rows[index].Cells[3].Value = len;
             this.TxRxDataGridView.Rows[index].Cells[4].Value = data;
             this.TxRxDataGridView.Rows[index].Cells[5].Value = ts;
+
+            this.TxRxDataGridView.Refresh();
         }
 
 
@@ -64,11 +57,12 @@ namespace DiagTool_Luffy
 
             if (!bDeviceConnectState)
             {
-                bDeviceConnectState = Global.passThruWrapper.ConnectDevice(this.DeviceSelectComboBox.SelectedIndex, this.ReqIDTextBox_Text, this.ResIDTextBox_Text, baudRate);
+                bDeviceConnectState = passThruWrapper.ConnectDevice(this.DeviceSelectComboBox.SelectedIndex, this.ReqIDTextBox_Text, this.ResIDTextBox_Text, baudRate);
                 if (bDeviceConnectState)
                 {
                     this.RxMsgTimer.Start();
                     this.TestPresentTimer.Start();
+                    mmTimer.Start(10, true, MMTimerCBFunc);
                     this.DeviceConnectButton.Image = Image.FromFile("run.png");
                     bDeviceConnectState = true;
                 }
@@ -81,46 +75,93 @@ namespace DiagTool_Luffy
             {
                 this.RxMsgTimer.Stop();
                 this.TestPresentTimer.Stop();
-                Global.passThruWrapper.deviceClose();
+                mmTimer.Stop();
+                passThruWrapper.deviceClose();
                 this.DeviceConnectButton.Image = Image.FromFile("stop.png");
                 bDeviceConnectState = false;
             }
         }
+        /* Millisecond Timer callback */
+        public void MMTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
+        {
+            /* Callback from the MMTimer API that fires the Timer event. Note we are in a different thread here */
+            passThruWrapper.RxMsg(TxRxMsgUpdateUIDataCallback, TxRxMsgCallDllCallback, TxRxMsgCallSyncCallback);
+            //Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
+        }
 
         private void RxCANMessage()
         {
-            Global.passThruWrapper.RxMsg(ResIDTextBox, TxRxMsgUpdateDiagDataGridViewCallback, TxRxMsgCallDllCallback, TxRxMsgCallSyncCallback);
+            //passThruWrapper.RxMsg(TxRxMsgUpdateDiagDataGridViewCallback, TxRxMsgCallDllCallback, TxRxMsgCallSyncCallback);
+            UpdateMainWindowUI();
+        }
+
+        private void UpdateMainWindowUI()
+        {
+            if (!diagDataGridViewRowDataQueue.EmptyFlag)
+            {
+                DiagDataGridViewRowData RowData = new DiagDataGridViewRowData();
+                diagDataGridViewRowDataQueue.PopQueue(ref RowData);
+
+                /* Regardless of Tx or Rx, clear RxDataTextBox. */
+                UpdateRxDataTextBoxText("");
+                /* if Recieve Msg， update RxDataTextBox. */
+                if (RowData.type == "Rx")
+                {
+                    UpdateRxDataTextBoxText(RowData.data);
+                }
+
+                UpdateTxRxMsgUpdateDiagDataGridView(RowData.type, RowData.id, RowData.len, RowData.data, RowData.ts);
+            }
         }
 
         private void TestPresent()
         {
-            /* if ReqID is empty, return */
-            if (ReqIDTextBox.Text.Trim() == "")
-                return;
-            /* if enable TetsPresent */
-            if (TestPresentCheckBox.Checked)
+            if (this.ReqIDTextBox.Text.Trim() != "")
             {
-                /* if "3E 80" is sent, don't display in DiagDataGridView */
-                if (TestPresentComboBox.SelectedIndex == 0)
+                /* if enable TetsPresent */
+                if (TestPresentCheckBox.Checked)
                 {
-                    Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, TestPresentComboBox.Text, TxRxMsgNotUpdateDiagDataGridViewCallback);
-                }
-                /* if "3E 00" is sent, display in DiagDataGridView */
-                else if (TestPresentComboBox.SelectedIndex == 1)
-                {
-                    Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, TestPresentComboBox.Text, TxRxMsgUpdateDiagDataGridViewCallback);
-                }
+                    /* if "3E 80" is sent, don't display in DiagDataGridView */
+                    if (TestPresentComboBox.SelectedIndex == 0)
+                    {
+                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(TestPresentComboBox.Text), TxRxMsgNotUpdateUICallback);
+                    }
+                    /* if "3E 00" is sent, display in DiagDataGridView */
+                    else if (TestPresentComboBox.SelectedIndex == 1)
+                    {
+                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(TestPresentComboBox.Text), TxRxMsgUpdateUIDataCallback);
+                    }
             }
+            }
+            
         }
 
         private void TxCANMessage()
         {
-            /* if ReqID or Txdata is empty, return */
-            if ((ReqIDTextBox.Text.Trim() == "") || (TxDataTextBox.Text.Trim() == ""))
+            if (!bDeviceConnectState)
                 return;
 
-            //Console.Write("1"); // Debug
-            Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, TxDataTextBox.Text, TxRxMsgUpdateDiagDataGridViewCallback);
+            if ((this.ReqIDTextBox.Text.Trim() != "") && (this.TxDataTextBox.Text.Trim() != ""))
+            {
+                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(this.TxDataTextBox.Text), TxRxMsgUpdateUIDataCallback);
+            }         
+        }
+
+        private UInt32 GetReqID()
+        {
+            return Convert.ToUInt32(this.ReqIDTextBox.Text.Trim(' ').ToUpper(), 16);
+        }
+
+        private byte[] ConvertTxDataToByte(string TxDataStr)
+        {
+            string[] msgDataStr = TxDataStr.Trim().ToUpper().Split(' ');
+            byte[] Result = new byte[msgDataStr.Length];
+            for (int i = 0; i < msgDataStr.Length; i++)
+            {
+                Result[i] = Convert.ToByte(msgDataStr[i], 16);
+            }
+
+            return Result;
         }
 
         private void SecurityAccess()
@@ -130,7 +171,7 @@ namespace DiagTool_Luffy
             isCallKeyToSeedDll = true;
             subFunctionSeedkey = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
             dataStr += SecurityAccessComboBox.Text.Substring(3, 2);
-            Global.passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
+            //passThruWrapper.TxMsg(ReqIDTextBox.Text, dataStr, TxRxMsgUpdateDiagDataGridViewCallback);
         }
 
 
@@ -197,7 +238,5 @@ namespace DiagTool_Luffy
             }
 
         }
-
-
     }
 }

@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -133,7 +132,7 @@
             this.helpToolStripMenuItem});
             this.MainWinMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainWinMenuStrip.Name = "MainWinMenuStrip";
-            this.MainWinMenuStrip.Size = new System.Drawing.Size(684, 24);
+            this.MainWinMenuStrip.Size = new System.Drawing.Size(734, 24);
             this.MainWinMenuStrip.TabIndex = 0;
             this.MainWinMenuStrip.Text = "MainWinMenuStrip";
             // 
@@ -149,14 +148,14 @@
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -171,7 +170,7 @@
             // SettingToolStripMenuItem
             // 
             this.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem";
-            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.SettingToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.SettingToolStripMenuItem.Text = "Setting";
             this.SettingToolStripMenuItem.Click += new System.EventHandler(this.SettingToolStripMenuItem_Click);
             // 
@@ -187,14 +186,14 @@
             // hexTooTASCIIToolStripMenuItem
             // 
             this.hexTooTASCIIToolStripMenuItem.Name = "hexTooTASCIIToolStripMenuItem";
-            this.hexTooTASCIIToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hexTooTASCIIToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.hexTooTASCIIToolStripMenuItem.Text = "HexToASCII";
             this.hexTooTASCIIToolStripMenuItem.Click += new System.EventHandler(this.hexTooTASCIIToolStripMenuItem_Click);
             // 
             // nRCToolStripMenuItem
             // 
             this.nRCToolStripMenuItem.Name = "nRCToolStripMenuItem";
-            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nRCToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.nRCToolStripMenuItem.Text = "NRC Table";
             this.nRCToolStripMenuItem.Click += new System.EventHandler(this.nRCToolStripMenuItem_Click);
             // 
@@ -210,14 +209,14 @@
             // registerToolStripMenuItem
             // 
             this.registerToolStripMenuItem.Name = "registerToolStripMenuItem";
-            this.registerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registerToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.registerToolStripMenuItem.Text = "Register";
             this.registerToolStripMenuItem.Click += new System.EventHandler(this.registerToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -226,7 +225,7 @@
             this.DeviceConnectButton.BackColor = System.Drawing.Color.White;
             this.DeviceConnectButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeviceConnectButton.ForeColor = System.Drawing.Color.White;
-            this.DeviceConnectButton.Location = new System.Drawing.Point(188, 37);
+            this.DeviceConnectButton.Location = new System.Drawing.Point(199, 37);
             this.DeviceConnectButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DeviceConnectButton.Name = "DeviceConnectButton";
             this.DeviceConnectButton.Size = new System.Drawing.Size(22, 22);
@@ -242,7 +241,7 @@
             this.DeviceSelectComboBox.Location = new System.Drawing.Point(19, 37);
             this.DeviceSelectComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DeviceSelectComboBox.Name = "DeviceSelectComboBox";
-            this.DeviceSelectComboBox.Size = new System.Drawing.Size(165, 22);
+            this.DeviceSelectComboBox.Size = new System.Drawing.Size(178, 22);
             this.DeviceSelectComboBox.TabIndex = 68;
             // 
             // TestPresentTimer
@@ -258,7 +257,7 @@
             // ClearButton
             // 
             this.ClearButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearButton.Location = new System.Drawing.Point(621, 90);
+            this.ClearButton.Location = new System.Drawing.Point(664, 90);
             this.ClearButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(45, 22);
@@ -270,7 +269,7 @@
             // ReqIDTextBox
             // 
             this.ReqIDTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReqIDTextBox.Location = new System.Drawing.Point(268, 37);
+            this.ReqIDTextBox.Location = new System.Drawing.Point(271, 37);
             this.ReqIDTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ReqIDTextBox.Name = "ReqIDTextBox";
             this.ReqIDTextBox.Size = new System.Drawing.Size(35, 22);
@@ -300,14 +299,6 @@
             this.Data,
             this.TimeStamp});
             this.TxRxDataGridView.ContextMenuStrip = this.ContextMenuStripForDiagDataGridView;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TxRxDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.TxRxDataGridView.Location = new System.Drawing.Point(0, 5);
             this.TxRxDataGridView.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxRxDataGridView.Name = "TxRxDataGridView";
@@ -315,7 +306,7 @@
             this.TxRxDataGridView.RowHeadersVisible = false;
             this.TxRxDataGridView.RowTemplate.Height = 20;
             this.TxRxDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TxRxDataGridView.Size = new System.Drawing.Size(434, 270);
+            this.TxRxDataGridView.Size = new System.Drawing.Size(478, 289);
             this.TxRxDataGridView.TabIndex = 64;
             this.TxRxDataGridView.DoubleClick += new System.EventHandler(this.TxRxDataGridView_DoubleClick);
             // 
@@ -344,7 +335,7 @@
             // SecurityAccessButton
             // 
             this.SecurityAccessButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SecurityAccessButton.Location = new System.Drawing.Point(621, 37);
+            this.SecurityAccessButton.Location = new System.Drawing.Point(664, 37);
             this.SecurityAccessButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SecurityAccessButton.Name = "SecurityAccessButton";
             this.SecurityAccessButton.Size = new System.Drawing.Size(45, 22);
@@ -361,7 +352,7 @@
             this.TestPresentComboBox.Items.AddRange(new object[] {
             "3E 80",
             "3E 00"});
-            this.TestPresentComboBox.Location = new System.Drawing.Point(488, 38);
+            this.TestPresentComboBox.Location = new System.Drawing.Point(531, 38);
             this.TestPresentComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TestPresentComboBox.Name = "TestPresentComboBox";
             this.TestPresentComboBox.Size = new System.Drawing.Size(50, 20);
@@ -372,7 +363,7 @@
             this.TestPresentCheckBox.Checked = true;
             this.TestPresentCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TestPresentCheckBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestPresentCheckBox.Location = new System.Drawing.Point(466, 37);
+            this.TestPresentCheckBox.Location = new System.Drawing.Point(509, 37);
             this.TestPresentCheckBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TestPresentCheckBox.Name = "TestPresentCheckBox";
             this.TestPresentCheckBox.Size = new System.Drawing.Size(22, 22);
@@ -386,7 +377,7 @@
             this.RxDataTextBox.Location = new System.Drawing.Point(223, 91);
             this.RxDataTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.RxDataTextBox.Name = "RxDataTextBox";
-            this.RxDataTextBox.Size = new System.Drawing.Size(394, 22);
+            this.RxDataTextBox.Size = new System.Drawing.Size(437, 22);
             this.RxDataTextBox.TabIndex = 58;
             // 
             // SecurityAccessComboBox
@@ -401,7 +392,7 @@
             "09/0A",
             "11/12",
             "13/14"});
-            this.SecurityAccessComboBox.Location = new System.Drawing.Point(562, 38);
+            this.SecurityAccessComboBox.Location = new System.Drawing.Point(605, 38);
             this.SecurityAccessComboBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SecurityAccessComboBox.Name = "SecurityAccessComboBox";
             this.SecurityAccessComboBox.Size = new System.Drawing.Size(55, 20);
@@ -410,7 +401,7 @@
             // SendButton
             // 
             this.SendButton.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendButton.Location = new System.Drawing.Point(621, 62);
+            this.SendButton.Location = new System.Drawing.Point(664, 62);
             this.SendButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(45, 22);
@@ -425,14 +416,15 @@
             this.TxDataTextBox.Location = new System.Drawing.Point(223, 63);
             this.TxDataTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.TxDataTextBox.Name = "TxDataTextBox";
-            this.TxDataTextBox.Size = new System.Drawing.Size(394, 22);
+            this.TxDataTextBox.Size = new System.Drawing.Size(437, 22);
             this.TxDataTextBox.TabIndex = 55;
+            this.TxDataTextBox.Text = "10 03";
             this.TxDataTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ReqIDTextBox_EnterKeyPress);
             // 
             // ResIDTextBox
             // 
             this.ResIDTextBox.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResIDTextBox.Location = new System.Drawing.Point(360, 37);
+            this.ResIDTextBox.Location = new System.Drawing.Point(363, 37);
             this.ResIDTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ResIDTextBox.Name = "ResIDTextBox";
             this.ResIDTextBox.Size = new System.Drawing.Size(35, 22);
@@ -443,7 +435,7 @@
             // ReqIDLabel
             // 
             this.ReqIDLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReqIDLabel.Location = new System.Drawing.Point(222, 37);
+            this.ReqIDLabel.Location = new System.Drawing.Point(225, 37);
             this.ReqIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ReqIDLabel.Name = "ReqIDLabel";
             this.ReqIDLabel.Size = new System.Drawing.Size(40, 22);
@@ -454,7 +446,7 @@
             // ResIDLabel
             // 
             this.ResIDLabel.Font = new System.Drawing.Font("Cambria", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResIDLabel.Location = new System.Drawing.Point(315, 37);
+            this.ResIDLabel.Location = new System.Drawing.Point(318, 37);
             this.ResIDLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ResIDLabel.Name = "ResIDLabel";
             this.ResIDLabel.Size = new System.Drawing.Size(40, 22);
@@ -513,7 +505,7 @@
             this.ScriptTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ScriptTextBox.Multiline = true;
             this.ScriptTextBox.Name = "ScriptTextBox";
-            this.ScriptTextBox.Size = new System.Drawing.Size(154, 283);
+            this.ScriptTextBox.Size = new System.Drawing.Size(154, 307);
             this.ScriptTextBox.TabIndex = 70;
             this.ScriptTextBox.WordWrap = false;
             // 
@@ -526,7 +518,7 @@
             this.groupBox1.Controls.Add(this.ScriptTextBox);
             this.groupBox1.Location = new System.Drawing.Point(19, 82);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(178, 345);
+            this.groupBox1.Size = new System.Drawing.Size(178, 367);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Script";
@@ -539,7 +531,7 @@
             this.MainWinTabControl.Location = new System.Drawing.Point(223, 122);
             this.MainWinTabControl.Name = "MainWinTabControl";
             this.MainWinTabControl.SelectedIndex = 0;
-            this.MainWinTabControl.Size = new System.Drawing.Size(443, 305);
+            this.MainWinTabControl.Size = new System.Drawing.Size(490, 327);
             this.MainWinTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.MainWinTabControl.TabIndex = 80;
             // 
@@ -549,7 +541,7 @@
             this.LogTabPage.Location = new System.Drawing.Point(4, 23);
             this.LogTabPage.Name = "LogTabPage";
             this.LogTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.LogTabPage.Size = new System.Drawing.Size(435, 278);
+            this.LogTabPage.Size = new System.Drawing.Size(482, 300);
             this.LogTabPage.TabIndex = 0;
             this.LogTabPage.Text = "Log";
             this.LogTabPage.UseVisualStyleBackColor = true;
@@ -588,7 +580,7 @@
             this.DTCTabPage.Location = new System.Drawing.Point(4, 23);
             this.DTCTabPage.Name = "DTCTabPage";
             this.DTCTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DTCTabPage.Size = new System.Drawing.Size(435, 276);
+            this.DTCTabPage.Size = new System.Drawing.Size(435, 278);
             this.DTCTabPage.TabIndex = 1;
             this.DTCTabPage.Text = "DTC";
             this.DTCTabPage.UseVisualStyleBackColor = true;
@@ -918,7 +910,7 @@
             this.Num.Name = "Num";
             this.Num.ReadOnly = true;
             this.Num.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Num.Width = 35;
+            this.Num.Width = 40;
             // 
             // Type
             // 
@@ -968,14 +960,14 @@
             this.TimeStamp.HeaderText = "TimeStamp";
             this.TimeStamp.Name = "TimeStamp";
             this.TimeStamp.ReadOnly = true;
-            this.TimeStamp.Width = 110;
+            this.TimeStamp.Width = 130;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(684, 443);
+            this.ClientSize = new System.Drawing.Size(734, 466);
             this.Controls.Add(this.MainWinTabControl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DeviceConnectButton);

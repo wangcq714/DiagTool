@@ -50,24 +50,35 @@ namespace J2534DotNet
         }
 
         public J2534Err ReadMsgs(int channelId, ref List<PassThruMsg> msgs, ref int numMsgs, int timeout)
-        {
-            IntPtr pMsg = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(UnsafePassThruMsg)) * 50);
-            IntPtr pNextMsg = IntPtr.Zero;
-            //IntPtr[] pMsgs = new IntPtr[50];
+        {            
             UnsafePassThruMsg[] pMsgs = new UnsafePassThruMsg[numMsgs];
-            //J2534Err returnValue = (J2534Err)m_wrapper.ReadMsgs(channelId, pMsg, ref numMsgs, timeout);
             J2534Err returnValue = (J2534Err)m_wrapper.ReadMsgs(channelId, ref pMsgs[0], ref numMsgs, timeout);
             if (returnValue == J2534Err.STATUS_NOERROR)
             {
                 for (int i = 0; i < numMsgs; i++)
                 {
-                    //pNextMsg = (IntPtr)(Marshal.SizeOf(typeof(UnsafePassThruMsg)) * i + (int)pMsg);
-                    //UnsafePassThruMsg uMsg = (UnsafePassThruMsg)Marshal.PtrToStructure(pMsg, typeof(UnsafePassThruMsg));
-                    //msgs.Add(ConvertPassThruMsg(uMsg));
                     msgs.Add(ConvertPassThruMsg(pMsgs[i]));
                 }
             }
+            
+
+            /*
+            IntPtr pMsg = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(UnsafePassThruMsg)) * 50);
+            IntPtr pNextMsg = IntPtr.Zero;
+            IntPtr[] pMsgs = new IntPtr[50];
+
+            J2534Err returnValue = (J2534Err)m_wrapper.ReadMsgs(channelId, pMsg, ref numMsgs, timeout);
+            if (returnValue == J2534Err.STATUS_NOERROR)
+            {
+                for (int i = 0; i < numMsgs; i++)
+                {
+                    pNextMsg = (IntPtr)(Marshal.SizeOf(typeof(UnsafePassThruMsg)) * i + (int)pMsg);
+                    UnsafePassThruMsg uMsg = (UnsafePassThruMsg)Marshal.PtrToStructure(pMsg, typeof(UnsafePassThruMsg));
+                    msgs.Add(ConvertPassThruMsg(uMsg));
+                }
+            }
             Marshal.FreeHGlobal(pMsg);
+            */
             return returnValue;
         }
 

@@ -18,12 +18,21 @@ namespace DiagTool_Luffy
     {
         private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
         //private LicenseManagement licenseManagement = new LicenseManagement();
+        private PassThruWrapper passThruWrapper = new PassThruWrapper();
+        MMTimer mmTimer = new MMTimer();
+
+        private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[32];
+        private static DiagDataGridViewRowDataQueue diagDataGridViewRowDataQueue = new DiagDataGridViewRowDataQueue(DiagDataGridViewRowDatas);
+
+        static object DiagDataGridViewAddRowLocker = new object();
 
         private bool bDeviceConnectState = false;
 
         public bool isCallKeyToSeedDll = false;
         public byte subFunctionSeedkey = 0;
         public DataTable DTCANRxScroll = new DataTable();
+
+        
 
 
 

@@ -9,7 +9,7 @@ namespace DiagTool_Luffy
 {
     class Global
     {
-        public static PassThruWrapper passThruWrapper = new PassThruWrapper();
+        //public static PassThruWrapper passThruWrapper = new PassThruWrapper();
 
         //public static DiagUserControl diagUsercontrol = new DiagUserControl();
         //public static FlashUserControl flashUsercontrol = new FlashUserControl();
@@ -29,6 +29,7 @@ namespace DiagTool_Luffy
 
         //public static MMTimer mmTimer = new MMTimer(txPanelForm.MMTimerCBFunc);
 
+        
 
         public static BaudRate CANBaudRate = BaudRate.ISO15765_500000;
     }

@@ -66,12 +66,14 @@
     <Compile Include="MainFormCallFun.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MMTimer.cs" />
     <Compile Include="NRCTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NRCTableForm.Designer.cs">
       <DependentUpon>NRCTableForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Queue.cs" />
     <Compile Include="RegistFile.cs" />
     <Compile Include="SecurityAlgorithm.cs" />
     <Compile Include="DiagCallback.cs">
