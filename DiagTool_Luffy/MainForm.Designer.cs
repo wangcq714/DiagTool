@@ -572,6 +572,7 @@
             this.ScriptTextBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.ScriptTextBox.Multiline = true;
             this.ScriptTextBox.Name = "ScriptTextBox";
+            this.ScriptTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.ScriptTextBox.Size = new System.Drawing.Size(154, 307);
             this.ScriptTextBox.TabIndex = 70;
             this.ScriptTextBox.Text = "10 03\r\n27 01\r\n27 02=67 02";
