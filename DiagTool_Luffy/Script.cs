@@ -130,6 +130,9 @@ namespace DiagTool_Luffy
 
         private void RunScript(object ScriptRunTimeInterval)
         {
+            if (!bDeviceConnectState)
+                return ;
+
             do
             {
                 if(ScriptCmdQueue.EmptyFlag)
@@ -141,9 +144,12 @@ namespace DiagTool_Luffy
        
         private void LoopScript(object ScriptRunTimeInterval)
         {
-            if (this.ScriptTextBox.Text != "")
+            if (!bDeviceConnectState)
+                return ;
+
+            if (this.ScriptTextBox.Text.Trim() != "" && this.LoopTextBox.Text.Trim() != "")
             {
-                while (Convert.ToInt32(this.LoopTextBox.Text) > 0)
+                while (Convert.ToInt32(this.LoopTextBox.Text.Trim()) > 0)
                 {
                     if (ScriptCmdQueue.EmptyFlag)
                     {

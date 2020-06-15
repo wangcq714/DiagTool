@@ -173,6 +173,9 @@ namespace DiagTool_Luffy
         {
             string dataStr = "";
 
+            if (!bDeviceConnectState)
+                return;
+
             if (Data[4] == 0x67 && Data[5] == SecuritAccessReqSeedSubFunction)
             {
                 SecuritAccessReqSeedSubFunction = 0;
@@ -186,15 +189,15 @@ namespace DiagTool_Luffy
                     SecuritAccessKey = "";
                     isCallKeyToSeedDll = false;
                     return;
-                }              
-            }
+                }
 
-            /* if "isCallKeyToSeedDll==true", that need to do security verification automaticaly */
-            if (isCallKeyToSeedDll)
-            {              
-                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(dataStr), TxRxMsgUpdateUIDataCallback);
-                isCallKeyToSeedDll = false;
-            }
+                /* if "isCallKeyToSeedDll==true", that need to do security verification automaticaly */
+                if (isCallKeyToSeedDll)
+                {
+                    passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(dataStr), TxRxMsgUpdateUIDataCallback);
+                    isCallKeyToSeedDll = false;
+                }
+            }           
         }
 
 

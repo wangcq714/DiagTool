@@ -201,6 +201,9 @@ namespace DiagTool_Luffy
         {
             string msgData = "";
 
+            if (!bDeviceConnectState)
+                return;
+
             GetMsgData(ref msgData);
             ClearDTCDisplay();
             if (msgData != "")
@@ -213,6 +216,9 @@ namespace DiagTool_Luffy
         private void ClearDTC()
         {
             string msgData = "14 FF FF FF";
+
+            if (!bDeviceConnectState)
+                return;
 
             UpdateDTCDisplayTextBoxText("");
 

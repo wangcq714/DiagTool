@@ -161,6 +161,9 @@ namespace DiagTool_Luffy
 
         private void TestPresent()
         {
+            if (!bDeviceConnectState)
+                return;
+
             if (this.ReqIDTextBox.Text.Trim() != "")
             {
                 /* if enable TetsPresent */
@@ -212,6 +215,9 @@ namespace DiagTool_Luffy
         private void SecurityAccess()
         {
             string dataStr = "27 ";
+
+            if (!bDeviceConnectState)
+                return;
 
             isCallKeyToSeedDll = true;
             SecuritAccessReqSeedSubFunction = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
