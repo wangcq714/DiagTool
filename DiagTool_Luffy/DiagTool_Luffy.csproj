@@ -72,6 +72,9 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ComputerInfo.cs" />
+    <Compile Include="Diagnostic.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dll.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="HexASCIIForm.cs">
@@ -81,7 +84,10 @@
       <DependentUpon>HexASCIIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LicenseManagement.cs" />
-    <Compile Include="MainFormCallFun.cs">
+    <Compile Include="MainFormControlProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormFun.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MMTimer.cs" />
@@ -100,7 +106,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SecurityAlgorithm.cs" />
-    <Compile Include="DiagCallback.cs">
+    <Compile Include="DiagnosticCallback.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Global.cs" />

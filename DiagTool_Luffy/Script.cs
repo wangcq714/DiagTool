@@ -11,6 +11,8 @@ namespace DiagTool_Luffy
 {
     public partial class MainWindow
     {
+        private static string[] ScriptCmds = new string[1024];
+        private static GenericQueue ScriptCmdQueue = new GenericQueue(ScriptCmds);
         int ScriptTimeCount = 0;
     
         private void ParseScript(string ScriptText, int Time)
@@ -121,7 +123,7 @@ namespace DiagTool_Luffy
                     }
                 }
 
-                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(Cmd), TxRxMsgUpdateUIDataCallback);
+                Diagnostic_Send(Cmd);
             }
 
             return Result;

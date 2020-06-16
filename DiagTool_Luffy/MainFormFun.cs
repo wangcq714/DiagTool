@@ -15,6 +15,22 @@ namespace DiagTool_Luffy
 {
     public partial class MainWindow
     {
+        private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
+        //private LicenseManagement licenseManagement = new LicenseManagement();
+        private PassThruWrapper passThruWrapper = new PassThruWrapper();
+        MMTimer RxMsgmmTimer = new MMTimer();
+        MMTimer ScriptRunmmTimer = new MMTimer();
+
+
+        static object DiagDataGridViewAddRowLocker = new object();
+
+        private bool bDeviceConnectState = false;
+
+        public bool isCallKeyToSeedDll = false;
+        public byte SecuritAccessReqSeedSubFunction = 0;
+        public string SecuritAccessKey = "";
+
+
         private void MainWindowInit()
         {
             bool Result = false;
@@ -129,7 +145,7 @@ namespace DiagTool_Luffy
         public void RxMsgmmTimerCBFunc(uint uTimerID, uint uMsg, UIntPtr dwUser, UIntPtr dw1, UIntPtr dw2)
         {
             /* Callback from the MMTimer API that fires the Timer event. Note we are in a different thread here */
-            passThruWrapper.RxMsg(TxRxMsgUpdateUIDataCallback, SecurityAccessCallDllCallback, SyncUIComponentCallback);
+            Diagnostic_Rreceive();
             //Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff:ffffff"));
         }
 
@@ -172,12 +188,12 @@ namespace DiagTool_Luffy
                     /* if "3E 80" is sent, don't display in DiagDataGridView */
                     if (TestPresentComboBox.SelectedIndex == 0)
                     {
-                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(TestPresentComboBox.Text), TxRxMsgNotUpdateUIDataCallback);
+                        Diagnostic_SendNoUpdateUI(TestPresentComboBox.Text);
                     }
                     /* if "3E 00" is sent, display in DiagDataGridView */
                     else if (TestPresentComboBox.SelectedIndex == 1)
                     {
-                        passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(TestPresentComboBox.Text), TxRxMsgUpdateUIDataCallback);
+                        Diagnostic_Send(TestPresentComboBox.Text);
                     }
             }
             }
@@ -191,7 +207,7 @@ namespace DiagTool_Luffy
 
             if ((this.ReqIDTextBox.Text.Trim() != "") && (this.TxDataTextBox.Text.Trim() != ""))
             {
-                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(this.TxDataTextBox.Text), TxRxMsgUpdateUIDataCallback);
+                Diagnostic_Send(this.TxDataTextBox.Text);
             }         
         }
 
@@ -222,7 +238,7 @@ namespace DiagTool_Luffy
             isCallKeyToSeedDll = true;
             SecuritAccessReqSeedSubFunction = (byte)Convert.ToInt32(SecurityAccessComboBox.Text.Substring(3, 2), 16);
             dataStr += SecurityAccessComboBox.Text.Substring(3, 2);
-            passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(dataStr), TxRxMsgUpdateUIDataCallback);
+            Diagnostic_Send(dataStr);
         }
 
 

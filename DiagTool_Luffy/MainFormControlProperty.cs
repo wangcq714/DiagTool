@@ -2,53 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data;
-
-using J2534DotNet;
+using System.Threading.Tasks;
 
 namespace DiagTool_Luffy
 {
     public partial class MainWindow
     {
-        /*DeviceConnectInit init callback*/
-        public void DeviceConnectInitCallback(List<J2534Device> availableJ2534Devices)
-        {
-            foreach (J2534Device device in availableJ2534Devices)
-            {
-                this.DeviceSelectComboBox.Items.Add(device.Name);
-            }
-            this.DeviceSelectComboBox.SelectedIndex = 0;
-        }
-
-        /* This delegate enables asynchronous calls for setting
-         * the text property on a TextBox control.*/
-        private delegate void DoFirstDisplayedScrollingRowIndex(int index);
-        /* This method demonstrates a pattern for making thread-safe
-         * calls on a Windows Forms control. 
-         * If the calling thread is different from the thread that
-         * created the TextBox control, this method creates a
-         * SetTextCallback and calls itself asynchronously using the
-         * Invoke method.
-         * If the calling thread is the same as the thread that created
-         * the TextBox control, the Text property is set directly. */
-        private void UpdateFirstDisplayedScrollingRowIndex(int index)
-        {
-            /* InvokeRequired required compares the thread ID of the
-             * calling thread to the thread ID of the creating thread.
-             * If these threads are different, it returns true. */
-            if (this.TxRxDataGridView.InvokeRequired)
-            {
-                DoFirstDisplayedScrollingRowIndex UpdateIndex = new DoFirstDisplayedScrollingRowIndex(UpdateFirstDisplayedScrollingRowIndex);
-                this.Invoke(UpdateIndex, new object[] { index });
-            }
-            else
-            {
-                this.DTCANRxScroll.AcceptChanges();
-                this.TxRxDataGridView.FirstDisplayedScrollingRowIndex = this.TxRxDataGridView.RowCount - 1;
-
-            }
-        }
-
         private delegate void DoRxDataTextBoxText(string text);
         /* This method demonstrates a pattern for making thread-safe
          * calls on a Windows Forms control. 
@@ -73,7 +32,7 @@ namespace DiagTool_Luffy
                 this.RxDataTextBox.Text = text;
                 this.RxDataTextBox.Refresh();
             }
-            
+
         }
 
         /* This delegate enables asynchronous calls for setting
@@ -142,71 +101,30 @@ namespace DiagTool_Luffy
             }
         }
 
-        /*TxRxMsg callback*/
-        public void TxRxMsgUpdateUIDataCallback(string msgIdStr, string dataLenStr, string dataStr, string typeStr, string timeStampStr)
+        private delegate void DoUpdateDTCDisplayTextBoxTextText(string text);
+        /* This method demonstrates a pattern for making thread-safe
+         * calls on a Windows Forms control. 
+         * If the calling thread is different from the thread that
+         * created the TextBox control, this method creates a
+         * SetTextCallback and calls itself asynchronously using the
+         * Invoke method.
+         * If the calling thread is the same as the thread that created
+         * the TextBox control, the Text property is set directly. */
+        private void UpdateDTCDisplayTextBoxText(string text)
         {
-            DataGridViewRowDataPushQueue(msgIdStr, dataLenStr, dataStr, typeStr, timeStampStr);
-        }
-
-        private void DataGridViewRowDataPushQueue(string msgIdStr, string dataLenStr, string dataStr, string typeStr, string timeStampStr)
-        {
-            DiagDataGridViewRowData RowData = new DiagDataGridViewRowData();
-            RowData.type = typeStr;
-            RowData.id = msgIdStr;
-            RowData.len = dataLenStr;
-            RowData.data = dataStr;
-            RowData.ts = timeStampStr;
-            if (!DiagDataGridViewRowDataQueue.FullFlag)
+            /* InvokeRequired required compares the thread ID of the
+             * calling thread to the thread ID of the creating thread.
+             * If these threads are different, it returns true. */
+            if (this.DTCDisplayTextBox.InvokeRequired)
             {
-                DiagDataGridViewRowDataQueue.PushQueue(RowData);
+                DoUpdateDTCDisplayTextBoxTextText UpdateText = new DoUpdateDTCDisplayTextBoxTextText(UpdateDTCDisplayTextBoxText);
+                this.Invoke(UpdateText, new object[] { text });
+            }
+            else
+            {
+                this.DTCDisplayTextBox.Text = text;
+
             }
         }
-
-        /*TxRxMsg callback*/
-        public void TxRxMsgNotUpdateUIDataCallback(string strDataID, string strDateLen, string strDatebyte, string type, string timeStampStr)
-        {
-            /* Do nothing */
-        }
-
-        /*TxRxMsg callback*/
-        public void SecurityAccessCallDllCallback(byte[] Data)
-        {
-            string dataStr = "";
-
-            if (!bDeviceConnectState)
-                return;
-
-            if (Data[4] == 0x67 && Data[5] == SecuritAccessReqSeedSubFunction)
-            {
-                SecuritAccessReqSeedSubFunction = 0;
-                dataStr = securityAlgorithm.Security_DLL(Data, Global.SecurityAccessDllPathname);
-                if(dataStr != "")
-                {
-                    SecuritAccessKey = dataStr.Substring(6);
-                } 
-                else
-                {
-                    SecuritAccessKey = "";
-                    isCallKeyToSeedDll = false;
-                    return;
-                }
-
-                /* if "isCallKeyToSeedDll==true", that need to do security verification automaticaly */
-                if (isCallKeyToSeedDll)
-                {
-                    passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(dataStr), TxRxMsgUpdateUIDataCallback);
-                    isCallKeyToSeedDll = false;
-                }
-            }           
-        }
-
-
-        public void SyncUIComponentCallback(byte[] Data)
-        {
-            if (Data[4] == 0x59)
-            {
-                UpdateDTCDisplayTextBox_Text(Data);
-            }
-        }      
     }
 }

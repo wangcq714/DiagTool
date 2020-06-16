@@ -51,33 +51,6 @@ namespace DiagTool_Luffy
             }
         }
 
-
-        private delegate void DoUpdateDTCDisplayTextBoxTextText(string text);
-        /* This method demonstrates a pattern for making thread-safe
-         * calls on a Windows Forms control. 
-         * If the calling thread is different from the thread that
-         * created the TextBox control, this method creates a
-         * SetTextCallback and calls itself asynchronously using the
-         * Invoke method.
-         * If the calling thread is the same as the thread that created
-         * the TextBox control, the Text property is set directly. */
-        private void UpdateDTCDisplayTextBoxText(string text)
-        {
-            /* InvokeRequired required compares the thread ID of the
-             * calling thread to the thread ID of the creating thread.
-             * If these threads are different, it returns true. */
-            if (this.DTCDisplayTextBox.InvokeRequired)
-            {
-                DoUpdateDTCDisplayTextBoxTextText UpdateText = new DoUpdateDTCDisplayTextBoxTextText(UpdateDTCDisplayTextBoxText);
-                this.Invoke(UpdateText, new object[] { text });
-            }
-            else
-            {
-                this.DTCDisplayTextBox.Text = text;
-
-            }
-        }
-
         /* Update DTC display list */
         public void UpdateDTCDisplayTextBox_Text(byte[] Data)
         {
@@ -208,7 +181,7 @@ namespace DiagTool_Luffy
             ClearDTCDisplay();
             if (msgData != "")
             {
-                passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(msgData), TxRxMsgUpdateUIDataCallback);
+                Diagnostic_Send(msgData);
             }
         }
 
@@ -221,8 +194,7 @@ namespace DiagTool_Luffy
                 return;
 
             UpdateDTCDisplayTextBoxText("");
-
-            passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(msgData), TxRxMsgUpdateUIDataCallback);
+            Diagnostic_Send(msgData);
         }
     }
 }

@@ -15,31 +15,7 @@ using J2534DotNet;
 namespace DiagTool_Luffy
 {
     public partial class MainWindow : Form
-    {
-        private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
-        //private LicenseManagement licenseManagement = new LicenseManagement();
-        private PassThruWrapper passThruWrapper = new PassThruWrapper();
-        MMTimer RxMsgmmTimer = new MMTimer();
-        MMTimer ScriptRunmmTimer = new MMTimer();
-
-        private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[64];
-        private static GenericQueue DiagDataGridViewRowDataQueue = new GenericQueue(DiagDataGridViewRowDatas);
-        private static string[] ScriptCmds = new string[1024];
-        private static GenericQueue ScriptCmdQueue = new GenericQueue(ScriptCmds);
-
-        static object DiagDataGridViewAddRowLocker = new object();
-
-        private bool bDeviceConnectState = false;
-
-        public bool isCallKeyToSeedDll = false;
-        public byte SecuritAccessReqSeedSubFunction = 0;
-        public string SecuritAccessKey = "";
-        public DataTable DTCANRxScroll = new DataTable();
-
-        
-
-
-
+    {     
         public MainWindow()
         {
             InitializeComponent();
