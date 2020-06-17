@@ -8,6 +8,7 @@ namespace DiagTool_Luffy
 {
     public partial class MainWindow
     {
+        private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
         private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[64];
         private static GenericQueue DiagDataGridViewRowDataQueue = new GenericQueue(DiagDataGridViewRowDatas);
 
@@ -26,6 +27,11 @@ namespace DiagTool_Luffy
             }
         }
 
+        private string Diagnostic_PackSendMsg(string Server, string SubFunction, string Data)
+        {
+            return Server.Trim() + " " + SubFunction.Trim() + " " + Data.Trim();
+        }
+
         public void Diagnostic_Send(string msgData)
         {
             passThruWrapper.TxMsg(GetReqID(), ConvertTxDataToByte(msgData), TxRxMsgUpdateUIDataCallback);
@@ -41,7 +47,10 @@ namespace DiagTool_Luffy
             passThruWrapper.RxMsg(TxRxMsgUpdateUIDataCallback, SecurityAccessCallDllCallback, SyncUIComponentCallback);
         }
 
-
+        private string Diagnostic_SecurityAccessSeedToKey(string Data)
+        {
+            return securityAlgorithm.SecurityAccessSeedToKey(Data, Global.SecurityAccessDllPathname);
+        }
 
 
     }

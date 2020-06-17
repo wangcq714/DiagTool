@@ -15,7 +15,7 @@ namespace DiagTool_Luffy
 {
     public partial class MainWindow
     {
-        private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
+        
         //private LicenseManagement licenseManagement = new LicenseManagement();
         private PassThruWrapper passThruWrapper = new PassThruWrapper();
         MMTimer RxMsgmmTimer = new MMTimer();

@@ -37,22 +37,15 @@ namespace DiagTool_Luffy
         /*TxRxMsg callback*/
         public void SecurityAccessCallDllCallback(byte[] Data)
         {
-            string dataStr = "";
-
             if (!bDeviceConnectState)
                 return;
 
             if (Data[4] == 0x67 && Data[5] == SecuritAccessReqSeedSubFunction)
             {
-                SecuritAccessReqSeedSubFunction = 0;
-                dataStr = securityAlgorithm.Security_DLL(Data, Global.SecurityAccessDllPathname);
-                if(dataStr != "")
+                SecuritAccessKey = Diagnostic_SecurityAccessSeedToKey(GetSeed(Data));
+
+                if(SecuritAccessKey == "")
                 {
-                    SecuritAccessKey = dataStr.Substring(6);
-                } 
-                else
-                {
-                    SecuritAccessKey = "";
                     isCallKeyToSeedDll = false;
                     return;
                 }
@@ -60,11 +53,26 @@ namespace DiagTool_Luffy
                 /* if "isCallKeyToSeedDll==true", that need to do security verification automaticaly */
                 if (isCallKeyToSeedDll)
                 {
-                    Diagnostic_Send(dataStr);
+                    Diagnostic_Send(Diagnostic_PackSendMsg("27", (SecuritAccessReqSeedSubFunction + 1).ToString("X2"), SecuritAccessKey));
+                    SecuritAccessKey = "";
                     isCallKeyToSeedDll = false;
+                    SecuritAccessReqSeedSubFunction = 0;
                 }
             }           
         }
+
+        private string GetSeed(byte[] Data)
+        {
+            string Result = "";
+
+            for (int i = 6; i < Data.Length; i++)
+            {
+                Result += Data[i].ToString("X2") + " ";
+            }
+
+            return Result;
+        }
+
 
 
         public void SyncUIComponentCallback(byte[] Data)

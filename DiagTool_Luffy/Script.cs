@@ -110,8 +110,9 @@ namespace DiagTool_Luffy
                 if (Regex.IsMatch(Cmd, "^27 [0-9]{2}$"))
                 {
                     SecuritAccessReqSeedSubFunction = (byte)Convert.ToInt32(Cmd.Substring(3, 2), 16);
+                    Result = true;
                 }
-                if (Regex.IsMatch(Cmd, @"^27 [0-9]{2}[' ']*=[' ']*67 [0-9]{2}$"))
+                else if (Regex.IsMatch(Cmd, @"^27 [0-9]{2}[' ']*=[' ']*67 [0-9]{2}$"))
                 {
                     if ("" == SecuritAccessKey)
                     {
@@ -120,6 +121,7 @@ namespace DiagTool_Luffy
                     else
                     {
                         Cmd = Cmd.Substring(0, 5) + " " + SecuritAccessKey;
+                        SecuritAccessKey = "";
                     }
                 }
 
