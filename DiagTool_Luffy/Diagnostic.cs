@@ -9,7 +9,7 @@ namespace DiagTool_Luffy
     public partial class MainWindow
     {
         private SecurityAlgorithm securityAlgorithm = new SecurityAlgorithm();
-        private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[64];
+        private static DiagDataGridViewRowData[] DiagDataGridViewRowDatas = new DiagDataGridViewRowData[256];
         private static GenericQueue DiagDataGridViewRowDataQueue = new GenericQueue(DiagDataGridViewRowDatas);
 
 
