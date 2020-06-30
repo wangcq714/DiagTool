@@ -77,7 +77,8 @@ namespace DiagTool_Luffy
 
         public void SyncUIComponentCallback(byte[] Data)
         {
-            if (Data[4] == 0x59)
+            if (Data[4] == 0x59 
+            && ((Data[5] == 0x02) || (Data[5] == 0x0A)))
             {
                 UpdateDTCDisplayTextBox_Text(Data);
             }

@@ -51,7 +51,7 @@
             this.VersionLabel.Name = "VersionLabel";
             this.VersionLabel.Size = new System.Drawing.Size(69, 12);
             this.VersionLabel.TabIndex = 1;
-            this.VersionLabel.Text = "Version: v1.0.1";
+            this.VersionLabel.Text = "Version: v1.0.2";
             // 
             // AboutForm
             // 
