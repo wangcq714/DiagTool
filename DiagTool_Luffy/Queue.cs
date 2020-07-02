@@ -15,8 +15,8 @@ namespace DiagTool_Luffy
         }
 
         public int Depth;
-        public byte WritePointer;
-        public byte ReadPointer;
+        public int WritePointer;
+        public int ReadPointer;
         public bool FullFlag;
         public bool EmptyFlag;
         public object[] Datas;

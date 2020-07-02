@@ -33,3 +33,4 @@ D:\ToolCode\DiagTool\DiagTool8\DiagTool\Keygen\obj\Debug\Keygen.Properties.Resou
 D:\ToolCode\DiagTool\DiagTool8\DiagTool\Keygen\obj\Debug\Keygen.csproj.GenerateResource.Cache
 D:\ToolCode\DiagTool\DiagTool8\DiagTool\Keygen\obj\Debug\Keygen.exe
 D:\ToolCode\DiagTool\DiagTool8\DiagTool\Keygen\obj\Debug\Keygen.pdb
+D:\ToolCode\DiagTool\DiagTool8\DiagTool\Keygen\obj\Debug\Keygen.csprojResolveAssemblyReference.cache
